@@ -24,6 +24,9 @@ In Claude Code, you can also add them as a plugin:
 /plugin install ticketfairy@ticketfairy
 ```
 
+The repository is also an [Agent Plugin](https://agent-plugins.org/specification): `plugin.json` describes it,
+and `mcp.json` connects the public Ticket Fairy event search MCP server, which needs no account.
+
 The same skills are published at
 https://www.ticketfairy.com/.well-known/agent-skills/index.json.
 
