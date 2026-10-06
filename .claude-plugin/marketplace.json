@@ -1,0 +1,14 @@
+{
+  "name": "ticketfairy",
+  "owner": {
+    "name": "Ticket Fairy",
+    "email": "support@ticketfairy.com"
+  },
+  "plugins": [
+    {
+      "name": "ticketfairy",
+      "source": "./",
+      "description": "Find Ticket Fairy events and help a buyer continue to checkout, or help an organiser start a Ticket Fairy account and prepare their first event."
+    }
+  ]
+}

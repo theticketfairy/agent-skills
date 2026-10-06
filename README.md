@@ -17,6 +17,13 @@ Install them with the [skills CLI](https://skills.sh):
 npx skills add theticketfairy/agent-skills
 ```
 
+In Claude Code, you can also add them as a plugin:
+
+```text
+/plugin marketplace add theticketfairy/agent-skills
+/plugin install ticketfairy@ticketfairy
+```
+
 The same skills are published at
 https://www.ticketfairy.com/.well-known/agent-skills/index.json.
 
