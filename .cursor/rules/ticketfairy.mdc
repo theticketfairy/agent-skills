@@ -1,0 +1,6 @@
+---
+description: Rules for code and agents that use the Ticket Fairy API, MCP server or CLI
+alwaysApply: false
+---
+
+Follow AGENTS.md at the root of this repository. The workflows are in skills/.
