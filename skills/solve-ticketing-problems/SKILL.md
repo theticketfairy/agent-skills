@@ -18,15 +18,20 @@ This skill covers queues, no-shows, reports, marketing and access on Ticket Fair
 3. **Do the work, or hand it over.** Each guide below says what an agent can do:
    - **Command line.** With the organiser's permission, install the official CLI
      (`npm install -g ticketfairy`) and sign in with `ticketfairy login`, or use a Personal Access
-     Token in `TICKET_FAIRY_API_KEY`. Pass `--output json --non-interactive` in scripts.
+     Token that the organiser stores in `TICKET_FAIRY_API_KEY`. Then check the account and pick the
+     brand: `ticketfairy auth status`, `ticketfairy brand list` and
+     `ticketfairy brand use <BRAND_ID>`. Add `--output json --non-interactive` to every command
+     you run; the commands below leave them out to stay short.
    - **MCP.** `ticketfairy mcp --read-only` starts the CLI's MCP server with read tools. Drop
      `--read-only` only when the organiser wants you to make changes.
    - **Fai.** Fai is the assistant inside the organiser's dashboard. When a task is not on the
      command line, give the organiser the suggested prompt to paste into Fai.
    - **Dashboard.** Otherwise, send the organiser the guide link and walk them through it.
-4. **Confirm before you change anything.** Show the organiser what you will create, change, send,
+4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
+   into the dashboard page that asks for them, never into the conversation.
+5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
    refund or cancel, and wait for their yes. You can do only what their team role allows.
-5. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
+6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
    in the organiser's own browser.
 
 ## Guides
@@ -142,6 +147,8 @@ Use the waiting room to control entry to checkout, stagger ticket releases to sp
 
 For: Putting a high-demand event on sale.
 
+What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
+
 ### How do you keep touts and bots off your tickets?
 
 Slug `keep-touts-off-your-tickets`. Guide: https://www.ticketfairy.com/guides/keep-touts-off-your-tickets
@@ -164,6 +171,8 @@ Give staff, crew, press, artists and guests a named pass that lets each of them 
 
 For: Handing out staff, crew, press, artist and guest access for an event.
 
+What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
+
 ### How do you manage many events without repeating the same work?
 
 Slug `run-many-events-on-one-platform`. Guide: https://www.ticketfairy.com/guides/run-many-events-on-one-platform
@@ -172,6 +181,8 @@ Manage your customers, team and branding at brand level, reuse a published event
 
 For: Running a regular programme of events.
 
+What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
+
 ### How do you manage tickets for a multi-day event?
 
 Slug `manage-tickets-for-a-multi-day-event`. Guide: https://www.ticketfairy.com/guides/manage-tickets-for-a-multi-day-event
@@ -179,6 +190,8 @@ Slug `manage-tickets-for-a-multi-day-event`. Guide: https://www.ticketfairy.com/
 Run the days as one event with a ticket category for each day, so a buyer compares the full run, the single days and the upgrades on one page and pays once.
 
 For: Running a festival, conference or other event across several days.
+
+What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
 
 ### How do you run a guest list for your event without a spreadsheet?
 
@@ -254,6 +267,8 @@ Give eligible buyers a personal referral link, reward them when friends buy tick
 
 For: Comparing ticketing platforms for word-of-mouth sales.
 
+What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
+
 ### What marketing tools should a ticketing platform give you?
 
 Slug `ticketing-platform-marketing-tools`. Guide: https://www.ticketfairy.com/guides/ticketing-platform-marketing-tools
@@ -262,6 +277,8 @@ Look for buyer segments and messaging, campaign tracking, ad-network connections
 
 For: Marketing an event as well as selling tickets.
 
+What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
+
 ### What should you compare when choosing a ticketing platform?
 
 Slug `compare-ticketing-platforms`. Guide: https://www.ticketfairy.com/guides/compare-ticketing-platforms
@@ -269,6 +286,8 @@ Slug `compare-ticketing-platforms`. Guide: https://www.ticketfairy.com/guides/co
 Compare what buyers pay, when you receive ticket revenue and whether you can see and export buyer details throughout the on-sale.
 
 For: Choosing where to sell tickets for your next event.
+
+What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
 
 ## More
 

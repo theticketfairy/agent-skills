@@ -39,7 +39,7 @@ reads live from the guides MCP server at `https://www.ticketfairy.com/docs/mcp`.
 | [`run-event-production`](skills/run-event-production/SKILL.md) | Run event production in Ticket Fairy Event Management: budgets, schedules, artists, crew, sponsors, traders, volunteers and compliance. |
 | [`run-event-workflows`](skills/run-event-workflows/SKILL.md) | Follow Ticket Fairy start-to-finish workflows: on-sale day, repeating last year's event, and changing plans. |
 | [`run-promotions-and-discounts`](skills/run-promotions-and-discounts/SKILL.md) | Create Ticket Fairy promo codes, group discounts and promoter links. |
-| [`sell-add-ons-and-tables`](skills/sell-add-ons-and-tables/SKILL.md) | Sell Ticket Fairy add-ons beside tickets: merchandise, parking, donations, tables and accommodation. |
+| [`sell-passes-and-extras`](skills/sell-passes-and-extras/SKILL.md) | Sell Ticket Fairy extras beyond a single event ticket, such as one pass that covers several of your events. |
 | [`set-up-event-tickets`](skills/set-up-event-tickets/SKILL.md) | Set up a Ticket Fairy event: ticket types, release tiers, sessions, seating, add-ons, resale and transfer rules. |
 | [`solve-ticketing-problems`](skills/solve-ticketing-problems/SKILL.md) | Solve common event ticketing problems with Ticket Fairy: queues, no-shows, reports, marketing and access. |
 | [`track-advertising-campaigns`](skills/track-advertising-campaigns/SKILL.md) | Connect advertising pixels and conversion tracking to Ticket Fairy and see which campaigns sold tickets. |

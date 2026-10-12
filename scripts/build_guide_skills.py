@@ -3,12 +3,10 @@
 
 The guide entries live in the Ticket Fairy platform repository under
 resources/guides/entries. Export the published ones to JSON from that
-repository's root:
+repository's root with the script beside this one. It removes the dashboard
+label keys, as the published guides do:
 
-    php -r '$o=[];foreach(glob("resources/guides/entries/*.php") as $f){$g=require $f;
-      if(($g["published"]??true)===false)continue;$o[]=["slug"=>$g["slug"],"title"=>$g["title"],
-      "summary"=>$g["summary"],"family"=>$g["family"]??"","audience"=>$g["audience"]??"",
-      "agent_paths"=>$g["agent_paths"]??null];}echo json_encode($o,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);' > guides.json
+    php ../agent-skills/scripts/export_guides.php > guides.json
 
 Then run, from this repository's root, with a checkout of the ticketfairy CLI
 (https://github.com/theticketfairy/ticketfairy-cli) to read which MCP tools make changes:
@@ -66,11 +64,11 @@ FAMILIES = {
         'invitations, guest tickets, partner allocations and group bookings',
     ),
     'add-ons-and-extras': (
-        'sell-add-ons-and-tables',
-        'Sell add-ons and tables',
-        'Sell Ticket Fairy add-ons beside tickets: merchandise, parking, donations, tables and '
-        'accommodation. Use when an organiser wants to sell extras with their event.',
-        'merchandise, parking, donations, tables and accommodation',
+        'sell-passes-and-extras',
+        'Sell passes and extras',
+        'Sell Ticket Fairy extras beyond a single event ticket, such as one pass that covers several '
+        'of your events. Use when an organiser wants to sell a pass or another extra.',
+        'passes and other extras beyond a single event ticket',
     ),
     'marketing-and-messaging': (
         'email-and-market-to-buyers',
@@ -190,15 +188,20 @@ HOW_TO_WORK = """## How to work
 3. **Do the work, or hand it over.** Each guide below says what an agent can do:
    - **Command line.** With the organiser's permission, install the official CLI
      (`npm install -g ticketfairy`) and sign in with `ticketfairy login`, or use a Personal Access
-     Token in `TICKET_FAIRY_API_KEY`. Pass `--output json --non-interactive` in scripts.
+     Token that the organiser stores in `TICKET_FAIRY_API_KEY`. Then check the account and pick the
+     brand: `ticketfairy auth status`, `ticketfairy brand list` and
+     `ticketfairy brand use <BRAND_ID>`. Add `--output json --non-interactive` to every command
+     you run; the commands below leave them out to stay short.
    - **MCP.** `ticketfairy mcp --read-only` starts the CLI's MCP server with read tools. Drop
      `--read-only` only when the organiser wants you to make changes.
    - **Fai.** Fai is the assistant inside the organiser's dashboard. When a task is not on the
      command line, give the organiser the suggested prompt to paste into Fai.
    - **Dashboard.** Otherwise, send the organiser the guide link and walk them through it.
-4. **Confirm before you change anything.** Show the organiser what you will create, change, send,
+4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
+   into the dashboard page that asks for them, never into the conversation.
+5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
    refund or cancel, and wait for their yes. You can do only what their team role allows.
-5. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
+6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
    in the organiser's own browser.
 """
 
@@ -220,6 +223,9 @@ def guide_section(guide, write_tools):
         lines += ['', f"For: {guide['audience']}."]
     if paths.get('summary'):
         lines += ['', f"What an agent can do: {paths['summary']}"]
+    else:
+        lines += ['', 'What an agent can do: no agent route is recorded for this guide. Send the organiser '
+                  'the guide link and walk them through the steps in the dashboard.']
     cli = paths.get('cli') or {}
     commands = cli.get('commands') or []
     if commands:
@@ -289,6 +295,8 @@ def main():
     if len(sys.argv) != 3:
         sys.exit('Usage: build_guide_skills.py <guides.json> <ticketfairy-cli checkout>')
     guides = json.loads(Path(sys.argv[1]).read_text())
+    if not guides:
+        sys.exit('The guide catalogue is empty; check the export before building skills.')
     write_tools = cli_write_tools(sys.argv[2])
     by_family = {}
     for guide in guides:

@@ -35,8 +35,8 @@ ticketfairy brand use <BRAND_ID>
 
 ## Rules for agents
 
-- Pass `--output json --non-interactive` on every command. Read data from stdout; logs go to
-  stderr.
+- Add `--output json --non-interactive` to every command you run, including the examples in
+  this skill, which leave them out to stay short. Read data from stdout; logs go to stderr.
 - Branch on the exit code: `0` success, `2` usage, `3` network, `4` authentication, `5` not
   found, `6` conflict or verification required, `7` rate limited.
 - Errors in JSON mode are `{"error": {"code", "message", "hint", "request_id"}}`. Follow `hint`.

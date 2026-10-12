@@ -18,15 +18,20 @@ This skill covers promo codes, group discounts and promoter links on Ticket Fair
 3. **Do the work, or hand it over.** Each guide below says what an agent can do:
    - **Command line.** With the organiser's permission, install the official CLI
      (`npm install -g ticketfairy`) and sign in with `ticketfairy login`, or use a Personal Access
-     Token in `TICKET_FAIRY_API_KEY`. Pass `--output json --non-interactive` in scripts.
+     Token that the organiser stores in `TICKET_FAIRY_API_KEY`. Then check the account and pick the
+     brand: `ticketfairy auth status`, `ticketfairy brand list` and
+     `ticketfairy brand use <BRAND_ID>`. Add `--output json --non-interactive` to every command
+     you run; the commands below leave them out to stay short.
    - **MCP.** `ticketfairy mcp --read-only` starts the CLI's MCP server with read tools. Drop
      `--read-only` only when the organiser wants you to make changes.
    - **Fai.** Fai is the assistant inside the organiser's dashboard. When a task is not on the
      command line, give the organiser the suggested prompt to paste into Fai.
    - **Dashboard.** Otherwise, send the organiser the guide link and walk them through it.
-4. **Confirm before you change anything.** Show the organiser what you will create, change, send,
+4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
+   into the dashboard page that asks for them, never into the conversation.
+5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
    refund or cancel, and wait for their yes. You can do only what their team role allows.
-5. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
+6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
    in the organiser's own browser.
 
 ## Guides
