@@ -33,7 +33,7 @@ Full developer documentation: https://www.ticketfairy.com/developers
    Public search creates no reservation, order or payment.
 7. **Use the consumer domain for links you give people.** Public event pages, embeds and
    checkout links use `www.ticketfairy.com`. The organiser dashboard is
-   `www.theticketfairy.com`.
+   `manage.ticketfairy.com`, and the organiser API is `www.theticketfairy.com/api`.
 8. **Organiser actions run as the signed-in organiser.** Use the CLI or an organiser
    credential, and only for events that organiser can manage. Confirm with the user before
    you create, change, refund or cancel anything.

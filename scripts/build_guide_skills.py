@@ -306,6 +306,14 @@ def main():
         target.write_text(build_skill(family, family_guides, write_tools))
         print(f'{target.relative_to(skills_dir.parent)}: {len(family_guides)} guide(s)')
 
+    # A family whose last guide was removed keeps no skill.
+    for family, (name, *_rest) in FAMILIES.items():
+        stale = skills_dir / name / 'SKILL.md'
+        if family not in by_family and stale.exists():
+            stale.unlink()
+            stale.parent.rmdir()
+            print(f'{stale.relative_to(skills_dir.parent)}: removed, no published guides')
+
 
 if __name__ == '__main__':
     main()
