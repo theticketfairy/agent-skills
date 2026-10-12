@@ -97,6 +97,7 @@ send only the parts they choose.
 - A token cannot buy tickets or pay for anything. Checkout, payment, bank and tax details and
   plan purchases stay in the person's browser.
 - A Personal Access Token cannot create another Personal Access Token.
-- The person can end your access at any time. To remove your own session, use
-  `GET` and `DELETE https://www.theticketfairy.com/api/oauth/sessions/<session_id>`. Remove only
-  your own session.
+- The person can end your access at any time. To remove your own session, list the sessions with
+  `GET https://www.theticketfairy.com/api/oauth/sessions`, find yours by the name you gave, then
+  send `DELETE https://www.theticketfairy.com/api/oauth/sessions/<session_id>`. Remove only your
+  own session.
