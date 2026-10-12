@@ -46,7 +46,7 @@ For: Handing a counted allocation to a partner who issues their own tickets.
 
 What an agent can do: Fai, the assistant inside your dashboard, can create the delegation with the ticket types and limits you name, add the people who hold it and read you its access link. She shows you the delegation and the people before saving and asks you to approve each change, and adding a person emails them their invitation once your event is published. Choose the email template for an Invitation row in the dashboard.
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Create a delegation called <PARTNER NAME> on <EVENT NAME> that can hand out <NUMBER> guest tickets on <TICKET TYPE NAME>, give <NAME> <EMAIL> access to it, and show me the delegation before you save it"
 

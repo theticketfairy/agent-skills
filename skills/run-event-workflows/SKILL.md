@@ -50,7 +50,7 @@ Command line:
 
 - Show the event, its dates and its status: `ticketfairy event get <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, tell me what its tickets have sold and whether its funds have been paid out yet. Say what your figure leaves out"
 
@@ -69,7 +69,7 @@ Command line:
 - Show the event and its ticket types before you open it: `ticketfairy event get <EVENT_ID>`
 - Put the event on sale: `ticketfairy event publish <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Before I open <EVENT NAME> for sale, list its ticket types with prices, allocations and sale windows, and tell me anything that looks wrong"
 
@@ -104,7 +104,7 @@ Command line:
 
 - Copy last year's event as a draft with its ticket types, team, emails, contacts and FAQs. Enter the start and end as local date and time, such as 2026-10-10T22:00:00; sale windows and door times move by the same number of whole days: `ticketfairy event clone <EVENT_ID> --body '{"data": {"displayName": "<NEW EVENT NAME>", "slug": "", "shortName": "", "startDate": "<NEW START>", "endDate": "<NEW END>", "ticketTypes": true, "team": true, "credentials": false, "preRegistration": false, "promotions": false, "delegations": false, "emailTemplates": true, "contacts": true, "faqs": true}}'`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Copy <EVENT NAME> for next year, keep the ticket types and add-ons, and show me the new event in draft with the dates I give you before anything is published"
 

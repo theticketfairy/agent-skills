@@ -47,7 +47,7 @@ Command line:
 
 - Show the brand's events: `ticketfairy event list`
 
-CLI MCP tools (reads): `select_brand`.
+CLI MCP tools that read: `select_brand`.
 
 Prompt for Fai: "Create a season pass for <BRAND NAME> covering four events, priced at 96, usable until the end of March, and show me the events it would cover before saving"
 

@@ -223,7 +223,7 @@ Command line:
 - List the brands you can act for, with the id each one uses: `ticketfairy brand list`
 - Print the brand's Vault account as JSON. Its metadata.status reads ACTIVE once the check has passed: `ticketfairy vault account --brand <BRAND_ID> --output json`
 
-CLI MCP tools (reads): `select_brand`, `get_vault_account`.
+CLI MCP tools that read: `select_brand`, `get_vault_account`.
 
 Prompt for Fai: "Open Vault for <BRAND NAME> so I can open an account"
 
@@ -242,7 +242,7 @@ Command line:
 - List the brands you can act for, with the id each one uses: `ticketfairy brand list`
 - Print the brand's Vault account as JSON. Its metadata.status reads ACTIVE once the check has passed: `ticketfairy vault account --brand <BRAND_ID> --output json`
 
-CLI MCP tools (reads): `select_brand`, `get_vault_account`.
+CLI MCP tools that read: `select_brand`, `get_vault_account`.
 
 Prompt for Fai: "Open Financial setup for <BRAND NAME> so I can open its Vault account"
 
@@ -321,7 +321,7 @@ Command line:
 - Show the brands you can act for: `ticketfairy brand list`
 - Show the brand's Vault balances: `ticketfairy vault balance --brand <BRAND_ID>`
 
-CLI MCP tools (reads): `select_brand`.
+CLI MCP tools that read: `select_brand`.
 
 Prompt for Fai: "What is in Vault for <BRAND NAME> right now, and how much of it is still settling?"
 
@@ -352,7 +352,7 @@ Command line:
 - List the card events on the brand's Vault cards, newest first, with the id of each: `ticketfairy vault transactions list --brand <BRAND_ID>`
 - Open one card event with its merchant, amount and status, using an id from the list: `ticketfairy vault transactions get <TRANSACTION_ID> --brand <BRAND_ID>`
 
-CLI MCP tools (reads): `select_brand`, `list_vault_transactions`.
+CLI MCP tools that read: `select_brand`, `list_vault_transactions`.
 
 Prompt for Fai: "What is waiting for us in the Vault action centre for <BRAND NAME>, and what is due first?"
 

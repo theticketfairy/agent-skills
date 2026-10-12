@@ -77,7 +77,7 @@ For: Selling to buyers who want to give a ticket as a present.
 
 What an agent can do: Fai can list the certificates on an event, create one, change one, take one off sale and remove one. She shows you the settings and waits for your approval before saving, because a certificate is something buyers pay for.
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Set up a gift certificate on <EVENT NAME> worth one Weekend Ticket, valid for 12 months; show me the settings before you save"
 

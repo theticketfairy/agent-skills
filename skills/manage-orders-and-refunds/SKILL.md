@@ -106,7 +106,7 @@ For: Clearing the card holds waiting on an ID check so the tickets go back on sa
 
 What an agent can do: Fai, the assistant inside your dashboard, opens the event and takes you to its orders. The decisions on a hold are made on the page, because taking the money and releasing it both change what the buyer has and cannot be undone.
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Take me to the orders on <EVENT NAME>"
 
@@ -137,7 +137,7 @@ Command line:
 - Lists the event's paid orders, newest first: `ticketfairy order list <EVENT_ID> --status paid`
 - Opens one order with its tickets and buyer, using the number from the Order column: `ticketfairy order get <EVENT_ID> <ORDER_ID>`
 
-CLI MCP tools (reads): `select_brand`, `select_event`, `list_orders`, `get_order`.
+CLI MCP tools that read: `select_brand`, `select_event`, `list_orders`, `get_order`.
 
 Prompt for Fai: "Find the order for <BUYER EMAIL ADDRESS> on <EVENT NAME>, tell me its status, tickets and any notes on it, then add this note once I approve it: <NOTE>"
 
@@ -173,7 +173,9 @@ Command line:
 - Check whether ticket and add-on resale are on, and the resale fee percentage the event carries: `ticketfairy event get <EVENT_ID> --fields flagResaleEnabled,flagEnableAddOnResale,resaleFeePercentage`
 - List every ticket buyers have put up for resale, with its status, how it sold and the ticket it went to: `ticketfairy api /api/events/<EVENT_ID>/relationships/performance --query section=resale --output json`
 
-CLI MCP tools (reads): `select_brand`, `select_event`, `update_event`, `get_event`.
+CLI MCP tools that read: `select_brand`, `select_event`, `get_event`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `update_event`.
 
 Prompt for Fai: "Turn on ticket resale, add-on resale and the waiting list for <EVENT NAME>, then tell me the resale fee on the event and list the tickets buyers have put up for resale"
 
@@ -264,7 +266,7 @@ Command line:
 
 - Show the event and its dates: `ticketfairy event get <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Create a group booking for <EVENT NAME>: forty passes for <COMPANY NAME> against <PURCHASER NAME OR EMAIL>, on the general admission ticket at its current price, purchase order 8841, thirty day terms, and show it to me before saving"
 

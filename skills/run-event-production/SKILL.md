@@ -275,7 +275,7 @@ Command line:
 
 - Show the event and its dates: `ticketfairy event get <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Open <EVENT NAME> so I can build its running order"
 
@@ -661,7 +661,9 @@ Command line:
 - Confirm the first hold and keep the holds behind it as backups. This changes the booking and asks you first unless you add --force: `ticketfairy event-os venue holds confirm <HOLD_ID> --brand <BRAND_ID> --lower-holds keep`
 - Release a hold, so the holds behind it move up. This asks you first unless you add --force: `ticketfairy event-os venue holds release <HOLD_ID> --brand <BRAND_ID> --reason "<REASON>"`
 
-CLI MCP tools (reads): `get_venue_operations`, `place_venue_hold`, `decide_venue_hold`.
+CLI MCP tools that read: `get_venue_operations`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `place_venue_hold`, `decide_venue_hold`.
 
 Prompt for Fai: "Hold Saturday 14 November in the Main Room for <ARTIST NAME> and tell me which hold we are"
 
@@ -727,7 +729,7 @@ Command line:
 
 - Show the event and its dates: `ticketfairy event get <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Open <EVENT NAME> so I can go through its tasks"
 
@@ -745,7 +747,7 @@ Command line:
 
 - Show the event and its dates: `ticketfairy event get <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Open <EVENT NAME> so I can check where the crew are staying"
 
@@ -839,7 +841,9 @@ Command line:
 - Record that the agent asked for different terms, as a new version: `ticketfairy event-os venue offers record-reply <OFFER_ID> --brand <BRAND_ID> --reply countered --terms '{"guarantee_cents":1000000}'`
 - Record that the agent accepted. On an offer linked to an event, this also books the artist on it: `ticketfairy event-os venue offers record-reply <OFFER_ID> --brand <BRAND_ID> --reply accepted`
 
-CLI MCP tools (reads): `get_venue_operations`, `manage_venue_offer`, `send_venue_offer`.
+CLI MCP tools that read: `get_venue_operations`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `manage_venue_offer`, `send_venue_offer`.
 
 Prompt for Fai: "Make an offer to <ARTIST NAME> for Saturday 14 November in the Main Room, start from what we paid them last time, and show me the email to their agent before you send it"
 
@@ -861,7 +865,9 @@ Command line:
 - Email every volunteer. This sends and asks you first; the count must match the one you checked: `ticketfairy event-os messages send <EVENT_ID> --audience '{"groups":[{"source":"volunteers"}]}' --subject "<SUBJECT>" --message "<MESSAGE>" --expected-count <COUNT>`
 - List the messages sent and scheduled on the event: `ticketfairy event-os messages list <EVENT_ID>`
 
-CLI MCP tools (reads): `get_event_messages`, `count_event_message_audience`, `draft_event_message`, `send_event_message`.
+CLI MCP tools that read: `get_event_messages`, `count_event_message_audience`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `draft_event_message`, `send_event_message`.
 
 Prompt for Fai: "Email Saturday's stewards and bar volunteers on <EVENT NAME> that the gates open 30 minutes early, and show me who gets it before you send"
 
@@ -952,7 +958,9 @@ Command line:
 - Show what publishing would change: acts and set times added, moved or taken off: `ticketfairy event-os lineup show <EVENT_ID> --review`
 - Publish the line-up. This changes the public pages and asks you first unless you add --force: `ticketfairy event-os lineup publish <EVENT_ID>`
 
-CLI MCP tools (reads): `get_public_lineup`, `publish_lineup`.
+CLI MCP tools that read: `get_public_lineup`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `publish_lineup`.
 
 Prompt for Fai: "Draft bios for the acts on <EVENT NAME> that have none, then show me what publishing the line-up would change"
 
@@ -995,7 +1003,9 @@ Command line:
 - List the applications still to decide that Fai rates a strong fit, with each person's id and version: `ticketfairy event-os volunteers list <EVENT_ID> --status undecided --strong-fit`
 - Accept people and email them the decision. Use id:version pairs from the list. This asks you first unless you add --force: `ticketfairy event-os volunteers decide <EVENT_ID> --decision accept --volunteers <VOLUNTEER_ID>:<VERSION>`
 
-CLI MCP tools (reads): `get_volunteer_applications`, `decide_volunteer_applications`.
+CLI MCP tools that read: `get_volunteer_applications`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `decide_volunteer_applications`.
 
 Prompt for Fai: "Show me the volunteer applications for <EVENT NAME> that are a strong fit for the bar, and accept them with the usual email"
 
@@ -1230,7 +1240,7 @@ Command line:
 - List the settlements for one event, with their status and version: `ticketfairy event-os venue settlements list --brand <BRAND_ID> --event <EVENT_ID>`
 - Show one settlement with its lines and totals: `ticketfairy event-os venue settlements show <SETTLEMENT_ID> --brand <BRAND_ID>`
 
-CLI MCP tools (reads): `get_venue_operations`.
+CLI MCP tools that read: `get_venue_operations`.
 
 Prompt for Fai: "Draft the settlement for <EVENT NAME> with <ARTIST NAME>'s deal and tell me what is left for us"
 
@@ -1334,7 +1344,9 @@ Command line:
 - Show one trader's application, fees, paperwork and history: `ticketfairy event-os traders show <EVENT_ID> <VENDOR_ID>`
 - Approve a trader, email them and raise and send their pitch invoice. This asks you first unless you add --force: `ticketfairy event-os traders decide <EVENT_ID> <VENDOR_ID> --decision approve --raise-invoice --send-invoice`
 
-CLI MCP tools (reads): `get_traders`, `decide_trader_application`.
+CLI MCP tools that read: `get_traders`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `decide_trader_application`.
 
 Prompt for Fai: "Show me the trader applications for <EVENT NAME> that best fit our food mix, and approve Smoke & Salt BBQ on the 6m pitch with the invoice"
 
@@ -1364,7 +1376,7 @@ Command line:
 
 - Show the event and its dates: `ticketfairy event get <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Read the contract I uploaded for <ARTIST NAME> and tell me the fee, the deposit and when the balance is due"
 

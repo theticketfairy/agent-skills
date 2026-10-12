@@ -62,7 +62,7 @@ Command line:
 
 - Show an event and its current sales: `ticketfairy event stats <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "How many tickets has <EVENT NAME> sold so far, and how does that compare with the same point before my last event"
 
@@ -80,7 +80,7 @@ Command line:
 
 - Show the brands you can act for: `ticketfairy brand list`
 
-CLI MCP tools (reads): `select_brand`.
+CLI MCP tools that read: `select_brand`.
 
 Prompt for Fai: "Open the concierge widgets for <BRAND NAME>"
 

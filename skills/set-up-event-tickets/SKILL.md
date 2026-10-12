@@ -71,7 +71,7 @@ For: Turning visitors into ticket buyers on your event page.
 
 What an agent can do: Fai, the assistant inside your dashboard, drafts the wording for you and sets the one-line version herself, asking you to approve it first. The full description goes into the card on the page, and so does the artwork, because she can neither save the long text nor hold your flyer for you.
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, draft an event description covering the line-up, the door times, the age rule and how to get there, then set the one-line version"
 
@@ -85,7 +85,7 @@ For: Answering common buyer questions on your event page.
 
 What an agent can do: Fai, the assistant inside your dashboard, can read your FAQ sections, draft new ones, add and reword questions, reorder them and import a set from a document. She asks you to approve anything she drafts. The same workflow is on the FAQs page.
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "On <EVENT NAME>, add an FAQ section called Getting Here with questions about parking, the shuttle bus and which gate coaches use"
 
@@ -99,7 +99,9 @@ For: Reviewing ticket requests before confirming admission.
 
 What an agent can do: Fai, the assistant inside your dashboard, can turn order approval on for the event or selected ticket types, show you a pending order, and approve or decline it. She asks you to approve settings changes and asks again before the order decision. You can also complete the whole workflow in the dashboard. Your own AI assistant over the MCP server can show you a specified pending order and approve it only after you confirm.
 
-CLI MCP tools (reads and writes): `select_event`, `get_order`, `mark_order_paid`.
+CLI MCP tools that read: `select_event`, `get_order`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `mark_order_paid`.
 
 Prompt for Fai: "Find my event by name. Require approval for <EVERY ORDER OR TICKET TYPE NAMES> and <HOLD SUPPORTED PAYMENTS OR COLLECT AT CHECKOUT>. Show me the setting and ask me to approve it. Then open pending order <ORDER NUMBER>, show me the buyer, ticket types, total and payment state, and ask whether I want to approve or decline it. Do not make the order decision until I choose and approve it"
 
@@ -117,7 +119,7 @@ Command line:
 
 - Cancel an event and confirm at the prompt: `ticketfairy event cancel <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Open Event Details for <EVENT NAME>, tell me how many orders it has, and draft an email telling ticket holders it is cancelled and their refund is on the way"
 
@@ -165,7 +167,9 @@ Command line:
 - A draft from the main event details: `ticketfairy event create --name "<EVENT NAME>" --start <START> --end <END> --venue-search "<VENUE AND CITY>" --currency <CURRENCY> --draft`
 - A complete event from a JSON or YAML file: `ticketfairy event create --from-file event.json`
 
-CLI MCP tools (reads): `set_context`, `create_event`.
+CLI MCP tools that read: `set_context`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `create_event`.
 
 Prompt for Fai: "Create an event for <EVENT DESCRIPTION>. Compare the built-in and organiser-shared templates, recommend the closest setup, ask me for every missing detail and price, then show me the event, ticket types, add-ons and sales settings before creating it"
 
@@ -232,7 +236,9 @@ Command line:
 - Find every ticket type and its ID: `ticketfairy ticket list <EVENT_ID> --all`
 - Limit one order to 6 tickets and one customer account to 8: `ticketfairy ticket update <EVENT_ID> <TICKET_ID> --max-per-order 6 --max-per-account 8`
 
-CLI MCP tools (reads): `set_context`, `list_tickets`, `update_ticket`.
+CLI MCP tools that read: `set_context`, `list_tickets`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `update_ticket`.
 
 Prompt for Fai: "On <EVENT NAME>, limit <TICKET TYPE> to <NUMBER> per order and <NUMBER> per customer account. Show me the ticket type and the change, and ask before saving it"
 
@@ -274,7 +280,7 @@ Command line:
 
 - Postpone or reschedule an event from a reviewed file: `ticketfairy event postpone <EVENT_ID> --from-file postponement.yaml`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Open Event Details for <EVENT NAME> and help me postpone it. I want to check the new dates, what ticket holders will see and who can request a refund before I confirm"
 
@@ -319,7 +325,7 @@ Command line:
 - List the event's ticket types with the id each one has: `ticketfairy ticket list <EVENT_ID>`
 - Move an existing release's sales window: `ticketfairy ticket update <EVENT_ID> <TICKET_ID> --sales-start 2026-11-08T10:00:00Z --sales-end 2026-11-22T23:59:59Z`
 
-CLI MCP tools (reads): `set_context`, `list_tickets`.
+CLI MCP tools that read: `set_context`, `list_tickets`.
 
 Prompt for Fai: "Open the Tickets page for <EVENT NAME> and list the ticket types in their current order with their category and sales dates. If I give you a new order, show me the complete order and ask before saving it. Tell me to set the dates and reveal settings for <TICKET TYPE> on the dashboard"
 
@@ -339,7 +345,7 @@ Command line:
 - Live now, with promoter links emailed: `ticketfairy event publish <EVENT_ID> --send-promoter-links`
 - Your event page, unpublished now: `ticketfairy event unpublish <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Schedule my event to go live at 10am on 12 September, and tell me which timezone you are using for that"
 
@@ -361,7 +367,9 @@ Command line:
 - A change to one that already exists: `ticketfairy addon update <ADD_ON_ID> --body '{"price":1500}'`
 - The same change, on an event taking payments in more than one currency: `ticketfairy addon update <ADD_ON_ID> --body '{"price":1500,"currencies":[{"currency":"EUR","faceValue":1400}]}'`
 
-CLI MCP tools (reads): `select_brand`, `select_event`, `list_addons`, `create_addon`.
+CLI MCP tools that read: `select_brand`, `select_event`, `list_addons`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `create_addon`.
 
 Prompt for Fai: "Add a return shuttle at 12.50 to this event, limited to 250, one per ticket"
 
@@ -375,7 +383,9 @@ For: Selling tickets through an approved invitation list.
 
 What an agent can do: Fai, the assistant inside your dashboard, can turn on the invitation requirement and prepare and send the approved list. She asks you to approve each change before she makes it. To check, resend or cancel an invitation you have sent, use the Invitations page, or your own AI assistant over the MCP server.
 
-CLI MCP tools (reads and writes): `select_event`, `list_invitations`, `resend_invitation`, `cancel_invitation`.
+CLI MCP tools that read: `select_event`, `list_invitations`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `resend_invitation`, `cancel_invitation`.
 
 Prompt for Fai: "Find my event by name, turn on Invitation required to attend, and prepare an invitation email for these approved guests: <names, email addresses, maximum tickets and maximum orders>. Unlock these ticket types with the same invitation: <ticket type names>. Show me the event setting, subject, message, ticket access and each recipient limit, then ask me to approve the event change and the send"
 
@@ -444,7 +454,9 @@ Command line:
 - A standard General Admission ticket type: `ticketfairy ticket create <EVENT_ID> --name "General Admission" --price 35 --max-inventory 500 --max-per-order 6`
 - A ticket type using every field in a reviewed file: `ticketfairy ticket create <EVENT_ID> --from-file ticket-type.yaml`
 
-CLI MCP tools (reads): `set_context`, `list_tickets`, `create_ticket`.
+CLI MCP tools that read: `set_context`, `list_tickets`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `create_ticket`.
 
 Prompt for Fai: "Set up a ticket type for <EVENT NAME>. Before creating it, ask whether booking fees should be added to the price, absorbed into it or, where available, added at checkout. Ask me what admission it includes, its name, price, allocation, purchase limits, sale window, visibility, entry rules and resale policy. Show me the booking-fee choice and every ticket setting before making either change"
 
@@ -465,7 +477,9 @@ Command line:
 - A camping, parking or travel add-on: `ticketfairy addon create <EVENT_ID> --name "Weekend Camping" --price 45 --quantity 800`
 - Everything you have built so far, to check it: `ticketfairy ticket list <EVENT_ID>`
 
-CLI MCP tools (reads): `select_brand`, `select_event`, `create_ticket`, `create_addon`.
+CLI MCP tools that read: `select_brand`, `select_event`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `create_ticket`, `create_addon`.
 
 Prompt for Fai: "Set up general admission and VIP categories for this festival; inside each, create early bird, first release, second release and final release ticket types; keep only early bird visible, then reveal each later tier on its date or when the previous tier sells out, whichever comes first; set the door opening and last entry on each day ticket to that day; add camping and parking; require names, name checks and ID; allow resale; ask for prices, stock and dates before changing anything"
 
@@ -483,7 +497,7 @@ Command line:
 
 - Show the event and its dates: `ticketfairy event get <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, open pre-registration at 9am on 1 September and close it at 5pm on 7 September, then open the pre-sale at 10am on 8 September and close it at 10pm on 9 September. Show me the dates before you save."
 

@@ -85,7 +85,7 @@ Command line:
 
 - Show the event statistics: `ticketfairy event stats <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, which advertising campaign brought in the most ticket sales, and what did each sale cost"
 

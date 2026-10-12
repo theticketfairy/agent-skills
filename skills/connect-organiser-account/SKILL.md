@@ -22,7 +22,11 @@ is in https://www.ticketfairy.com/auth.md; this skill is the short path.
 | --- | --- |
 | You know the person's email address, or can ask for it. Works from a hosted service. | Claim ceremony (below) |
 | You run on the person's own computer and can open their browser | The CLI: ask first, then `npm install -g ticketfairy` and `ticketfairy login`. See the `manage-events-with-the-cli` skill. |
-| The person would rather give you a token | A Personal Access Token they create at https://manage.ticketfairy.com/account (Personal Access Tokens section) |
+| Your runtime reads secrets from its environment or a secret store | A Personal Access Token the person creates at https://manage.ticketfairy.com/account (Personal Access Tokens section) and stores in `TICKET_FAIRY_API_KEY` themselves |
+
+Never ask the person to paste a token into the chat, and never put one in a URL, a file you commit
+or a log. A token in a conversation stays in its history. If the person has no secret store for
+you, use the claim ceremony instead.
 
 ## Claim ceremony
 

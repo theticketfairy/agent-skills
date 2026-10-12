@@ -73,7 +73,7 @@ For: Paying for an event out of the ticket money you have already taken.
 
 What an agent can do: Fai, the assistant inside your dashboard, opens Vault and reads a balance back to you. Moving money is yours to do, on the page, so nothing leaves an account on a sentence alone.
 
-CLI MCP tools (reads): `select_brand`.
+CLI MCP tools that read: `select_brand`.
 
 Prompt for Fai: "What is in our Vault balance right now, and how much of it is still settling?"
 
@@ -87,7 +87,7 @@ For: Running a festival's tickets and production on the same event.
 
 What an agent can do: Fai, the assistant inside your dashboard, reads across all of it in one question: what is unsold, what is unbooked, what is late. She drafts the messages and puts anything that changes your event to you first.
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, tell me what is behind: unsold ticket types, artists with no travel booked and tasks past their date"
 
@@ -130,7 +130,7 @@ Command line:
 - What has sold, as the summary at the top of Performance: `ticketfairy event stats <EVENT_ID> --metric sales`
 - The same numbers per ticket type: `ticketfairy event stats <EVENT_ID> --metric performance --output json`
 
-CLI MCP tools (reads): `select_event`, `get_event_performance`.
+CLI MCP tools that read: `select_event`, `get_event_performance`.
 
 Prompt for Fai: "Compare this event with the last one I ran and tell me what sold, where the buyers came from, and which age band bought the most"
 
@@ -152,7 +152,7 @@ For: Keeping your tickets with the fans who wanted them.
 
 What an agent can do: Fai, the assistant inside your dashboard, reads how the controls are set, and can change the per-order and per-account limits, the anti-scalping settings and the waiting list for you. Anything that changes what buyers can do is put to you before it is saved.
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, what are the limits per order and per account, and is ticket resale allowed?"
 
@@ -190,7 +190,7 @@ For: Running the door and the guest list for a club night.
 
 What an agent can do: Fai, the assistant inside your dashboard, issues the guest tickets when you name the people and the ticket type. She reads the list back to you before anything is sent.
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Issue guest-list tickets for <EVENT NAME> to these six names on the comp tier, and show me the list before you send"
 
@@ -204,7 +204,7 @@ For: Bringing your cost per ticket down.
 
 What an agent can do: Fai, the assistant inside your dashboard, reads which promotion sold what and drafts the message you send to bring people back. Setting the rewards up is yours to do on the page.
 
-CLI MCP tools (reads): `select_event`, `get_event_performance`.
+CLI MCP tools that read: `select_event`, `get_event_performance`.
 
 Prompt for Fai: "For <EVENT NAME>, which promoters and referral links sold the most, and what did each one cost us per ticket?"
 
@@ -242,7 +242,7 @@ For: Deciding your next event from who bought tickets to the last one.
 
 What an agent can do: Ask Fai, the assistant inside your dashboard, for any of these figures in plain language. She reads the same reports and can draw the answer as a chart or turn it into a document you can send on.
 
-CLI MCP tools (reads): `select_event`, `get_event_performance`.
+CLI MCP tools that read: `select_event`, `get_event_performance`.
 
 Prompt for Fai: "For <EVENT NAME>, tell me which age band bought the most, which cities they came from and what they bought on, and draw the age bands as a chart"
 

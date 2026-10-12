@@ -49,7 +49,7 @@ Command line:
 - Sign in with a token you have created: `ticketfairy auth login`
 - Show the brands the token can act for: `ticketfairy brand list`
 
-CLI MCP tools (reads): `select_brand`.
+CLI MCP tools that read: `select_brand`.
 
 Prompt for Fai: "Open my account settings so I can create an access token"
 

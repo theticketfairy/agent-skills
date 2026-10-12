@@ -70,7 +70,7 @@ Command line:
 - Visits, unique visits and conversions: `ticketfairy event stats <EVENT_ID> --metric traffic`
 - The sites that sent you visits, a day at a time: `ticketfairy event stats <EVENT_ID> --metric referrer-by-day`
 
-CLI MCP tools (reads): `select_event`, `get_event_performance`.
+CLI MCP tools that read: `select_event`, `get_event_performance`.
 
 Prompt for Fai: "Where did the traffic for this event come from, and how many times was the order confirmation page reached"
 
@@ -90,7 +90,7 @@ Command line:
 - Sales over time, the same run the Ticket Sales chart plots: `ticketfairy event stats <EVENT_ID> --metric sales --output json`
 - The same totals per ticket type: `ticketfairy event stats <EVENT_ID> --metric performance --output json`
 
-CLI MCP tools (reads): `select_event`, `get_event_performance`.
+CLI MCP tools that read: `select_event`, `get_event_performance`.
 
 Prompt for Fai: "For <EVENT NAME>, tell me how many tickets have sold and what the event has earned after referral rebates, then which ticket type is selling fastest"
 
@@ -186,7 +186,7 @@ Command line:
 - The same figures, ready for a script: `ticketfairy event stats <EVENT_ID> --metric demographics --output json`
 - What buyers bought on, from the Devices report: `ticketfairy event stats <EVENT_ID> --metric devices`
 
-CLI MCP tools (reads): `select_event`, `get_event_performance`.
+CLI MCP tools that read: `select_event`, `get_event_performance`.
 
 Prompt for Fai: "Look at the ages of the people who bought for this event and tell me which band bought the most, then tell me what they bought on, counting refunded and cancelled orders too"
 
@@ -205,7 +205,7 @@ Command line:
 - Your referrers and what each of them brought in: `ticketfairy event stats <EVENT_ID> --metric referrals`
 - The same figures, ready for a spreadsheet: `ticketfairy event stats <EVENT_ID> --metric referrals --output csv`
 
-CLI MCP tools (reads): `select_event`, `get_event_performance`.
+CLI MCP tools that read: `select_event`, `get_event_performance`.
 
 Prompt for Fai: "Look at the referral results for this event and tell me who brought in the most sales and whether the reward is paying for itself"
 

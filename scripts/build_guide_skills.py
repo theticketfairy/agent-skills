@@ -10,9 +10,10 @@ repository's root:
       "summary"=>$g["summary"],"family"=>$g["family"]??"","audience"=>$g["audience"]??"",
       "agent_paths"=>$g["agent_paths"]??null];}echo json_encode($o,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);' > guides.json
 
-Then run, from this repository's root:
+Then run, from this repository's root, with a checkout of the ticketfairy CLI
+(https://github.com/theticketfairy/ticketfairy-cli) to read which MCP tools make changes:
 
-    python3 scripts/build_guide_skills.py guides.json
+    python3 scripts/build_guide_skills.py guides.json ../ticketfairy-cli
 
 Each skill lists the guides of its family, what an agent can do for each one,
 and the command-line and MCP routes the guide names. The steps themselves stay
@@ -21,6 +22,7 @@ never carries a stale copy.
 """
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -205,7 +207,7 @@ def bullet_list(items):
     return '\n'.join(f'- {item}' for item in items)
 
 
-def guide_section(guide):
+def guide_section(guide, write_tools):
     paths = guide.get('agent_paths') or {}
     lines = [
         f"### {guide['title']}",
@@ -223,20 +225,24 @@ def guide_section(guide):
     if commands:
         lines += ['', 'Command line:', '']
         lines += [f"- {command['does'].rstrip('.')}: `{command['run']}`" for command in commands]
-    if paths.get('mcp_tools'):
-        tools = ', '.join(f'`{tool}`' for tool in paths['mcp_tools'])
-        mode = 'reads and writes' if paths.get('mcp_writes') else 'reads'
-        lines += ['', f'CLI MCP tools ({mode}): {tools}.']
+    tools = paths.get('mcp_tools') or []
+    reads = [tool for tool in tools if tool not in write_tools]
+    writes = [tool for tool in tools if tool in write_tools]
+    if reads:
+        lines += ['', 'CLI MCP tools that read: ' + ', '.join(f'`{tool}`' for tool in reads) + '.']
+    if writes:
+        lines += ['', 'CLI MCP tools that make changes (not available with `--read-only`): '
+                  + ', '.join(f'`{tool}`' for tool in writes) + '.']
     if paths.get('fai_prompt'):
         lines += ['', f"Prompt for Fai: \"{paths['fai_prompt']}\""]
     return '\n'.join(lines)
 
 
-def build_skill(family, guides):
+def build_skill(family, guides, write_tools):
     name, title, description, covers = FAMILIES[family]
     guides = sorted(guides, key=lambda guide: guide['title'].lower())
     index = bullet_list(f"[{guide['title']}](#{anchor(guide['title'])})" for guide in guides)
-    body = '\n\n'.join(guide_section(guide) for guide in guides)
+    body = '\n\n'.join(guide_section(guide, write_tools) for guide in guides)
 
     return f"""---
 name: {name}
@@ -269,10 +275,21 @@ def anchor(title):
     return kept.strip().replace(' ', '-')
 
 
+def cli_write_tools(cli_root):
+    """The CLI MCP tools registered with defineMutationTool, which --read-only hides."""
+    names = set()
+    for source in Path(cli_root, 'src', 'mcp', 'tools').glob('*.ts'):
+        names.update(re.findall(r"defineMutationTool\(\s*server,\s*env,\s*'([a-z_]+)'", source.read_text()))
+    if not names:
+        sys.exit(f'No MCP mutation tools found under {cli_root}/src/mcp/tools')
+    return names
+
+
 def main():
-    if len(sys.argv) != 2:
-        sys.exit('Usage: build_guide_skills.py <guides.json>')
+    if len(sys.argv) != 3:
+        sys.exit('Usage: build_guide_skills.py <guides.json> <ticketfairy-cli checkout>')
     guides = json.loads(Path(sys.argv[1]).read_text())
+    write_tools = cli_write_tools(sys.argv[2])
     by_family = {}
     for guide in guides:
         by_family.setdefault(guide.get('family', ''), []).append(guide)
@@ -286,7 +303,7 @@ def main():
         name = FAMILIES[family][0]
         target = skills_dir / name / 'SKILL.md'
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(build_skill(family, family_guides))
+        target.write_text(build_skill(family, family_guides, write_tools))
         print(f'{target.relative_to(skills_dir.parent)}: {len(family_guides)} guide(s)')
 
 

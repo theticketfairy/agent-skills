@@ -59,7 +59,7 @@ Command line:
 
 - Show the event and its saved settings: `ticketfairy event get <EVENT_ID>`
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Draft the extra text for the confirmation email for <EVENT NAME>. Cover the door time, the age limit and how to get home, and show it to me before saving"
 
@@ -174,7 +174,7 @@ For: Sending invitations, application answers and gift certificate emails in you
 
 What an agent can do: Keeping the templates is dashboard work. Fai, the assistant inside your dashboard, can draft the wording for one before you paste it in.
 
-CLI MCP tools (reads): `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Draft the email we send acts we have accepted for <EVENT NAME>, with the load-in time and the parking left as blanks for me to fill"
 

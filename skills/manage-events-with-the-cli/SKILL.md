@@ -23,7 +23,7 @@ Sign in with one of these:
 | Where you run | How |
 | --- | --- |
 | The person's own computer, with a browser | `ticketfairy login` (opens the browser, supports 2FA, keeps the token in the system keychain) |
-| CI, a server or a hosted agent | A Personal Access Token in `TICKET_FAIRY_API_KEY`. The person creates it at https://manage.ticketfairy.com/account or with `ticketfairy auth tokens create "<name>"`. |
+| CI, a server or a hosted agent | A Personal Access Token in `TICKET_FAIRY_API_KEY`. The person creates it at https://manage.ticketfairy.com/account or with `ticketfairy auth tokens create "<name>"`, and stores it in the environment or secret store themselves. Never ask them to paste it into the chat. |
 
 Then check the account and pick the brand:
 
