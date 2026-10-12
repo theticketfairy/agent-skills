@@ -11,7 +11,7 @@ nights, concerts, conferences and tours.
 | Skill | What it does |
 | --- | --- |
 | [`find-event-tickets`](skills/find-event-tickets/SKILL.md) | Find Ticket Fairy events, read ticket details, and help a buyer continue to browser checkout. |
-| [`start-organising-events`](skills/start-organising-events/SKILL.md) | Help an organiser prepare their first event, start a Ticket Fairy account and compare published feature plans. |
+| [`start-organising-events`](skills/start-organising-events/SKILL.md) | Help an organiser start a Ticket Fairy workspace for ticketing or standalone event management, prepare their first event and compare published feature plans. |
 | [`connect-organiser-account`](skills/connect-organiser-account/SKILL.md) | Get a Ticket Fairy organiser credential for an AI agent, with the person's approval, and use it on the organiser API. |
 | [`manage-events-with-the-cli`](skills/manage-events-with-the-cli/SKILL.md) | Manage Ticket Fairy events, tickets, orders, customers, invitations, promotions, check-in and webhooks with the official ticketfairy CLI or its MCP server. |
 | [`answer-ticketfairy-questions`](skills/answer-ticketfairy-questions/SKILL.md) | Answer how-to questions about Ticket Fairy from the official guides, with the guides MCP server. |

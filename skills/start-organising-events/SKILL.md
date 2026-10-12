@@ -1,11 +1,13 @@
 ---
 name: start-organising-events
-description: Help an organiser prepare their first event, start a Ticket Fairy account and compare published feature plans.
+description: Help an organiser start a Ticket Fairy workspace for ticketing or standalone event management, prepare their first event and compare published feature plans.
 ---
 
 # Start organising events
 
-Help the organiser start their Ticket Fairy account and compare feature plans for their event business.
+Help the organiser start their Ticket Fairy account for event ticketing, standalone event management, or both. They can use event management while keeping another ticketing provider. They do not need to sell tickets with Ticket Fairy, create a Ticket Fairy event or buy a ticketing plan to choose standalone software.
+
+Account and workspace setup are separate from paid features. Ask what the organiser wants to do, then compare the relevant feature plans. Do not describe the free workspace as including every paid feature or assume that orders from another ticketing provider are automatically available in Ticket Fairy.
 
 ## Start your account
 
@@ -16,6 +18,16 @@ Keep passwords, email verification codes, two-factor challenges and account reco
 If the organiser is using a partner's branded platform, continue through that partner's own signup or support link. Do not move their account to Ticket Fairy's main signup without their direction.
 
 After sign-in, follow the dashboard's organisation setup. Ask before creating a brand or sending team invitations. Opening signup does not confirm that an account or brand was created. Report completion only after the dashboard confirms the result.
+
+## If your agent offers Stripe Projects
+
+Use the Ticket Fairy organiser workspace service only when it appears in your agent's Stripe Projects catalogue. If it is not listed, use the browser signup journey above. The catalogue offers one free organiser workspace service, not a paid feature plan or a ticket purchase.
+
+Ask the organiser to approve connecting their account and creating their workspace. Follow the catalogue's configuration fields for their organisation and use the details they provide. If the service asks for missing information, collect it before continuing. A new verified email can create their account; an existing registered email requires the organiser to open the account link, sign in to their own Ticket Fairy account and approve the exact requested permissions. Do not create another account to avoid that step.
+
+Keep account credentials and verification codes out of chat. Let the organiser open the account link from their project in their own browser, review the terms and requested permissions, and complete sign-in and any two-factor checks. Do not bypass same-origin checks or confirmation. An account grant does not sign the organiser into the dashboard or give another person their dashboard permissions.
+
+Report the workspace as ready only after the project confirms the result. Use the returned dashboard link to continue with the organiser's own account and current permissions. Do not repeat a workspace creation after an uncertain result; check the same project's result first. This service does not publish an event, activate a paid plan or connect a payment processing account. Those remain separate choices through the first-party dashboard.
 
 ## Prepare their first event before they sign up
 
