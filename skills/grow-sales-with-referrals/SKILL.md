@@ -55,6 +55,12 @@ What an agent can do: Fai can read how your buyers share, change the message, th
 
 Prompt for Fai: "On this event, offer WhatsApp, Instagram Stories and Copy link only, and draw a Neon card for each buyer, up to 200 cards"
 
+#### Then: Set the brand's monthly budget and default look
+
+What an agent can do: Fai can read the brand's budget, spend and default look, and change the budget and the look after you confirm the amount.
+
+Prompt for Fai: "Set this brand's monthly budget for drawn share cards to 80 dollars and make Collage the default look"
+
 ### Choose who wins a prize at your event
 
 Slug `choose-who-wins-a-prize-at-your-event`. Guide: https://www.ticketfairy.com/guides/choose-who-wins-a-prize-at-your-event
@@ -67,6 +73,18 @@ What an agent can do: Fai can name the winner you tell her to, or draw winners f
 
 Prompt for Fai: "For this event, draw 2 winners for the prize Best costume on the night, tell me who came up and how many buyers were in the draw, then ask me before you give the prizes out"
 
+#### Then: Give out a prize that runs across a brand's events
+
+What an agent can do: Fai can draw for a brand prize and give the prizes out, the same as on an event. She reads out who came up and asks you to approve the moment they win.
+
+Prompt for Fai: "For the brand <BRAND NAME>, draw 1 winner for the prize <PRIZE NAME>, tell me who came up, then ask me before you give the prize out"
+
+#### Then: Ask each winner for what you need to send the prize
+
+What an agent can do: Fai can add or change the questions a prize asks its winners. You see the questions before they are saved.
+
+Prompt for Fai: "On the prize <PRIZE NAME> for this event, ask each winner for their postal address and their t-shirt size"
+
 ### Offer prizes your fans can win at your event
 
 Slug `offer-prizes-your-fans-can-win`. Guide: https://www.ticketfairy.com/guides/offer-prizes-your-fans-can-win
@@ -78,6 +96,30 @@ For: Rewarding the fans who fill your event.
 What an agent can do: Fai can add a prize, change one, name or draw the winner of a prize you judge yourself, tell you who has won and mark a prize as delivered. You see the whole change before it is made.
 
 Prompt for Fai: "For this event, add a prize called Front row upgrade for every buyer who refers 5 tickets, awarded as soon as they reach it"
+
+#### Then: Make referrals count for more for a while
+
+What an agent can do: Fai can read your boosts, add one and take one away. You see the dates and the multiplier before anything is saved.
+
+Prompt for Fai: "For this event, make referrals count double towards prizes from Friday 6pm to Monday 9am and call it Launch weekend"
+
+#### Then: Let friends refer together as a pack
+
+What an agent can do: Fai can turn packs on for an event and read the packs your fans have started, with the people in each one.
+
+Prompt for Fai: "Turn packs on for this event so friends can pool the tickets they refer, then show me the packs so far"
+
+#### Then: Count the friends your fans' friends bring
+
+What an agent can do: Fai can turn this on or off for an event. You see the change before it is saved.
+
+Prompt for Fai: "Count friends of friends towards prizes on this event"
+
+#### Then: Read the wins across a whole brand
+
+What an agent can do: Fai can read a brand's winners and mark a prize delivered, undone or called off, the same as on an event. She shows you the winner and the prize and asks you to approve each change.
+
+Prompt for Fai: "For the brand <BRAND NAME>, show me who has won its prizes and mark <PRIZE NAME> delivered to <WINNER>. Show me the winner and the prize, then ask me to approve it"
 
 ### Reward buyers who bring friends to your event
 

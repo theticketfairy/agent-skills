@@ -148,6 +148,12 @@ What an agent can do: Fai sets where a form's answers go when she creates or upd
 
 Prompt for Fai: "Make the trader form on <EVENT NAME> add every applicant to our traders, and add the applicants who already sent it"
 
+#### Then: Add people who applied before you connected the form
+
+What an agent can do: Fai adds the applicants who sent the form before it was connected, after you confirm.
+
+Prompt for Fai: "Add everyone who already sent the trader form on <EVENT NAME> to our traders"
+
 ### Add shifts to your event rota from a spreadsheet
 
 Slug `add-shifts-to-your-event-rota-from-a-spreadsheet`. Guide: https://www.ticketfairy.com/guides/add-shifts-to-your-event-rota-from-a-spreadsheet
@@ -184,6 +190,18 @@ What an agent can do: Fai reads every advance, fills in empty answers from the b
 
 Prompt for Fai: "Which performers at <EVENT NAME> still have their advance open, and send Bicep's tour manager a link to fill in their travel and technical sections"
 
+#### Then: Reopen a signed-off advance
+
+What an agent can do: Fai reopens a signed-off advance when you ask, after you confirm.
+
+Prompt for Fai: "Reopen Bicep's advance for <EVENT NAME>, their flights have changed"
+
+#### Then: Stop a link
+
+What an agent can do: Fai stops a contact's link when you ask, after you confirm.
+
+Prompt for Fai: "Stop the advancing link we sent Bicep's agent for <EVENT NAME>"
+
 ### Approve or decline accreditation requests for your event
 
 Slug `approve-or-decline-accreditation-requests-for-your-event`. Guide: https://www.ticketfairy.com/guides/approve-or-decline-accreditation-requests-for-your-event
@@ -195,6 +213,24 @@ For: Deciding the pass requests that wait for you.
 What an agent can do: Fai lists what is waiting for you with the facts beside each request, approves or declines one or up to 100 at once, and emails an approver a fresh decision link. She reads you each request and waits for your yes before she decides. Declining needs a reason, which the person who asked sees.
 
 Prompt for Fai: "What is waiting for my approval at <EVENT NAME>? Approve Jane Smith's press pass and decline Tom Price, the Harbour FM allowance is used up"
+
+#### Then: Decide many requests at once
+
+What an agent can do: Fai approves or declines up to 100 requests at once when you ask, after you confirm.
+
+Prompt for Fai: "Approve every press pass waiting for me at <EVENT NAME>"
+
+#### Then: Decide in someone's place
+
+What an agent can do: Fai decides a step in the named approver's place when an owner or admin asks, with the reason you give, after you confirm.
+
+Prompt for Fai: "Sam is away, approve Jane Smith's press pass at <EVENT NAME> for him"
+
+#### Then: Send an approver a new decision link
+
+What an agent can do: Fai emails an approver a fresh decision link when you ask, after you confirm. She never shows the link itself.
+
+Prompt for Fai: "Send Sam Carter a new link to decide the passes waiting for him at <EVENT NAME>"
 
 ### Approve the hours your event crew and volunteers worked
 
@@ -208,6 +244,24 @@ What an agent can do: Fai reads the hours lines of a day with what she noticed o
 
 Prompt for Fai: "Approve the hours at <EVENT NAME> on Saturday that have nothing odd in them"
 
+#### Then: Check an agency's invoice
+
+What an agent can do: Fai reads the hours by outside team, and sets a shift's outside team and cost per hour after you confirm.
+
+Prompt for Fai: "How many hours did SecureCo's stewards work at <EVENT NAME>, and how many are approved?"
+
+#### Then: Download the hours
+
+What an agent can do: Fai starts the same file of the hours lines you choose after you confirm. You download it from the Hours view, where it waits for 7 days and each download is recorded.
+
+Prompt for Fai: "Give me the approved hours at <EVENT NAME> for SecureCo as a file"
+
+#### Then: Change hours that are already approved
+
+What an agent can do: Fai changes a line's hours with the reason you give, after you confirm, and the line goes back for approval.
+
+Prompt for Fai: "Take 30 minutes off Ana Lima's bar shift on Saturday at <EVENT NAME> for an unpaid break"
+
 ### Ask attendees for feedback after your event
 
 Slug `ask-attendees-for-feedback-after-your-event`. Guide: https://www.ticketfairy.com/guides/ask-attendees-for-feedback-after-your-event
@@ -219,6 +273,12 @@ For: Asking the people who came to your event what they thought.
 What an agent can do: Fai sets up the standard survey, changes its questions and wording, schedules it, stops it before it sends, and closes or reopens it. She shows you each change and waits for your yes first, and she always asks before scheduling, because the survey emails your attendees.
 
 Prompt for Fai: "Set up the feedback survey for <EVENT NAME> and schedule it for the morning after, and also ask the people who did not come"
+
+#### Then: Close or reopen the survey
+
+What an agent can do: Fai closes or reopens a survey when you ask, after you confirm.
+
+Prompt for Fai: "Close the feedback survey for <EVENT NAME>"
 
 ### Balance your event team's workload
 
@@ -244,6 +304,24 @@ What an agent can do: Fai reads your arrival times, the deliveries booked and th
 
 Prompt for Fai: "Add an arrival time at Gate B on Friday 2 October from 8 to 11 for 6 vehicles from outside teams at <EVENT NAME>, then tell me who has booked so far"
 
+#### Then: Book a delivery for a team
+
+What an agent can do: Fai books a delivery for a team with the time and vehicle you give, after you confirm, and emails the team only if you ask.
+
+Prompt for Fai: "Book Northern Staging a delivery at Gate B on Friday morning for their 7.5 tonne truck, plate AB12 CDE, and email them"
+
+#### Then: Move or cancel a delivery
+
+What an agent can do: Fai moves or cancels a delivery that has not arrived, after you confirm.
+
+Prompt for Fai: "Move Northern Staging's delivery K7QX at <EVENT NAME> to the afternoon time at Gate B"
+
+#### Then: Mark a vehicle as not arrived
+
+What an agent can do: Fai marks a vehicle as not arrived once its arrival time has ended, after you confirm.
+
+Prompt for Fai: "Mark delivery K7QX at <EVENT NAME> as not arrived"
+
 ### Book dressing rooms and plan build and break days for your event
 
 Slug `book-dressing-rooms-and-plan-build-and-break-days`. Guide: https://www.ticketfairy.com/guides/book-dressing-rooms-and-plan-build-and-break-days
@@ -255,6 +333,12 @@ For: Planning dressing rooms and the days around your show.
 What an agent can do: Fai reads your dressing rooms and a day's bookings with any overlaps, suggests a room for every performer, adds, changes or removes rooms, books or cancels a room, saves her plan, and adds a build or break day with the usual cues. She shows you each change and waits for your yes first, and asks before she books a room that overlaps another booking.
 
 Prompt for Fai: "Give every performer on Saturday at <EVENT NAME> a dressing room around their set"
+
+#### Then: Cancel a dressing room booking
+
+What an agent can do: Fai cancels a dressing room booking when you ask, after you confirm.
+
+Prompt for Fai: "Cancel The Harbour's dressing room booking on Saturday at <EVENT NAME>"
 
 ### Build a dressing-room shopping list from your event's artist riders
 
@@ -286,6 +370,18 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Open <EVENT NAME> so I can build its running order"
 
+#### Then: Keep the day current as it changes
+
+What an agent can do: Fai can open the event so you can move the set yourself. Set times are changed on the timeline in the dashboard today.
+
+Command line:
+
+- Show the event and its dates: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open <EVENT NAME> so I can move a set on its running order"
+
 ### Build your event rota and check staff in
 
 Slug `build-your-event-rota-and-check-staff-in`. Guide: https://www.ticketfairy.com/guides/build-your-event-rota-and-check-staff-in
@@ -297,6 +393,18 @@ For: Staffing every team and hour of your event.
 What an agent can do: Fai reads the rota, its coverage and clashes, suggests shifts from your expected crowd and people for open places, adds and changes shifts, adds people, sets the rota rules, emails people their own shifts and checks people in or out. She shows you each change and waits for your yes first; only sending shifts emails anyone.
 
 Prompt for Fai: "Which shifts on Saturday at <EVENT NAME> still need people? Suggest volunteers to fill them"
+
+#### Then: Cancel a shift
+
+What an agent can do: Fai cancels a shift or brings one back when you ask, after you confirm.
+
+Prompt for Fai: "Cancel the Sunday pit barrier shift at <EVENT NAME>"
+
+#### Then: Take someone off a shift
+
+What an agent can do: Fai takes someone off a shift when you ask, after you confirm.
+
+Prompt for Fai: "Take Cai Jones off the Saturday bar shift at <EVENT NAME>"
 
 ### Call your show live on show day
 
@@ -346,6 +454,20 @@ What an agent can do: Fai finds a ticket holder, reads the desk's counts and a b
 
 Prompt for Fai: "How many people have checked in at registration for <EVENT NAME> so far, and how many badges were printed again?"
 
+#### Then: Print a second badge
+
+What an agent can do: Print a second badge at the registration desk, where you enter the reason. Fai can read you a person's badge history first.
+
+#### Then: Let volunteers work the desk from a link
+
+What an agent can do: Fai makes a registration desk link after you confirm. Open Desks and links and select **Get a new link** to see its address.
+
+Prompt for Fai: "Make a registration desk link called Registration desk 2 for <EVENT NAME>"
+
+#### Then: Help walk-ups without a ticket
+
+What an agent can do: Show walk-ups the QR code in the Registration view of Desks, then check them in with their new ticket.
+
 ### Check your running order for clashes before show day
 
 Slug `check-your-running-order-for-clashes-before-show-day`. Guide: https://www.ticketfairy.com/guides/check-your-running-order-for-clashes-before-show-day
@@ -357,6 +479,12 @@ For: Catching clashes in your running order before show day.
 What an agent can do: Fai reads the problems on any day with their fixes, applies a fix after you confirm, changes the timing rules, and drafts each act's and each department's call times for you to approve on Today. She never moves a cue on a locked stage or one already called on the day.
 
 Prompt for Fai: "Check the running order for Saturday at <EVENT NAME> and fix the short changeover on the Main Stage"
+
+#### Then: Set a stage's hours from Stages
+
+What an agent can do: Fai changes a stage's changeover, opening and closing times and closed days when you ask, after you confirm.
+
+Prompt for Fai: "The Big Top at <EVENT NAME> closes at 23:00 and needs 20 minutes between acts"
 
 ### Check your traders' takings after your event and invoice their share of sales
 
@@ -370,6 +498,18 @@ What an agent can do: Fai lists your traders' takings with her reading of their 
 
 Prompt for Fai: "Which traders at <EVENT NAME> sent takings whose reports do not match, and what did Fai read in each"
 
+#### Then: Enter takings a trader gave you on paper
+
+What an agent can do: Fai enters a trader's takings for you after you confirm.
+
+Prompt for Fai: "Enter takings of 4,520 pounds for <BUSINESS NAME> at <EVENT NAME>, from their paper sheet"
+
+#### Then: Ask Fai to read the reports again
+
+What an agent can do: Fai reads a trader's reports again when you ask.
+
+Prompt for Fai: "Read the takings reports from <BUSINESS NAME> at <EVENT NAME> again"
+
 ### Choose how your event emails look
 
 Slug `choose-how-your-event-emails-look`. Guide: https://www.ticketfairy.com/guides/choose-how-your-event-emails-look
@@ -381,6 +521,12 @@ For: Making the emails your event sends look like your brand.
 What an agent can do: Fai tells you how your event's emails look and where each part comes from, and gives an event its own logo or main colour, or sets it back to your brand kit. She shows you the change and waits for your yes first.
 
 Prompt for Fai: "Use our festival logo and the colour #1a73e8 for the emails <EVENT NAME> sends"
+
+#### Then: Go back to the brand kit
+
+What an agent can do: Fai sets an event's emails back to your brand kit when you ask, after you confirm.
+
+Prompt for Fai: "Put the emails for <EVENT NAME> back on our brand kit"
 
 ### Choose what Fai does on your event
 
@@ -406,6 +552,12 @@ What an agent can do: Fai reads your approval rules and adds, changes, turns off
 
 Prompt for Fai: "At <EVENT NAME>, when passes from press organisations come in, ask Sam Carter, then Jo Patel from security"
 
+#### Then: Change or delete a rule
+
+What an agent can do: Fai changes, turns off or deletes a rule when you ask, after you confirm.
+
+Prompt for Fai: "Turn off the lighting crew approval rule at <EVENT NAME>"
+
 ### Collect crew certificates and licences before they work an event shift
 
 Slug `collect-crew-certificates-before-they-work-a-shift`. Guide: https://www.ticketfairy.com/guides/collect-crew-certificates-before-they-work-a-shift
@@ -417,6 +569,24 @@ For: Making sure everyone on your event's shifts holds the certificates the work
 What an agent can do: Fai asks for a document, tells you who on the shifts lacks one or has one to check, marks a document as checked, sends one back with your reason and records a document someone showed you. She waits for your yes before each change. Opening a file is in the dashboard.
 
 Prompt for Fai: "Ask everyone on the medic shifts at <EVENT NAME> for a first aid certificate, and tell me who still needs one"
+
+#### Then: Add a document a person gave you
+
+What an agent can do: Fai records a document you saw, with its expiry date, after you confirm. Add a file in the dashboard.
+
+Prompt for Fai: "I have seen Priya Shah's first aid certificate for <EVENT NAME>, it expires in March 2028, record it"
+
+#### Then: Put someone on a shift without the document
+
+What an agent can do: Fai tells you who lacks a document when she adds people to a shift, and adds them anyway only with the reason you give, after you confirm.
+
+Prompt for Fai: "Put Priya Shah on the Saturday medic shift at <EVENT NAME> anyway, her new certificate is on its way"
+
+#### Then: Stop asking for a document
+
+What an agent can do: Fai stops asking for a document when you ask, after you confirm.
+
+Prompt for Fai: "Stop asking for the food hygiene certificate at <EVENT NAME>"
 
 ### Collect insurance and certificates from your event's outside teams
 
@@ -430,6 +600,30 @@ What an agent can do: Fai lists what you asked outside teams for and where each 
 
 Prompt for Fai: "Ask every supplier at <EVENT NAME> for public liability insurance by 1 October, and tell me which teams still owe their risk assessment"
 
+#### Then: Send a reminder now
+
+What an agent can do: Fai emails a reminder to the teams that still owe a document, after you confirm.
+
+Prompt for Fai: "Remind the suppliers who have not sent their insurance for <EVENT NAME>"
+
+#### Then: Give a team more time
+
+What an agent can do: Fai gives one team a later due date, after you confirm.
+
+Prompt for Fai: "Give Northern Staging until Friday to send their insurance for <EVENT NAME>"
+
+#### Then: Add a file a team emailed you
+
+What an agent can do: Fai cannot upload a file. Add it with Add their file, then ask Fai what she read in it.
+
+Prompt for Fai: "What did you read in the insurance Northern Staging sent for <EVENT NAME>"
+
+#### Then: Close or remove a request
+
+What an agent can do: Fai closes, opens again or removes a request, after you confirm.
+
+Prompt for Fai: "Close the gas safety certificate request for <EVENT NAME>, we have everything we need"
+
 ### Compare your ticket sales with your last event
 
 Slug `compare-your-ticket-sales-with-your-last-event`. Guide: https://www.ticketfairy.com/guides/compare-your-ticket-sales-with-your-last-event
@@ -441,6 +635,18 @@ For: Checking an on-sale against your last edition.
 What an agent can do: Fai reads the comparison with your last edition: tickets sold against last time at the same point, share of capacity, last time's total, and no-shows and arrivals after the event. She also lists the earlier events you can compare with and changes the choice, or turns the comparison off, after you confirm.
 
 Prompt for Fai: "How is <EVENT NAME> selling compared with last year at this point?"
+
+#### Then: Compare with a different event
+
+What an agent can do: Fai lists the earlier events you can compare with and changes the choice after you confirm.
+
+Prompt for Fai: "Compare <EVENT NAME> with <EARLIER EVENT NAME> instead"
+
+#### Then: Turn the comparison off
+
+What an agent can do: Fai turns the comparison off for an event after you confirm.
+
+Prompt for Fai: "Stop comparing <EVENT NAME> with an earlier event"
 
 ### Copy the setup of your last event into your next one
 
@@ -465,6 +671,18 @@ For: Planning and sharing where everything is on your event site.
 What an agent can do: Fai reads your site map, adds, changes, moves, removes or puts back a place, links it to a stage or a team, places a trader on a pitch, sets the scale and expected attendance, puts a street or satellite map under the plan from the venue address, checks the map for first aid, ways out, water, toilets and accessible viewing, and publishes or takes down the attendee map. She shows you each change and waits for your yes first. Upload the plan itself in the dashboard.
 
 Prompt for Fai: "Check the site map for <EVENT NAME> and tell me what safety essentials are missing for 12,000 people"
+
+#### Then: Remove a place
+
+What an agent can do: Fai removes a place or puts one back when you ask, after you confirm.
+
+Prompt for Fai: "Remove the old car park from the site map for <EVENT NAME>"
+
+#### Then: Take the attendee map down
+
+What an agent can do: Fai takes the attendee map down when you ask, after you confirm.
+
+Prompt for Fai: "Take the attendee site map for <EVENT NAME> off the event page"
 
 ### Fill in each performer's advance for your event from tour books, riders and emails
 
@@ -514,6 +732,24 @@ What an agent can do: Fai reads goods in and out, what your suppliers asked on t
 
 Prompt for Fai: "What have my hire suppliers asked for on their page at <EVENT NAME>, and what came up short when the staging arrived"
 
+#### Then: Add a quote the supplier emailed you
+
+What an agent can do: Fai cannot upload a file. Upload the quote with Add their quote, then ask Fai what she read in it.
+
+Prompt for Fai: "What did you read in Northern Sound Hire's quote for <EVENT NAME>, and which lines are short"
+
+#### Then: Undo a count
+
+What an agent can do: Fai undoes a count when you ask, after you confirm.
+
+Prompt for Fai: "Undo the last count of stage decks at <EVENT NAME>, it should have been 24"
+
+#### Then: Put a quote aside
+
+What an agent can do: Fai puts a quote aside when you ask, after you confirm.
+
+Prompt for Fai: "Ignore the old Northern Sound Hire quote for <EVENT NAME>, they sent a new one"
+
 ### Get your traders ready for show day
 
 Slug `get-your-traders-ready-for-show-day`. Guide: https://www.ticketfairy.com/guides/get-your-traders-ready-for-show-day
@@ -525,6 +761,12 @@ For: Getting approved traders' paperwork, payments and load-in sorted.
 What an agent can do: Fai sets up your trading terms and load-in times, sends a trader their page or a reminder of what is missing, sets a pitch and reads the certificates traders upload. She asks you before anything is sent or changed.
 
 Prompt for Fai: "Which traders at <EVENT NAME> are still missing certificates or have not paid, and send each of them a reminder"
+
+#### Then: Stop a trader page link
+
+What an agent can do: Fai stops a trader's page link after you confirm.
+
+Prompt for Fai: "Stop the trader page link for <BUSINESS NAME> on <EVENT NAME>"
 
 ### Give crew meals at your event meal desk
 
@@ -538,6 +780,30 @@ What an agent can do: Fai finds a pass at the meal desk, records a meal or an ex
 
 Prompt for Fai: "How many meals should the kitchen expect at <EVENT NAME> tomorrow, and how many are vegetarian or gluten-free?"
 
+#### Then: Give a whole team's meals to one collector
+
+What an agent can do: Fai gives a team's meals to a named collector when you ask, after you confirm, and tells you who was skipped.
+
+Prompt for Fai: "Jo from Northern PA Hire is collecting lunch for their crew at <EVENT NAME>"
+
+#### Then: Give an act's drinks
+
+What an agent can do: Fai gives or undoes a drink for a pass from an act's travel party, after you confirm, and gives one beyond the allowance only with your reason.
+
+Prompt for Fai: "Give one of Nova Lights' crew a drink at <EVENT NAME>, pass code TF-7702-1188"
+
+#### Then: Undo a meal
+
+What an agent can do: Fai undoes a person's last meal today when you ask, after you confirm.
+
+Prompt for Fai: "Undo the meal we gave Ana Ruiz a minute ago at <EVENT NAME>, it was scanned twice"
+
+#### Then: See who ate
+
+What an agent can do: Fai reads you the meals given on a day, the extra meals and who gave them.
+
+Prompt for Fai: "Who was given an extra meal at <EVENT NAME> today, and by whom?"
+
 ### Give exhibitors a lead scanner for their booth at your event
 
 Slug `give-exhibitors-a-lead-scanner-for-their-booth`. Guide: https://www.ticketfairy.com/guides/give-exhibitors-a-lead-scanner-for-their-booth
@@ -550,6 +816,22 @@ What an agent can do: Fai reads every exhibitor's leads and results, adds or rem
 
 Prompt for Fai: "How many leads has each exhibitor at <EVENT NAME> captured so far, and which booths have no scanner link yet"
 
+#### Then: Record that a visitor no longer wants contact
+
+What an agent can do: Fai records that a visitor no longer wants contact after you confirm.
+
+Prompt for Fai: "<VISITOR NAME> asked Northwind Audio at <EVENT NAME> not to contact them, record it"
+
+#### Then: Download an exhibitor's leads
+
+What an agent can do: Download the leads from the exhibitor's panel in the dashboard, where the download is recorded with your name.
+
+#### Then: Stop a scanner link
+
+What an agent can do: Fai stops a scanner link after you confirm.
+
+Prompt for Fai: "Stop Lena Brandt's lead scanner link for Northwind Audio at <EVENT NAME>"
+
 ### Give your event crew one page for all their shifts
 
 Slug `give-your-crew-one-page-for-all-their-shifts`. Guide: https://www.ticketfairy.com/guides/give-your-crew-one-page-for-all-their-shifts
@@ -561,6 +843,12 @@ For: Keeping crew and volunteers up to date on their shifts.
 What an agent can do: Fai emails a person their My shifts link or turns their links off when you ask, after you confirm.
 
 Prompt for Fai: "Email Ama Owusu her My shifts link"
+
+#### Then: Turn off their links
+
+What an agent can do: Fai turns off a person's My shifts links when you ask, after you confirm.
+
+Prompt for Fai: "Turn off Leah Grant's My shifts links, she has left the team"
 
 ### Give your event volunteers their own page and track their hours
 
@@ -577,6 +865,14 @@ Command line:
 - List each volunteer's hours given and worked: `ticketfairy event-os volunteers list <EVENT_ID> --hours`
 
 Prompt for Fai: "Send every accepted volunteer on <EVENT NAME> their page link, and tell me who has earned the free weekend ticket"
+
+#### Then: Download the volunteer list
+
+What an agent can do: Download the list from the Volunteers section in the dashboard, where the download is recorded with your name.
+
+#### Then: Turn off a volunteer's link
+
+What an agent can do: Turn a volunteer's link off or make a new one from their application in the dashboard.
 
 ### Give your event's unused hotel rooms back before the release date
 
@@ -602,6 +898,18 @@ What an agent can do: Fai finds a pass by its code or by a name, organisation or
 
 Prompt for Fai: "Is Ana Ruiz's pass ready to collect at <EVENT NAME>? She is here now to collect it"
 
+#### Then: Give out a whole group's passes
+
+What an agent can do: Fai records a group's issued passes as taken by a named collector when you ask, after you confirm, and tells you which passes it left out and why.
+
+Prompt for Fai: "Jo Lead is collecting all the bar crew's passes at <EVENT NAME>"
+
+#### Then: Undo a collection
+
+What an agent can do: Fai undoes a collection when you ask and give a reason, after you confirm.
+
+Prompt for Fai: "Dev Patel's pass at <EVENT NAME> went to the wrong collector, undo it"
+
 ### Hand out radios and kit to your event crew
 
 Slug `hand-out-radios-and-kit-to-your-event-crew`. Guide: https://www.ticketfairy.com/guides/hand-out-radios-and-kit-to-your-event-crew
@@ -613,6 +921,12 @@ For: Handing out and getting back your event's radios and kit.
 What an agent can do: Fai reads your kit list, who has what, the kit history, the not-returned list and the radio plan, hands kit out or takes it back, adds or changes kit, marks kit as lost and changes channels and call signs. She shows you each change and waits for your yes first. Any member of your event's team can ask Fai to hand out or take back kit; only owners, admins and producers can change the kit list or the radio plan.
 
 Prompt for Fai: "Hand radio R-12 to Ana Silva from security at <EVENT NAME>, due back at midnight"
+
+#### Then: Take lost kit off the list
+
+What an agent can do: Fai takes lost units of a batch off the kit list when you ask, after you confirm.
+
+Prompt for Fai: "Take the 4 hi-vis vests Sam from the bar lost off the kit list at <EVENT NAME>"
 
 ### Handle lost property at your event
 
@@ -626,6 +940,12 @@ What an agent can do: Fai reads what has been handed in, the lost reports and he
 
 Prompt for Fai: "Log a found item at <EVENT NAME>: black backpack with a red keyring, found by the main stage bar, kept in box 3 at the info tent"
 
+#### Then: Record items as gone
+
+What an agent can do: Fai records items as gone, or keeps one again, when you ask, after you confirm.
+
+Prompt for Fai: "Record the unclaimed items at <EVENT NAME> as donated to charity"
+
 ### Handle the contract, invoice and riders an artist's agent sends for your event
 
 Slug `handle-the-contract-invoice-and-riders-an-agent-sends-back`. Guide: https://www.ticketfairy.com/guides/handle-the-contract-invoice-and-riders-an-agent-sends-back
@@ -638,6 +958,12 @@ What an agent can do: Fai lists each act's files from their agent and the next s
 
 Prompt for Fai: "What is still missing from the agents for <EVENT NAME>, and add Nova Lights' deposit invoice to payments due"
 
+#### Then: Bring back a file you set aside
+
+What an agent can do: Fai brings back a file you set aside when you ask, after you confirm.
+
+Prompt for Fai: "Bring back the Nova Lights invoice I set aside for <EVENT NAME>"
+
 ### Handle trader requests to move pitch at your event
 
 Slug `handle-trader-requests-to-move-pitch`. Guide: https://www.ticketfairy.com/guides/handle-trader-requests-to-move-pitch
@@ -649,6 +975,12 @@ For: Answering traders who ask for a different pitch.
 What an agent can do: Fai lists the move requests waiting, checks a pitch against your rules, and moves a trader or declines their request with your note, after you confirm.
 
 Prompt for Fai: "Rocket Coffee Van at <EVENT NAME> wants to move, what free pitch would keep our rules?"
+
+#### Then: Decline a request
+
+What an agent can do: Fai declines a move request with the note you give, after you confirm.
+
+Prompt for Fai: "Decline Rocket Coffee Van's move request at <EVENT NAME>, every hard-standing pitch is taken"
 
 ### Hold dates for shows at your venue
 
@@ -674,6 +1006,26 @@ CLI MCP tools that make changes (not available with `--read-only`): `place_venue
 
 Prompt for Fai: "Hold Saturday 14 November in the Main Room for <ARTIST NAME> and tell me which hold we are"
 
+#### Then: Release a hold you no longer need
+
+What an agent can do: Fai releases a hold when you ask, after she shows you which hold it is and you say yes.
+
+Command line:
+
+- Release a hold. This asks you first unless you add --force: `ticketfairy event-os venue holds release <HOLD_ID> --brand <BRAND_ID> --reason "<REASON>"`
+
+CLI MCP tools that read: `get_venue_operations`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `decide_venue_hold`.
+
+Prompt for Fai: "Release the hold for <NAME> on <DATE> in the <SPACE NAME>, the tour has moved"
+
+#### Then: Change a hold's details
+
+What an agent can do: Fai changes who a hold is for, its times, contact, lapse date, event or notes after you confirm.
+
+Prompt for Fai: "Change the hold for <NAME> on <DATE> to lapse on <NEW DATE>"
+
 ### Hold hotel rooms for your event's artists and crew
 
 Slug `hold-hotel-rooms-for-your-artists-and-crew`. Guide: https://www.ticketfairy.com/guides/hold-hotel-rooms-for-your-artists-and-crew
@@ -686,6 +1038,24 @@ What an agent can do: Fai reads each block's rooms held, filled and left night b
 
 Prompt for Fai: "Add a hotel block at Hotel Lumen for <EVENT NAME>: 12 rooms a night from 2 to 4 October at 145 pounds a night, with a release date of 26 September"
 
+#### Then: Change the rooms a block holds
+
+What an agent can do: Fai changes a block's nights or rooms when you ask, with the reason when rooms go back, after you confirm.
+
+Prompt for Fai: "Hold 2 more rooms on 3 October in the Hotel Lumen block for <EVENT NAME>"
+
+#### Then: Change the rate, release date or contact
+
+What an agent can do: Fai changes a block's rate, release date, contact or notes when you ask, after you confirm.
+
+Prompt for Fai: "The Hotel Lumen block for <EVENT NAME> now releases on 30 September, change it"
+
+#### Then: Close, reopen or remove a block
+
+What an agent can do: Fai closes, reopens or removes a block when you ask, after you confirm.
+
+Prompt for Fai: "Close the Harbour Inn crew block for <EVENT NAME>, we are done with it"
+
 ### Issue accreditation passes for your event
 
 Slug `issue-accreditation-passes-for-your-event`. Guide: https://www.ticketfairy.com/guides/issue-accreditation-passes-for-your-event
@@ -697,6 +1067,18 @@ For: Accrediting everyone who works on or visits your event.
 What an agent can do: Fai reads your passes, groups, zones and pass types, brings in everyone confirmed elsewhere in the event, sets up zones, pass types and group allowances, adds or changes a pass, issues passes, cancels a pass or issues it again, and makes a photo link for a pass holder. She shows you each change and waits for your yes first. Issuing emails each person their pass, so Fai always asks before she issues anything. Badges are printed in the dashboard.
 
 Prompt for Fai: "Bring in everyone for passes at <EVENT NAME>"
+
+#### Then: Cancel a pass
+
+What an agent can do: Fai cancels a pass and its ticket, or issues a cancelled pass again, when you ask, after you confirm.
+
+Prompt for Fai: "Cancel the pass for Sam Lee at <EVENT NAME>, he is not coming"
+
+#### Then: Decline a request
+
+What an agent can do: Fai declines a pass request or brings one back when you ask, after you confirm.
+
+Prompt for Fai: "Decline the late guest list name for Bicep at <EVENT NAME>"
 
 ### Keep a risk register for your event
 
@@ -722,6 +1104,18 @@ What an agent can do: Fai reads an artist's rider items and notes, adds or ticks
 
 Prompt for Fai: "Add "Car from Heathrow on 7 Oct" to Bicep's hospitality rider for <EVENT NAME>, and tell me what on their rider is still to do"
 
+#### Then: Add a day to the schedule
+
+What an agent can do: Fai adds a day and its opening hours to the event when you ask, after you confirm.
+
+Prompt for Fai: "Add Sunday 9 October to <EVENT NAME>, open from 14:00 to 23:00"
+
+#### Then: File a document under an artist
+
+What an agent can do: Fai files a document under the artist and part of the booking it belongs to, archives it or restores it, after you confirm.
+
+Prompt for Fai: "File the rider I uploaded for Bicep under their hospitality on <EVENT NAME>"
+
 ### Keep the jobs behind your event moving
 
 Slug `keep-your-event-tasks-on-track`. Guide: https://www.ticketfairy.com/guides/keep-your-event-tasks-on-track
@@ -740,6 +1134,18 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Open <EVENT NAME> so I can go through its tasks"
 
+#### Then: See the same work as a list, a calendar or a timeline
+
+What an agent can do: Fai can open the event. The task views are read in the dashboard today.
+
+Command line:
+
+- Show the event and its dates: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open <EVENT NAME> so I can see what is due this week"
+
 ### Keep track of where your event's artists and crew are staying
 
 Slug `book-travel-and-accommodation-for-your-artists`. Guide: https://www.ticketfairy.com/guides/book-travel-and-accommodation-for-your-artists
@@ -757,6 +1163,18 @@ Command line:
 CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Open <EVENT NAME> so I can check where the crew are staying"
+
+#### Then: Handle the changes that always come
+
+What an agent can do: Fai can open the event. Stays and travel are recorded in the dashboard today.
+
+Command line:
+
+- Show the event and its dates: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open <EVENT NAME> so I can move a crew member to another hotel"
 
 ### Let department leads approve their team's hours at your event
 
@@ -782,6 +1200,24 @@ What an agent can do: Fai lists your event's desk links, and makes, changes or s
 
 Prompt for Fai: "Make a staff gate desk link called Backstage gate phone for the backstage zone at <EVENT NAME>"
 
+#### Then: Change a link
+
+What an agent can do: Fai changes a link's name, zone, supervisor switch or end date after you confirm.
+
+Prompt for Fai: "Let the Main desk tablet link at <EVENT NAME> work until Monday night"
+
+#### Then: Get a new address for a link
+
+What an agent can do: Fai replaces a link's address after you confirm, so the old address stops working, for example when it was shared by mistake. Fai never gives out the new address: select **Get a new link** in Desks and links when you need to see one.
+
+Prompt for Fai: "The Main desk tablet link at <EVENT NAME> was shared by mistake, replace it so the old one stops working"
+
+#### Then: Stop a link
+
+What an agent can do: Fai stops a desk link after you confirm, for example when a phone goes missing.
+
+Prompt for Fai: "Stop the Crew catering tent desk link at <EVENT NAME>, the phone went missing"
+
 ### Let exhibitors follow up their event leads and see their results
 
 Slug `let-exhibitors-follow-up-their-leads-and-see-results`. Guide: https://www.ticketfairy.com/guides/let-exhibitors-follow-up-their-leads-and-see-results
@@ -793,6 +1229,12 @@ For: Handing exhibitors their leads, follow-up emails and booth results.
 What an agent can do: Fai gives an exhibitor its own page, reads its leads, follow-ups and results, and sets a sponsor's page and tracking link. She waits for your yes before every change. Only the exhibitor approves its follow-up emails, on its own page.
 
 Prompt for Fai: "Give Northwind Audio its own page at <EVENT NAME> and tell me how many of its leads can be contacted"
+
+#### Then: Show a sponsor its results
+
+What an agent can do: Fai links a sponsor to its outside team and chooses its tracking link after you confirm.
+
+Prompt for Fai: "Give the sponsor <SPONSOR NAME> at <EVENT NAME> its own page with the <TRACKING LINK NAME> tracking link"
 
 ### Let outside teams name their own people for event passes
 
@@ -806,6 +1248,24 @@ What an agent can do: Fai lists your outside teams and who still owes names, add
 
 Prompt for Fai: "Add Brightline Security as a contractor at <EVENT NAME>, contact Tom Okafor at tom@brightline.example, give them 40 crew passes with names by Friday 6pm, then email Tom the link"
 
+#### Then: Stop a team's page link
+
+What an agent can do: Fai stops a team's page link when you ask, after you confirm.
+
+Prompt for Fai: "Stop the page link for Brightline Security at <EVENT NAME>"
+
+#### Then: Take away a team's passes
+
+What an agent can do: Fai takes an allowance away from a team when you ask, after you confirm. The pass group and its people stay.
+
+Prompt for Fai: "Take the guest passes away from Harbour Catering at <EVENT NAME>"
+
+#### Then: Archive an organisation
+
+What an agent can do: Fai archives an organisation or restores one when you ask, after you confirm.
+
+Prompt for Fai: "Archive the Daily Echo at <EVENT NAME>, they are not covering it this year"
+
 ### Let outside teams order kit and equipment for your event
 
 Slug `let-outside-teams-order-kit-and-equipment-for-your-event`. Guide: https://www.ticketfairy.com/guides/let-outside-teams-order-kit-and-equipment-for-your-event
@@ -818,6 +1278,30 @@ What an agent can do: Fai reads your price list, the teams' orders and the pick 
 
 Prompt for Fai: "Which kit orders from outside teams are waiting for a yes at <EVENT NAME>, and approve Harbour Radio's order and email them the invoice"
 
+#### Then: Decline an order
+
+What an agent can do: Fai declines an order with the reason you give, after you confirm.
+
+Prompt for Fai: "Decline Coastline Catering's buggy order at <EVENT NAME>, all the buggies are with the stage crew that weekend"
+
+#### Then: Cancel an order
+
+What an agent can do: Fai cancels an order that is not handed out yet, after you confirm.
+
+Prompt for Fai: "Cancel order 3 for Harbour Radio at <EVENT NAME>, they are bringing their own radios"
+
+#### Then: Order kit for a team yourself
+
+What an agent can do: Fai places an order for a team with the kit, amounts and dates you give, after you confirm. It then waits for a yes like any other order.
+
+Prompt for Fai: "Order 6 radios and 6 hi-vis vests for Northern Sound Hire at <EVENT NAME> from Friday to Sunday, for the production office"
+
+#### Then: Email an invoice you held back
+
+What an agent can do: Fai makes or emails an approved order's invoice, after you confirm. She also suggests on Today emailing an invoice still waiting to go, and a reminder when one is due in 3 days or overdue.
+
+Prompt for Fai: "Email Harbour Radio the invoice for their kit order at <EVENT NAME>"
+
 ### Let ticket holders pick the conference sessions they attend
 
 Slug `let-ticket-holders-pick-the-sessions-they-attend`. Guide: https://www.ticketfairy.com/guides/let-ticket-holders-pick-the-sessions-they-attend
@@ -829,6 +1313,30 @@ For: Letting delegates choose their talks and workshops.
 What an agent can do: Fai lists the sessions and the agenda items people cannot pick yet, makes a session from an agenda item or from scratch, and opens it for picking. She shows you each change and waits for your yes first.
 
 Prompt for Fai: "Let ticket holders at <EVENT NAME> pick the sponsor deck workshop, with 40 places and a waiting list"
+
+#### Then: Add a session that is not on your agenda
+
+What an agent can do: Fai adds a session with the details you give and can open it for picking, after you confirm.
+
+Prompt for Fai: "Add a 45 minute pricing clinic at 2pm on day two of <EVENT NAME> in Room B for 25 people"
+
+#### Then: Add a ticket holder to a session or give their place back
+
+What an agent can do: Fai looks up a ticket holder's picks by ticket code or email, adds them to a session and gives a place back, after you confirm each change.
+
+Prompt for Fai: "Add the delegate with ticket code TF8841QX to the sponsor deck workshop at <EVENT NAME>"
+
+#### Then: Change a session
+
+What an agent can do: Fai changes a session's title, track, room, description or waiting list, and its time and places while nobody has picked it, after you confirm.
+
+Prompt for Fai: "Move the design panel at <EVENT NAME> to the Design track"
+
+#### Then: Finish or cancel a session
+
+What an agent can do: Fai marks a session as finished or cancels it, after you confirm.
+
+Prompt for Fai: "Cancel the Friday morning yoga session at <EVENT NAME>"
 
 ### Make an offer to an artist's agent for your show
 
@@ -854,6 +1362,18 @@ CLI MCP tools that make changes (not available with `--read-only`): `manage_venu
 
 Prompt for Fai: "Make an offer to <ARTIST NAME> for Saturday 14 November in the Main Room, start from what we paid them last time, and show me the email to their agent before you send it"
 
+#### Then: Save an offer as a template
+
+What an agent can do: Fai saves an offer as a template, and adds, changes or removes templates, after you confirm.
+
+Prompt for Fai: "Save the offer to <ARTIST NAME> as a template called <TEMPLATE NAME>"
+
+#### Then: Withdraw an offer
+
+What an agent can do: Fai withdraws an offer after she shows you which one and you say yes.
+
+Prompt for Fai: "Withdraw our offer to <ARTIST NAME> for <DATE>"
+
 ### Message the crew, volunteers and traders working on your event
 
 Slug `message-the-people-working-on-your-event`. Guide: https://www.ticketfairy.com/guides/message-the-people-working-on-your-event
@@ -878,6 +1398,20 @@ CLI MCP tools that make changes (not available with `--read-only`): `draft_event
 
 Prompt for Fai: "Email Saturday's stewards and bar volunteers on <EVENT NAME> that the gates open 30 minutes early, and show me who gets it before you send"
 
+#### Then: Send a message again to the people it missed
+
+What an agent can do: Send a message again from its panel in the dashboard.
+
+#### Then: Cancel a scheduled message
+
+What an agent can do: Cancel a scheduled message from its panel in the dashboard.
+
+#### Then: See every message one person was sent
+
+What an agent can do: Fai lists the messages sent on the event and who each one reached.
+
+Prompt for Fai: "Which messages did we send about <EVENT NAME> today, and who did they not reach?"
+
 ### Offer open shifts on your event rota to crew and volunteers
 
 Slug `offer-open-shifts-to-your-crew-and-volunteers`. Guide: https://www.ticketfairy.com/guides/offer-open-shifts-to-your-crew-and-volunteers
@@ -889,6 +1423,30 @@ For: Filling the open places on your event rota.
 What an agent can do: Fai lists the shifts that need people, finds who fits each one across your events, offers a shift to the people you choose and takes an offer back. She shows you who she will email and waits for your yes before anything is sent.
 
 Prompt for Fai: "The Saturday bar shift at <EVENT NAME> still needs 2 people, offer it to whoever fits"
+
+#### Then: Take back an offer
+
+What an agent can do: Fai takes back an offer that is still waiting when you ask, after you confirm.
+
+Prompt for Fai: "Take back the gate shift offer to Tomás Reyes at <EVENT NAME>"
+
+#### Then: Ask who is still coming
+
+What an agent can do: Fai asks everyone on the next day's shifts whether they are still coming, after you confirm, and reads you the answers.
+
+Prompt for Fai: "Ask everyone on tomorrow's shifts at <EVENT NAME> if they are still coming"
+
+#### Then: Find cover for someone who has not arrived
+
+What an agent can do: Fai marks someone as not arrived and offers their place to people who fit, after you confirm each change.
+
+Prompt for Fai: "Cai Jones hasn't turned up for his steward shift at <EVENT NAME>, mark him as not arrived and find cover"
+
+#### Then: Let Fai send offers and ask by itself
+
+What an agent can do: Fai turns either switch on or off in the rota rules when you ask, after you confirm.
+
+Prompt for Fai: "At <EVENT NAME>, send the first shift offers yourself and ask people the day before if they are still coming"
 
 ### Place your traders on pitches on your event site map
 
@@ -902,6 +1460,12 @@ What an agent can do: Fai places a trader on a pitch of your site map, moves the
 
 Prompt for Fai: "Put Smoke & Salt BBQ on pitch F2 on the site map for <EVENT NAME>"
 
+#### Then: Take a trader off the map
+
+What an agent can do: Fai takes a trader off the site map after you confirm.
+
+Prompt for Fai: "Take <BUSINESS NAME> off the site map for <EVENT NAME>"
+
 ### Plan crew meal times and food needs for your event
 
 Slug `plan-crew-meal-times-and-food-needs-for-your-event`. Guide: https://www.ticketfairy.com/guides/plan-crew-meal-times-and-food-needs-for-your-event
@@ -913,6 +1477,18 @@ For: Telling your crew kitchen what to cook and when.
 What an agent can do: Fai reads the meal times and the kitchen count, suggests meal times from the shifts, adds, changes or removes a meal time, and records a person's food needs. She waits for your yes before each change.
 
 Prompt for Fai: "Add the meal times the shifts suggest for every day of <EVENT NAME>, and tell me how many vegan meals the kitchen needs for Saturday lunch"
+
+#### Then: Change or remove a meal time
+
+What an agent can do: Fai changes or removes a meal time when you ask, after you confirm.
+
+Prompt for Fai: "Move Sunday lunch at <EVENT NAME> to 12:30 to 14:30"
+
+#### Then: Record someone's food needs at the desk
+
+What an agent can do: Fai records a person's food needs when you tell her them, after you confirm.
+
+Prompt for Fai: "Ben Ode at <EVENT NAME> is vegan with a nut allergy, record his food needs"
 
 ### Plan next year's event from your attendee feedback
 
@@ -926,6 +1502,12 @@ What an agent can do: Fai reads you the response rate, Net Promoter Score, each 
 
 Prompt for Fai: "What did people think of <EVENT NAME>, and what should we fix next year?"
 
+#### Then: Download the answers
+
+What an agent can do: Downloading the answers is done in the dashboard. Fai reads you the results and themes instead.
+
+Prompt for Fai: "Summarise the feedback answers for <EVENT NAME> from people who would not recommend us"
+
 ### Plan your artists' pickups with drivers and vehicles for your event
 
 Slug `plan-artist-pickups-with-drivers-and-vehicles`. Guide: https://www.ticketfairy.com/guides/plan-artist-pickups-with-drivers-and-vehicles
@@ -938,6 +1520,12 @@ What an agent can do: Fai reads each day's pickups with their plans and warnings
 
 Prompt for Fai: "Plan Kai Rivers' airport pickup at <EVENT NAME> with Sam in Van 2, a 55 minute drive and 3 bags, and tell me if anything clashes"
 
+#### Then: Take a driver or vehicle off the list
+
+What an agent can do: Fai removes a driver or vehicle when you ask, after you confirm.
+
+Prompt for Fai: "Take the minibus off the vehicles list for <EVENT NAME>, it has broken down"
+
 ### Plan your run of show and who calls it
 
 Slug `plan-your-run-of-show-and-who-calls-it`. Guide: https://www.ticketfairy.com/guides/plan-your-run-of-show-and-who-calls-it
@@ -949,6 +1537,18 @@ For: Planning the running order for each stage and show day.
 What an agent can do: Fai reads the run of show with everything that needs a check, drafts it from your schedule, adds, changes, moves or removes cues, locks or unlocks a day and names or removes show callers. She shows you each change and waits for your yes first, and nothing changes on a locked day.
 
 Prompt for Fai: "Draft the run of show for Saturday at <EVENT NAME> with 30 minute changeovers and show me what clashes"
+
+#### Then: Remove a cue
+
+What an agent can do: Fai removes a cue when you ask, after you confirm.
+
+Prompt for Fai: "Remove the confetti cannons cue from Saturday at <EVENT NAME>"
+
+#### Then: Remove a show caller
+
+What an agent can do: Fai removes a show caller when you ask, after you confirm.
+
+Prompt for Fai: "Stop Tom Reyes calling the Harbour Tent at <EVENT NAME>"
 
 ### Publish your event line-up and set times
 
@@ -971,6 +1571,18 @@ CLI MCP tools that make changes (not available with `--read-only`): `publish_lin
 
 Prompt for Fai: "Draft bios for the acts on <EVENT NAME> that have none, then show me what publishing the line-up would change"
 
+#### Then: Take the line-up down
+
+What an agent can do: Fai takes the public line-up down after you confirm.
+
+Command line:
+
+- Take the public line-up down. This asks you first unless you add --force: `ticketfairy event-os lineup publish <EVENT_ID> --withdraw`
+
+CLI MCP tools that make changes (not available with `--read-only`): `publish_lineup`.
+
+Prompt for Fai: "Take the public line-up for <EVENT NAME> down"
+
 ### Raise purchase orders and track what your event owes
 
 Slug `raise-purchase-orders-and-track-what-your-event-owes`. Guide: https://www.ticketfairy.com/guides/raise-purchase-orders-and-track-what-your-event-owes
@@ -983,6 +1595,24 @@ What an agent can do: Fai reads your purchase orders, committed costs and paymen
 
 Prompt for Fai: "What does <EVENT NAME> still owe, and what is overdue?"
 
+#### Then: Add a per diem or cost
+
+What an agent can do: Fai adds or removes a per diem, backline or other cost on a booking when you ask, after you confirm.
+
+Prompt for Fai: "Add a 40 pound per diem for Nova Twins on Saturday at <EVENT NAME>"
+
+#### Then: Reverse a payment recorded by mistake
+
+What an agent can do: Fai reverses a payment with your reason when you ask, after you confirm.
+
+Prompt for Fai: "Reverse the cash payment I recorded for Nova Twins' per diem at <EVENT NAME>, it was a mistake"
+
+#### Then: Cancel a purchase order
+
+What an agent can do: Fai cancels a purchase order with your reason when you ask, after you confirm.
+
+Prompt for Fai: "Cancel PO-0013 at <EVENT NAME>, we are using a different barrier supplier"
+
 ### Read your event's email in one inbox
 
 Slug `read-your-event-email-in-one-inbox`. Guide: https://www.ticketfairy.com/guides/read-your-event-email-in-one-inbox
@@ -994,6 +1624,12 @@ For: Keeping up with the email about one event.
 What an agent can do: Fai searches the conversations in your connected mailboxes, reads one in full and lists the follow-ups she found, so you can ask about the event's email without opening it.
 
 Prompt for Fai: "What has come in by email about <EVENT NAME> this week, and what do we still need to do about it?"
+
+#### Then: Connect your first mailbox
+
+What an agent can do: Fai tells you which mailboxes your brand has connected and whether each one is working.
+
+Prompt for Fai: "Which mailboxes does Fai read for <EVENT NAME>?"
 
 ### Recruit volunteers for your event
 
@@ -1016,6 +1652,12 @@ CLI MCP tools that make changes (not available with `--read-only`): `decide_volu
 
 Prompt for Fai: "Show me the volunteer applications for <EVENT NAME> that are a strong fit for the bar, and accept them with the usual email"
 
+#### Then: Invite last year's volunteers back
+
+What an agent can do: Fai suggests who to invite back from an earlier event, from the shifts they worked, and sends the invitations after you confirm.
+
+Prompt for Fai: "Invite back the volunteers from last year's <EVENT NAME> who worked every shift"
+
 ### Report and handle incidents at your event
 
 Slug `report-and-handle-incidents-at-your-event`. Guide: https://www.ticketfairy.com/guides/report-and-handle-incidents-at-your-event
@@ -1027,6 +1669,12 @@ For: Logging and following up what happens on site.
 What an agent can do: Fai reads the incident log, logs an incident or adds an update to one, suggests its type and seriousness, changes its details, moves it on, reopens it or removes its personal details. She shows you each change and waits for your yes first. Any member of your event's team can report an incident or add an update through Fai.
 
 Prompt for Fai: "Log an incident at <EVENT NAME>: someone fainted near the main bar, medium, first aid is with them"
+
+#### Then: Remove personal details from an incident
+
+What an agent can do: Fai removes an incident's personal details when you ask, after you confirm. It cannot be undone.
+
+Prompt for Fai: "Remove the personal details from incident 31 at <EVENT NAME>"
 
 ### Review act and talk applications for your event with your team
 
@@ -1040,6 +1688,18 @@ What an agent can do: Fai lists the applications with her notes, the reviewers' 
 
 Prompt for Fai: "Which talk proposals for <EVENT NAME> have the best reviewer scores, and accept Designing for door staff for Saturday at 11 in the Main Hall"
 
+#### Then: Decline or move an application
+
+What an agent can do: Fai declines or moves an application with your reason, after you confirm. Nobody is emailed.
+
+Prompt for Fai: "Decline the lightning talk about ticket scanning for <EVENT NAME>, we already have one on that"
+
+#### Then: Stop a reviewer's link
+
+What an agent can do: Fai stops, sends again or removes a reviewer's link, after you confirm.
+
+Prompt for Fai: "Stop Sam Lee's review link for <EVENT NAME>"
+
 ### Run a safety induction for everyone who works your event
 
 Slug `run-a-safety-induction-for-everyone-who-works-your-event`. Guide: https://www.ticketfairy.com/guides/run-a-safety-induction-for-everyone-who-works-your-event
@@ -1051,6 +1711,12 @@ For: Briefing everyone who works on your event site on safety.
 What an agent can do: Fai sets up or changes the induction, drafts the short test from your briefing, makes it live or takes it down, tells you who has not done it and marks it done for someone you briefed. She waits for your yes before each change.
 
 Prompt for Fai: "Draft a short safety test from the induction at <EVENT NAME> and show me the questions"
+
+#### Then: Take the test down
+
+What an agent can do: Fai takes the test down or removes it when you ask, after you confirm.
+
+Prompt for Fai: "Take the safety test down at <EVENT NAME>, I need to change a question"
 
 ### Run your event from its Today page
 
@@ -1064,6 +1730,18 @@ What an agent can do: Fai reads the same Today page for you, lists what she sugg
 
 Prompt for Fai: "What does <EVENT NAME> need from me today? Show me your suggestions before you approve any of them"
 
+#### Then: Add a section for your team or pin one for yourself
+
+What an agent can do: Fai adds or removes a section for your team, pins one for you and changes what she helps with on the event, after you confirm.
+
+Prompt for Fai: "Add the rota and incidents to the section list for <EVENT NAME> and pin Show day for me"
+
+#### Then: Change the event type
+
+What an agent can do: Fai reads the event type and changes it when you ask, after you confirm.
+
+Prompt for Fai: "Make <EVENT NAME> a festival and a conference"
+
 ### Scan delegates into event sessions at the door and see who came
 
 Slug `scan-ticket-holders-into-sessions-and-see-who-came`. Guide: https://www.ticketfairy.com/guides/scan-ticket-holders-into-sessions-and-see-who-came
@@ -1075,6 +1753,12 @@ For: Running the doors of your conference sessions.
 What an agent can do: Fai scans a ticket into a session for you, after you confirm, and tells you whether to let the person in and why not. She also makes a door link for volunteers, without showing its address.
 
 Prompt for Fai: "Scan ticket TF8841QX into the Hiring your first designer talk at <EVENT NAME>"
+
+#### Then: Give door staff a door link
+
+What an agent can do: Fai makes a session door link with the name you give, after you confirm. She never shows the link's address, so copy it from the dashboard.
+
+Prompt for Fai: "Make a door link for Room 2 phone for the sponsor deck workshop at <EVENT NAME>"
 
 ### See the all-in cost of each act on your event
 
@@ -1112,6 +1796,12 @@ What an agent can do: Fai lists who has arrived and who has not, counts the arri
 
 Prompt for Fai: "How many of the Northern Bars crew have arrived at <EVENT NAME>?"
 
+#### Then: Send a pass again
+
+What an agent can do: Fai sends a pass email again to the address it was issued to, after you confirm.
+
+Prompt for Fai: "Send Jane Doe's crew pass for <EVENT NAME> again, she cannot find the email"
+
 ### See why tickets and passes were refused at the door
 
 Slug `see-why-tickets-and-passes-were-refused-at-the-door`. Guide: https://www.ticketfairy.com/guides/see-why-tickets-and-passes-were-refused-at-the-door
@@ -1136,6 +1826,24 @@ What an agent can do: Fai reads the blocks for ticket buyers with each night's r
 
 Prompt for Fai: "Hold 30 double rooms at Hotel Lumen for ticket buyers at <EVENT NAME> from 2 to 4 October at 120.50 pounds a night, with 26 September as the last day to book"
 
+#### Then: Give back rooms nobody booked before the last day
+
+What an agent can do: Fai gives back the rooms nobody booked, keeping the rooms on sale you ask for, after an owner or admin confirms.
+
+Prompt for Fai: "Give back the double rooms nobody has booked at Hotel Lumen for <EVENT NAME>, keep 5 a night on sale"
+
+#### Then: Change the rooms or the rate
+
+What an agent can do: Fai changes a block's rooms, rate or last day to book after an owner or admin confirms.
+
+Prompt for Fai: "Make the last day to book the Hotel Lumen double rooms for <EVENT NAME> 30 September"
+
+#### Then: Remove a block added by mistake
+
+What an agent can do: Fai removes a block for ticket buyers after an owner or admin confirms.
+
+Prompt for Fai: "Remove the twin room hotel block for <EVENT NAME>, I added it by mistake"
+
 ### Send contracts to many performers, traders or suppliers for your event at once
 
 Slug `send-contracts-to-many-performers-traders-or-suppliers-at-once`. Guide: https://www.ticketfairy.com/guides/send-contracts-to-many-performers-traders-or-suppliers-at-once
@@ -1147,6 +1855,18 @@ For: Sending the same agreement to all your performers, traders or suppliers.
 What an agent can do: Fai shows who a batch can go to and a preview of every contract, then makes and sends the contracts from one template or keeps them as drafts, reads each batch's results and starts a batch that did not start. She shows you every contract first and waits for your yes.
 
 Prompt for Fai: "Send the performance agreement to every booked performer at <EVENT NAME> who has no contract yet, and show me each contract first"
+
+#### Then: Open a batch you made earlier
+
+What an agent can do: Fai reads your latest batches and each contract's result and current status.
+
+Prompt for Fai: "Which contracts from the batch I sent at <EVENT NAME> are still waiting for a signature"
+
+#### Then: Try again for the people a batch missed
+
+What an agent can do: Fai starts a batch that did not start after you confirm.
+
+Prompt for Fai: "The contracts batch at <EVENT NAME> did not start, start it again"
 
 ### Send event document packs to your performers, traders and crew
 
@@ -1160,6 +1880,24 @@ What an agent can do: Fai reads your packs and who got them, makes or changes a 
 
 Prompt for Fai: "Make a performer welcome pack for <EVENT NAME> with the site rules, each performer's own day sheet and their contract, and send it to every booked performer"
 
+#### Then: Share one person's link or QR code
+
+What an agent can do: Get one person's link or QR code in the pack in the dashboard, where it shows once. Fai can email the pack to that person instead.
+
+Prompt for Fai: "Send the performer welcome pack at <EVENT NAME> to <PERFORMER NAME> only"
+
+#### Then: Stop one person's link
+
+What an agent can do: Fai stops one person's link to a pack after you confirm.
+
+Prompt for Fai: "Stop The Tidewater Band's link to the performer welcome pack at <EVENT NAME>"
+
+#### Then: Remove a pack
+
+What an agent can do: Fai removes a pack after you confirm, which stops every link to it.
+
+Prompt for Fai: "Remove the crew pack from <EVENT NAME>"
+
 ### Send your event contracts and get them signed online
 
 Slug `send-contracts-and-get-them-signed-online`. Guide: https://www.ticketfairy.com/guides/send-contracts-and-get-them-signed-online
@@ -1171,6 +1909,30 @@ For: Getting performer, speaker, trader and supplier agreements signed.
 What an agent can do: Fai reads your contracts, drafts one from an offer, a booking, a trader, a supplier quote or a template, changes a draft, sends it for signature or sends a reminder, signs it for you once the other party has, starts a new version or an amendment, cancels an unsigned one and manages your contract templates. She shows you each change and waits for your yes first, and nothing is emailed until you agree. When a contract has waited 5 days for a signature, Fai suggests a reminder on Today.
 
 Prompt for Fai: "Draft the contract for Nova Twins at <EVENT NAME> from their accepted offer and tell me what is missing before I send it"
+
+#### Then: Send a reminder
+
+What an agent can do: Fai sends a reminder with a new link when you ask, after you confirm.
+
+Prompt for Fai: "Remind Nova Twins to sign their contract for <EVENT NAME>"
+
+#### Then: Change a contract that is already sent
+
+What an agent can do: Fai starts a new version of a sent or declined contract when you ask, after you confirm.
+
+Prompt for Fai: "Nova Twins asked for a later set time at <EVENT NAME>, start a new version of their contract"
+
+#### Then: Amend a signed contract
+
+What an agent can do: Fai starts an amendment or a termination agreement to a signed contract when you ask, after you confirm.
+
+Prompt for Fai: "Start an amendment to the signed Nova Twins contract at <EVENT NAME> for an extra 15 minutes"
+
+#### Then: Cancel a contract
+
+What an agent can do: Fai cancels an unsigned contract with your reason when you ask, after you confirm.
+
+Prompt for Fai: "Cancel the draft speaker contract for Dr Amara Lee at <EVENT NAME>, the session was dropped"
 
 ### Send your event hire lists to suppliers
 
@@ -1184,6 +1946,18 @@ What an agent can do: Fai drafts the email to a supplier from their items and wh
 
 Prompt for Fai: "Send Northern Backline the changes to our backline hire for <EVENT NAME>"
 
+#### Then: Make a purchase order from a supplier's items
+
+What an agent can do: Fai makes a draft purchase order from a supplier's priced items when you ask, after you confirm. You approve and send it in Contracts.
+
+Prompt for Fai: "Make a purchase order for Northern Backline's items at <EVENT NAME>"
+
+#### Then: Print a supplier's list
+
+What an agent can do: Printing is done in the dashboard. Fai reads you a supplier's items, dates and delivery times instead.
+
+Prompt for Fai: "What is on Northern Backline's list for <EVENT NAME>, and when do they deliver and collect?"
+
 ### Send your event lists to your team on a schedule
 
 Slug `send-your-event-lists-to-your-team-on-a-schedule`. Guide: https://www.ticketfairy.com/guides/send-your-event-lists-to-your-team-on-a-schedule
@@ -1195,6 +1969,18 @@ For: Keeping your team up to date with the latest lists.
 What an agent can do: Fai reads your scheduled exports, their latest files and who can receive each list, schedules a list every day or week, changes, pauses, turns back on or stops a schedule, and makes a file now. She shows you each change and waits for your yes first.
 
 Prompt for Fai: "Email the rota for <EVENT NAME> to me and Sam every Monday at 9am"
+
+#### Then: Pause or stop a schedule
+
+What an agent can do: Fai pauses, turns back on or stops a scheduled export when you ask, after you confirm.
+
+Prompt for Fai: "Stop sending the rota for <EVENT NAME> every week"
+
+#### Then: Make a file now
+
+What an agent can do: Fai makes a file of the list now when you ask, after you confirm, and you download it in the dashboard.
+
+Prompt for Fai: "Make a file of the run of show for <EVENT NAME> now"
 
 ### Set each performer's guest list, hotel and meal allowances for your event
 
@@ -1208,6 +1994,12 @@ What an agent can do: Fai reads an act's allowances, what is used and left, thei
 
 Prompt for Fai: "Use the numbers from Bicep's accepted offer for their allowances at <EVENT NAME>, and add their tour manager Sam Lee to the travel party with a room"
 
+#### Then: Change or remove a person
+
+What an agent can do: Fai changes or removes a person in the travel party, after you confirm.
+
+Prompt for Fai: "Bicep's drummer is not coming to <EVENT NAME> any more, take them off the travel party"
+
 ### Set pitch rules and let Fai plan your trader pitches at your event
 
 Slug `set-pitch-rules-and-let-fai-plan-your-trader-pitches`. Guide: https://www.ticketfairy.com/guides/set-pitch-rules-and-let-fai-plan-your-trader-pitches
@@ -1220,6 +2012,12 @@ What an agent can do: Fai adds a pitch rule from your words, reads you the pitch
 
 Prompt for Fai: "At <EVENT NAME>, keep the two coffee vans at least 30 metres apart, then plan pitches for the traders who still need one"
 
+#### Then: Turn a rule off or remove it
+
+What an agent can do: Fai turns a pitch rule off or on, or removes it, after you confirm.
+
+Prompt for Fai: "Turn off the power rule for the food court at <EVENT NAME>"
+
 ### Set up a self-service check-in kiosk for your event
 
 Slug `set-up-a-self-service-check-in-kiosk-for-your-event`. Guide: https://www.ticketfairy.com/guides/set-up-a-self-service-check-in-kiosk-for-your-event
@@ -1231,6 +2029,18 @@ For: Letting attendees check in and print their own badges at your event.
 What an agent can do: Fai makes, changes or stops a kiosk link after you confirm, and turns finding a ticket by email on or off in the badge setup. Open Desks and links and select **Get a new link** to see a kiosk link's address.
 
 Prompt for Fai: "Make a self-service kiosk link called Kiosk by the main entrance for <EVENT NAME>"
+
+#### Then: Accept scanned tickets only
+
+What an agent can do: Fai turns finding a ticket by email on or off after you confirm.
+
+Prompt for Fai: "At <EVENT NAME>, stop the kiosks finding tickets by email"
+
+#### Then: Close the kiosk
+
+What an agent can do: Fai stops a kiosk link after you confirm.
+
+Prompt for Fai: "Close the Kiosk by the main entrance at <EVENT NAME>"
 
 ### Settle a show with an artist after your event
 
@@ -1251,6 +2061,12 @@ CLI MCP tools that read: `get_venue_operations`.
 
 Prompt for Fai: "Draft the settlement for <EVENT NAME> with <ARTIST NAME>'s deal and tell me what is left for us"
 
+#### Then: Correct a settlement after it is shared
+
+What an agent can do: Fai reopens a shared, agreed or paid settlement as a new version after you confirm and give the reason.
+
+Prompt for Fai: "Reopen the settlement for <EVENT NAME>, the bar share was left off"
+
 ### Share a power sheet with your event electrician
 
 Slug `share-a-power-sheet-with-your-electrician`. Guide: https://www.ticketfairy.com/guides/share-a-power-sheet-with-your-electrician
@@ -1262,6 +2078,12 @@ For: Giving your electrician and site crew the traders' power and water needs.
 What an agent can do: Fai makes a power sheet link for one zone or the whole site, lists the links you have made and stops one. She waits for your yes before she makes or stops a link. The address of a new link shows once, in the dashboard.
 
 Prompt for Fai: "Make a power sheet link for the food court at <EVENT NAME> that works for 14 days"
+
+#### Then: Stop a power sheet link
+
+What an agent can do: Fai stops a power sheet link after you confirm.
+
+Prompt for Fai: "Stop the power sheet link for the food court at <EVENT NAME>"
 
 ### Share a private event site map with emergency services and suppliers
 
@@ -1275,6 +2097,12 @@ What an agent can do: Fai lists your map links and how often each was opened, ma
 
 Prompt for Fai: "Make a map link for the fire service at <EVENT NAME> that works for 30 days"
 
+#### Then: Give a link a new address or stop it
+
+What an agent can do: Fai gives a map link a new address or stops it, after you confirm.
+
+Prompt for Fai: "Stop the Northern Power map link at <EVENT NAME>"
+
 ### Share day sheets with your event's on-site teams
 
 Slug `share-day-sheets-with-your-on-site-teams`. Guide: https://www.ticketfairy.com/guides/share-day-sheets-with-your-on-site-teams
@@ -1287,6 +2115,12 @@ What an agent can do: Fai reads any team's, performer's or stage's day sheet, ad
 
 Prompt for Fai: "Email every department lead at <EVENT NAME> their day sheet for Saturday"
 
+#### Then: Turn off a shared link
+
+What an agent can do: Fai turns off a day sheet link when you ask, after you confirm.
+
+Prompt for Fai: "Turn off the security day sheet link for Saturday at <EVENT NAME>"
+
 ### Share your event's rooming lists with hotels and pickups with drivers
 
 Slug `share-rooming-lists-with-hotels-and-pickups-with-drivers`. Guide: https://www.ticketfairy.com/guides/share-rooming-lists-with-hotels-and-pickups-with-drivers
@@ -1298,6 +2132,12 @@ For: Keeping hotels and drivers up to date for your event.
 What an agent can do: Fai reads each hotel's rooming list and one day's pickups and shuttle runs, sets a guest's room type, rooms and note for the hotel, makes or turns off a hotel or driver link, adds, changes or removes a shuttle, and marks a pickup or a shuttle run. She shows you each change and waits for your yes first. Only owners and admins can put phone numbers and emails on a link.
 
 Prompt for Fai: "Make a rooming list link for Harbour Hotel for <EVENT NAME> without contact details"
+
+#### Then: Turn a link off
+
+What an agent can do: Fai turns a hotel or driver link off when you ask, after you confirm.
+
+Prompt for Fai: "Turn off the driver link for Kev at <EVENT NAME>"
 
 ### Show each act their whole stay and what changed
 
@@ -1323,6 +2163,12 @@ What an agent can do: Fai makes a backstage TV link for every stage or one stage
 
 Prompt for Fai: "Make a backstage screen for the side of the Main Stage at <EVENT NAME>"
 
+#### Then: Stop showing a TV
+
+What an agent can do: Fai stops a TV link when you ask, after you confirm.
+
+Prompt for Fai: "Stop the green room TV screen at <EVENT NAME>"
+
 ### Show your traders in a directory on your website
 
 Slug `show-your-traders-in-a-directory-on-your-website`. Guide: https://www.ticketfairy.com/guides/show-your-traders-in-a-directory-on-your-website
@@ -1334,6 +2180,12 @@ For: Showing the traders at your event on your own website.
 What an agent can do: Fai reads your trader directory and its embed code, changes a trader's listing, publishes it, asks the trader for changes or takes it out of the directory. She shows you each change and waits for your yes first.
 
 Prompt for Fai: "Which trader listings for <EVENT NAME> are waiting for review, and publish the ones that say what they sell"
+
+#### Then: Take a trader out of the directory
+
+What an agent can do: Fai takes a trader's listing out of the directory after you confirm.
+
+Prompt for Fai: "Take <BUSINESS NAME> out of the trader directory for <EVENT NAME>"
 
 ### Take food, drink and market trader applications for your event
 
@@ -1357,6 +2209,28 @@ CLI MCP tools that make changes (not available with `--read-only`): `decide_trad
 
 Prompt for Fai: "Show me the trader applications for <EVENT NAME> that best fit our food mix, and approve Smoke & Salt BBQ on the 6m pitch with the invoice"
 
+#### Then: Add a trader you already know
+
+What an agent can do: Fai adds a trader to the event from the details you give her, after you confirm.
+
+Prompt for Fai: "Add <BUSINESS NAME> to the traders on <EVENT NAME> as already agreed, contact <NAME> at <EMAIL>"
+
+#### Then: Raise or send an invoice later
+
+What an agent can do: Fai raises a trader's invoice and sends it after you confirm.
+
+Prompt for Fai: "Raise and send the pitch invoice for <BUSINESS NAME> on <EVENT NAME>"
+
+#### Then: Cancel an approved trader
+
+What an agent can do: Fai cancels an approved trader after you confirm.
+
+CLI MCP tools that read: `get_traders`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `decide_trader_application`.
+
+Prompt for Fai: "Cancel <BUSINESS NAME> as a trader at <EVENT NAME>"
+
 ### Take notes on your event calls with Fai
 
 Slug `take-notes-on-your-event-calls-with-fai`. Guide: https://www.ticketfairy.com/guides/take-notes-on-your-event-calls-with-fai
@@ -1368,6 +2242,12 @@ For: Keeping a record of the calls about one event.
 What an agent can do: Fai sends the notetaker to a call link you give her, tells you where it is up to, and finds and reads the notes from earlier calls. She asks before the notetaker joins a call.
 
 Prompt for Fai: "Send the notetaker to this call for <EVENT NAME>: <CALL LINK>"
+
+#### Then: Call off the notetaker
+
+What an agent can do: Fai tells you where the notetaker is up to on a call. To call it off, use Meetings in the dashboard.
+
+Prompt for Fai: "Is the notetaker on the security briefing for <EVENT NAME> yet?"
 
 ### Track every artist booking for your event
 
@@ -1387,6 +2267,18 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Read the contract I uploaded for <ARTIST NAME> and tell me the fee, the deposit and when the balance is due"
 
+#### Then: Let Fai read the contract for you
+
+What an agent can do: Fai reads a booking contract or invoice and pulls out the terms. What she finds is a reading of the document, so check it before you pay.
+
+Command line:
+
+- Show the event and its dates: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Read the invoice for <ARTIST NAME> and tell me what is due, to whom and by when"
+
 ### Work out the backline and production to hire for your event
 
 Slug `work-out-the-backline-and-production-to-hire-for-your-event`. Guide: https://www.ticketfairy.com/guides/work-out-the-backline-and-production-to-hire-for-your-event
@@ -1398,6 +2290,18 @@ For: Working out how much equipment to hire for a festival or multi-stage event.
 What an agent can do: Fai reads the hire lists with how each number was worked out, adds an item or a need, changes an item's details, reuse or status, answers a rider change and puts one item under another. She shows you each change and waits for your yes first. She also reads riders as they change and suggests adding items she finds in production documents you upload.
 
 Prompt for Fai: "How many CDJs do we need to hire for <EVENT NAME>, and which acts need them on which days?"
+
+#### Then: Change the hire period
+
+What an agent can do: Fai changes the hire period when you ask, after you confirm.
+
+Prompt for Fai: "Give every hire at <EVENT NAME> two load-in days before the first day"
+
+#### Then: Put one item under another
+
+What an agent can do: Fai puts one item under another when you ask, after you confirm.
+
+Prompt for Fai: "CDJ3000 and Pioneer CDJ-3000 are the same thing at <EVENT NAME>, put them together"
 
 ## More
 

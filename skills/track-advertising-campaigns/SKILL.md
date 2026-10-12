@@ -66,6 +66,12 @@ What an agent can do: Complete the Meta sign-in in your browser, then ask Fai, t
 
 Prompt for Fai: "Show me which tracking pixels this brand has, then turn Meta conversion tracking on for the pixel we advertise with and add our TikTok pixel <your TikTok pixel ID>"
 
+#### Then: Add a pixel to one event only
+
+What an agent can do: Fai, the assistant inside your dashboard, can list, add, change and remove the pixels for one event, and asks you to approve each change. Picking a pixel from your Meta ad accounts needs your Facebook sign-in, so give Fai the Meta pixel ID or use the dashboard for that part.
+
+Prompt for Fai: "Show me the tracking pixels on <EVENT NAME>, including the brand pixels that already track it, then add our TikTok pixel <TIKTOK PIXEL ID> to this event only"
+
 ### Measure ticket sales with Google Analytics
 
 Slug `set-up-a-google-analytics-pixel`. Guide: https://www.ticketfairy.com/guides/set-up-a-google-analytics-pixel
@@ -95,6 +101,18 @@ Command line:
 CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, which advertising campaign brought in the most ticket sales, and what did each sale cost"
+
+#### Then: Trace a sale back further than the campaign
+
+What an agent can do: Fai can open the tracking links for the event. What each one brought in is read in the dashboard today.
+
+Command line:
+
+- Show the event statistics: `ticketfairy event stats <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open the tracking links for <EVENT NAME>"
 
 ### Set up a Meta pixel to track your ticket sales
 

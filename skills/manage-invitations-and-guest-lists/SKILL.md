@@ -57,6 +57,14 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Create a delegation called <PARTNER NAME> on <EVENT NAME> that can hand out <NUMBER> guest tickets on <TICKET TYPE NAME>, give <NAME> <EMAIL> access to it, and show me the delegation before you save it"
 
+#### Then: Change an allocation later
+
+What an agent can do: Fai can read how many tickets a partner has issued against each limit, change a limit, and add or remove the people who hold the delegation. She shows you the change and asks you to approve it before saving.
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "On <EVENT NAME>, show me how many tickets the <PARTNER NAME> delegation has issued, raise its limit on <TICKET TYPE NAME> to <NUMBER> and add <NAME> <EMAIL> to it, and show me the changes before saving"
+
 ### Send free tickets to your guest list
 
 Slug `issue-guest-tickets`. Guide: https://www.ticketfairy.com/guides/issue-guest-tickets
@@ -68,6 +76,24 @@ For: Giving press, guests and crew a ticket at no charge.
 What an agent can do: Fai, the assistant inside your dashboard, can send guest tickets for you from a list you give her. She shows you the recipients, the ticket type and the count and asks you to approve before anything is emailed, because a sent ticket cannot be unsent. The whole workflow is also in the dashboard.
 
 Prompt for Fai: "Send a Guest list ticket for <EVENT NAME> to <NAME> at <EMAIL ADDRESS>, show me the ticket type and the count before you send it"
+
+#### Then: Send a whole list at once
+
+What an agent can do: Fai takes the same list in the conversation and reads it back to you before she sends anything.
+
+Prompt for Fai: "Here is my press list for <EVENT NAME>. Send each of them one Guest list ticket, and show me the whole list and the total before you send"
+
+#### Then: Issue more tickets than the type has left
+
+What an agent can do: Fai reads what the type has left, names the shortfall and waits for you to say yes before she goes past it.
+
+Prompt for Fai: "Send 12 Guest list tickets for <EVENT NAME> to <EMAIL ADDRESS> and tell me first whether that type has 12 left"
+
+#### Then: Take a guest ticket back
+
+What an agent can do: Fai finds the order and shows you the guest and the tickets on it. Cancelling is yours to do on the page, because she is not given that one unless you ask us for it.
+
+Prompt for Fai: "Find the guest ticket order for <EMAIL ADDRESS> on <EVENT NAME> and show me what it holds"
 
 ### Share one invitation link to your event
 
@@ -92,6 +118,28 @@ For: Choosing acts, traders or guests from the people who apply.
 What an agent can do: Fai, the assistant inside your dashboard, can draft a form from your description or from a ready-made form, save it once you say yes, read every application, open the files applicants sent, and accept, decline or add an applicant to your event lists, asking you first each time.
 
 Prompt for Fai: "Draft a trader application form for <EVENT NAME> with a pitch fee of 150 and an insurance certificate upload, and add each applicant to our trader applications"
+
+#### Then: Send an accepted applicant a free ticket
+
+What an agent can do: Fai can send guest tickets to the applicants you accepted. She reads their names and email addresses from the form, and shows you the recipients, the ticket type and the count to approve before anything is sent.
+
+Prompt for Fai: "Send one Artist ticket each to the applicants I accepted on the artist applications form for <EVENT NAME>, and show me who gets what before you send"
+
+#### Then: Invite an accepted applicant to buy tickets
+
+What an agent can do: Send this invitation from the application in the dashboard, which fills in the applicant's email address and name for you.
+
+#### Then: Work through a long list of applications
+
+What an agent can do: Fai can read the applications on your form and list the ones that match what you describe, such as every act who picked Saturday. Tag and export the applications in the dashboard.
+
+Prompt for Fai: "Go through the artist applications form for <EVENT NAME> and list the acts who picked Saturday, with their email addresses"
+
+#### Then: Get the form in front of applicants
+
+What an agent can do: Fai can draft social captions that ask acts or traders to apply, in your brand's voice, and shows you every version to choose from. Nothing is posted, so add the form's address to the caption you pick, and download the QR code from the form in the dashboard.
+
+Prompt for Fai: "Draft three social captions for <EVENT NAME> asking acts to apply for a slot, and leave space for the application link"
 
 ## More
 

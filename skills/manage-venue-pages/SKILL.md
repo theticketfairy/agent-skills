@@ -67,6 +67,18 @@ What an agent can do: Fai, the assistant inside your dashboard, can read who loo
 
 Prompt for Fai: "For the venue page for <VENUE NAME>, show me who looks after it and who has been asked and not joined. Then invite <EMAIL ADDRESS> onto the venue team, and tell me what they will and will not be able to see"
 
+#### Then: Send the invitation again
+
+What an agent can do: Fai can read who is waiting and when each invitation last went out, and send one again. She asks you to confirm before she sends. MCP and the CLI do not reach a venue page.
+
+Prompt for Fai: "On the venue page for <VENUE NAME>, show me who has been asked and not joined, with when each invitation last went out. Then send <EMAIL ADDRESS> theirs again"
+
+#### Then: Call an invitation off
+
+What an agent can do: Fai can call an invitation off, and she asks you to confirm first. She cannot take a seat back from a person who has already joined. MCP and the CLI do not reach a venue page.
+
+Prompt for Fai: "On the venue page for <VENUE NAME>, call off the invitation to <EMAIL ADDRESS>. Tell me what it does to the link they already have"
+
 ### Change what your venue's page says
 
 Slug `change-what-your-venue-page-says`. Guide: https://www.ticketfairy.com/guides/change-what-your-venue-page-says
@@ -78,6 +90,24 @@ For: Keeping a venue's public page current for the people coming to it.
 What an agent can do: Fai, the assistant inside your dashboard, can list the venues your brand looks after, read every section with its draft state, add one, change a heading or the words under it, set the order, take a section off the page and put it back. She carries the version she read, so a teammate's save is never overwritten, and she asks you to confirm before each change. MCP and the CLI do not reach a venue page.
 
 Prompt for Fai: "Open the venue page for <VENUE NAME> and read me every section it has. Then add a section headed "Getting here" saying <WHAT PEOPLE NEED TO KNOW>, keep it as a draft, and show me the wording before you save it"
+
+#### Then: Take a section off the page, and put it back
+
+What an agent can do: Fai can take a section off a venue page and put it back, and she asks you to confirm each one. MCP and the CLI do not reach a venue page.
+
+Prompt for Fai: "On the venue page for <VENUE NAME>, take the section headed "<HEADING>" off the page. Show me what it says first and wait for me to confirm, and tell me how to put it back"
+
+#### Then: Answer what visitors ask before they come
+
+What an agent can do: Fai can read the questions on a venue page, add one, change a question or its answer, set their order, take one off the page and put it back. She asks you to confirm before each change. MCP and the CLI do not reach a venue page.
+
+Prompt for Fai: "On the venue page for <VENUE NAME>, add the question "<THE QUESTION>" with the answer <YOUR ANSWER>, and show me the wording before you save it"
+
+#### Then: See what changed on the page
+
+What an agent can do: Fai can read the same record and say what changed on a venue page and when. MCP and the CLI do not reach a venue page.
+
+Prompt for Fai: "Tell me what changed on the venue page for <VENUE NAME> over the last month, and when each change was made"
 
 ### Claim your venue's page on Ticket Fairy
 

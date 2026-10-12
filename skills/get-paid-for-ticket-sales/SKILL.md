@@ -54,6 +54,24 @@ What an agent can do: Fai, the assistant inside your dashboard, reads the same f
 
 Prompt for Fai: "For <EVENT NAME>, what did it earn, and what has our card account paid out recently"
 
+#### Then: When the money arrives
+
+What an agent can do: Fai can read the event's dates and how it takes payment, which is what the timing rests on.
+
+Prompt for Fai: "When should the payout for <EVENT NAME> reach us"
+
+#### Then: What holds a payout back
+
+What an agent can do: Fai reads the event's own state, so she can say whether it is postponed or cancelled and what that does to the payout.
+
+Prompt for Fai: "Is anything holding back the payout for <EVENT NAME>"
+
+#### Then: See the balance and what has been paid
+
+What an agent can do: Fai reads the payouts made and can break one down into its charges, refunds and fees, which is the answer to a figure you cannot reconcile.
+
+Prompt for Fai: "Break down the last payout for <BRAND NAME> into charges, refunds and fees"
+
 ### Choose who pays the booking fee on your event
 
 Slug `set-who-pays-the-fees`. Guide: https://www.ticketfairy.com/guides/set-who-pays-the-fees
@@ -70,6 +88,12 @@ Command line:
 
 Prompt for Fai: "For <EVENT NAME>, tell me which booking fee choice is set and what a <PRICE> ticket would cost the buyer and pay me under each choice, then set it to <ADDED OR ABSORBED> if that is still possible"
 
+#### Then: Change the choice on an event that has ticket types
+
+What an agent can do: Fai can make the change once the event has no ticket types, and tells you when it is locked. The CLI sets the same attribute without the check.
+
+Prompt for Fai: "Switch <EVENT NAME> to absorbed booking fees, and tell me first whether it still can be switched"
+
 ### Take ticket money with a payment processing account
 
 Slug `connect-a-payment-account`. Guide: https://www.ticketfairy.com/guides/connect-a-payment-account
@@ -85,6 +109,30 @@ Command line:
 - List the payment processing accounts on a brand, with the account type, status and which one is the default: `ticketfairy api /api/organizations/<BRAND_ID>/brand-payment-methods --output json`
 
 Prompt for Fai: "List the payment processing accounts on <BRAND NAME>, say which one new events will use, and tell me whether any of them still needs its setup finished"
+
+#### Then: Finish a setup you started earlier
+
+What an agent can do: Fai tells you which accounts on a brand are still unfinished. Finishing one is done here, on its row: a link she starts opens a new account rather than the one waiting on the table.
+
+Prompt for Fai: "Which payment processing accounts on <BRAND NAME> still need their setup finished?"
+
+#### Then: Give an account a name your team recognises
+
+What an agent can do: Fai renames a payment processing account for you and pauses for your approval first. She reads the current names back so you can pick the one you meant.
+
+Prompt for Fai: "Rename the payment processing account ending <LAST DIGITS> on <BRAND NAME> to <NEW NAME>"
+
+#### Then: Stop using an account you have finished with
+
+What an agent can do: Fai archives an account for you and pauses for your approval first. She archives the default too, which the Payments page does not offer, and another active account on the brand, if there is one, becomes the default, so check which account you are naming before you approve.
+
+Prompt for Fai: "Archive the payment processing account named <ACCOUNT NAME> on <BRAND NAME>"
+
+#### Then: Put a different account on one event
+
+What an agent can do: Fai reads which account an event uses and changes it, with your approval, while the event has no paid orders.
+
+Prompt for Fai: "Which payment processing account is <EVENT NAME> using, and what else could it use?"
 
 ## More
 

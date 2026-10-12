@@ -68,6 +68,18 @@ What an agent can do: Fai, the assistant inside your dashboard, can build the ev
 
 Prompt for Fai: "Set up a two day conference called <EVENT NAME> on <DATES> at <VENUE>, with a student rate and a networking dinner, and show me the passes before you create them"
 
+#### Then: Offer a workshop only to the delegates it is for
+
+What an agent can do: Fai lists your add-ons and which passes each one is open to. Changing the limit is yours to do on the page.
+
+Prompt for Fai: "For <EVENT NAME>, list my add-ons and say which ticket types can buy each one"
+
+#### Then: Run next year from this year
+
+What an agent can do: Fai reads last year's event so you can see what it held before you copy it. Duplicating it is yours to do on the page.
+
+Prompt for Fai: "Show me the ticket types, add-ons and settings on <LAST YEAR EVENT NAME>"
+
 ### Run ticketing as an agency or promoter group
 
 Slug `sell-as-an-agency-or-promoter-group`. Guide: https://www.ticketfairy.com/guides/sell-as-an-agency-or-promoter-group
@@ -79,6 +91,12 @@ For: Agencies, promoter groups and collectives selling tickets for several brand
 What an agent can do: Fai, the assistant inside your dashboard, can list your brands, invite each brand's team, create your collective, invite your promoters, deploy the collective to an event or brand with its commission, give you your invite code, accept a venue's invitation, change what a host can see of your promoters' sales, create a partner's delegation and report each promoter's sales and commission. She shows you each change and asks you to approve it before she makes it. Create each brand in the dashboard, from Brands.
 
 Prompt for Fai: "Set up my promoter collective <COLLECTIVE NAME>, invite <EMAIL ADDRESSES> as members and deploy it to <EVENT NAME> with <COMMISSION> commission; show me each change before you make it"
+
+#### Then: End a deployment
+
+What an agent can do: Fai can end a deployment after showing you which one it is and asking you to confirm.
+
+Prompt for Fai: "End my collective <COLLECTIVE NAME>'s deployment on <EVENT OR BRAND NAME> and ask me to confirm first"
 
 ### Run ticketing for a charity gala
 
@@ -135,6 +153,22 @@ Command line:
 
 Prompt for Fai: "Help me set up ticketing for our run of <SHOW NAME>; ask about our performance dates and times, the areas of the house and their prices, concessions, programme and drinks, comps and press, cast and crew passes and our on-sale date, then show me the proposed setup before changing anything"
 
+#### Then: Sell a season pass across the run
+
+What an agent can do: Event passes are set up on the brand's Event Passes page. Fai and the CLI do not create them yet.
+
+#### Then: Tell ticket holders about a cast change or a moved performance
+
+What an agent can do: Fai can email the holders of one performance after showing you the message, and takes you to the postponement controls. The CLI sends an email from a file and postpones by id.
+
+Prompt for Fai: "Email everyone attending <PERFORMANCE NAME> that <THE CHANGE>, and show me the message before sending"
+
+#### Then: Fill a sold-out performance from the waiting list
+
+What an agent can do: Fai can turn the waiting list on for a performance and tell you who is waiting. The CLI sets the same switch through the event's attributes.
+
+Prompt for Fai: "Turn on the waiting list for <PERFORMANCE NAME> and show me who is waiting"
+
 ### Run ticketing for a concert
 
 Slug `run-a-concert`. Guide: https://www.ticketfairy.com/guides/run-a-concert
@@ -154,6 +188,12 @@ Command line:
 - Read arrivals while the doors are open: `ticketfairy checkin status <EVENT_ID> --output json`
 
 Prompt for Fai: "Help me set up ticketing for our concert <SHOW NAME> on <DATE>; start from the Concert template, ask me about the capacity, general admission and VIP prices, releases, holds for the label and partners, merch, comps for the artist's guests, crew passes and our on-sale time, then show me the proposed setup before changing anything"
+
+#### Then: Tell ticket holders the set times or a change
+
+What an agent can do: Fai can email the ticket holders of the show after showing you the message and asking you to approve it, because a sent email cannot be recalled.
+
+Prompt for Fai: "Email everyone with a ticket for <SHOW NAME> that <THE NEWS>, and show me the message before sending"
 
 ### Run ticketing for a county, state or renaissance fair
 

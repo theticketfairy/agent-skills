@@ -60,6 +60,30 @@ CLI MCP tools that read: `select_brand`.
 
 Prompt for Fai: "Open my account settings so I can create an access token"
 
+#### Then: Swap a token without any downtime
+
+What an agent can do: Fai can open the page. Rotating and copying the new token stay with you, because the value is shown once and only to you.
+
+Command line:
+
+- Sign in with the token you copied: `ticketfairy auth login`
+
+CLI MCP tools that read: `select_brand`.
+
+Prompt for Fai: "Open my account settings so I can rotate an access token"
+
+#### Then: Take access back
+
+What an agent can do: Fai can open the page. Revoking is yours to confirm, because it stops a live integration the moment it happens.
+
+Command line:
+
+- Show the brands the current token can act for: `ticketfairy brand list`
+
+CLI MCP tools that read: `select_brand`.
+
+Prompt for Fai: "Open my account settings so I can revoke an access token"
+
 ### Get a webhook each time you take a ticket order
 
 Slug `get-a-webhook-when-a-ticket-sells`. Guide: https://www.ticketfairy.com/guides/get-a-webhook-when-a-ticket-sells
@@ -76,6 +100,28 @@ Command line:
 - Show the webhooks on the active brand: `ticketfairy webhook list`
 
 Prompt for Fai: "Add a webhook to <BRAND NAME> that sends every order to <YOUR ADDRESS> in the Full order format, then send it a test"
+
+#### Then: Pause or change a webhook
+
+What an agent can do: Fai can turn a webhook off or on, or change its address or format, after you approve the change.
+
+Command line:
+
+- Show the webhooks on the active brand: `ticketfairy webhook list`
+- Stop a webhook receiving without deleting it: `ticketfairy webhook update <WEBHOOK_ID> --disable`
+
+Prompt for Fai: "Turn off the webhook that sends <BRAND NAME> orders to <YOUR ADDRESS>, and ask me before you save it"
+
+#### Then: Delete a webhook
+
+What an agent can do: Fai can delete a webhook after you approve it. She names the address that stops receiving before you do.
+
+Command line:
+
+- Show the webhooks on the active brand: `ticketfairy webhook list`
+- Delete a webhook: `ticketfairy webhook delete <WEBHOOK_ID>`
+
+Prompt for Fai: "Delete the webhook that sends <BRAND NAME> orders to <YOUR ADDRESS>, and ask me before you delete it"
 
 ## More
 

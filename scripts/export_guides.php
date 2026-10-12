@@ -11,6 +11,7 @@ foreach (glob('resources/guides/entries/*.php') as $f) {
     $g = require $f;
     if (($g['published'] ?? true) === false) continue;
     $o[] = $clean(['slug' => $g['slug'], 'title' => $g['title'], 'summary' => $g['summary'],
-        'family' => $g['family'] ?? '', 'audience' => $g['audience'] ?? '', 'agent_paths' => $g['agent_paths'] ?? null]);
+        'family' => $g['family'] ?? '', 'audience' => $g['audience'] ?? '', 'agent_paths' => $g['agent_paths'] ?? null,
+        'follow_ups' => array_map(static fn (array $f): array => ['heading' => $f['heading'] ?? '', 'agent_paths' => $f['agent_paths'] ?? null], $g['follow_ups'] ?? [])]);
 }
 echo json_encode($o, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);

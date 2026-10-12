@@ -52,6 +52,18 @@ For: Handing out the right wristband or badge for every ticket at the gate.
 
 What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
 
+#### Then: Change which tickets get a band
+
+What an agent can do: Fai, the MCP server and the command line have no credential tools, so change a credential on the Credentials page.
+
+#### Then: Stop handing out a band for now
+
+What an agent can do: Fai, the MCP server and the command line have no credential tools, so deactivate or activate a credential on the Credentials page.
+
+#### Then: Remove a band
+
+What an agent can do: Fai, the MCP server and the command line have no credential tools, so delete a credential on the Credentials page.
+
 ### Scan tickets at the door
 
 Slug `scan-tickets-at-the-door`. Guide: https://www.ticketfairy.com/guides/scan-tickets-at-the-door
@@ -63,6 +75,18 @@ For: Getting a crowd through the door on event night.
 What an agent can do: Fai, the assistant inside your dashboard, reads how the doors are going and can find one person's ticket while you are standing at the entrance. Admitting people is the app's job.
 
 Prompt for Fai: "For <EVENT NAME>, how many have checked in so far, and has <ATTENDEE NAME> arrived"
+
+#### Then: Undo a scan
+
+What an agent can do: Fai reads the ticket so you can see whether it went in and when. Undoing the scan is yours to do on the page.
+
+Prompt for Fai: "For <EVENT NAME>, has <ATTENDEE NAME> checked in, and at what time"
+
+#### Then: Admit an attendee when the app cannot
+
+What an agent can do: Fai finds the order and the ticket. Changing its status is yours to do on the page.
+
+Prompt for Fai: "Find the order for <BUYER EMAIL ADDRESS> on <EVENT NAME> and show me its tickets and their states"
 
 ### Set ticket entry and repeat-scan rules
 

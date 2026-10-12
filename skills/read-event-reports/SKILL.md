@@ -101,6 +101,24 @@ CLI MCP tools that read: `select_event`, `get_event_performance`.
 
 Prompt for Fai: "For <EVENT NAME>, tell me how many tickets have sold and what the event has earned after referral rebates, then which ticket type is selling fastest"
 
+#### Then: Tell gross from net
+
+What an agent can do: Fai reads both figures and says which is which.
+
+Prompt for Fai: "For <EVENT NAME>, give me revenue with and without the booking fee and tell me whether refunds are already taken off"
+
+#### Then: Find the report behind a figure
+
+What an agent can do: Fai can pull any of those sections and compare them for you.
+
+Prompt for Fai: "For <EVENT NAME>, break the sales down by promo code and tell me which code brought in the most"
+
+#### Then: What each role sees here
+
+What an agent can do: Fai is held to the same limits as the person she acts for, so she reports only what that login can see.
+
+Prompt for Fai: "Which of my team can see revenue on <EVENT NAME>, and who only sees ticket counts"
+
 ### See where your event audiences are strongest
 
 Slug `see-where-your-event-audiences-are-strongest`. Guide: https://www.ticketfairy.com/guides/see-where-your-event-audiences-are-strongest
@@ -149,6 +167,14 @@ What an agent can do: Fai, the assistant inside your dashboard, can make a sales
 
 Prompt for Fai: "On <EVENT NAME>, make a sales report link called <NAME> for the <TICKET TYPES> ticket types and the <ADD-ONS> add-ons, <WITH OR WITHOUT> the day-by-day breakdown, and show it to me before you create it"
 
+#### Then: Replace a link that has been passed on
+
+What an agent can do: Fai cannot list the sales report links you already have, so replace a link in the dashboard.
+
+#### Then: Stop sharing a report
+
+What an agent can do: Fai cannot list the sales report links you already have, so delete a link in the dashboard.
+
 ### Track which promotion sells your tickets
 
 Slug `track-which-promotion-sold-your-tickets`. Guide: https://www.ticketfairy.com/guides/track-which-promotion-sold-your-tickets
@@ -160,6 +186,10 @@ For: Promoting an event in more than one place at once.
 What an agent can do: Fai, the assistant inside your dashboard, can read this table for you and say which link brought in the most: she reports the same clicks, orders and revenue, and the same caution that an order counts from the moment it is placed while a refund lowers the revenue. She cannot make a link or delete one, so those stay with you on this page.
 
 Prompt for Fai: "Show me the tracking links on this event and tell me which one brought in the most orders"
+
+#### Then: Delete a tracking link you no longer use
+
+What an agent can do: Delete a tracking link in the dashboard. Fai can read the links and their results, but she cannot create or delete one, and neither MCP nor the CLI manages them.
 
 ### Understand who buys tickets across your events
 

@@ -54,6 +54,18 @@ What an agent can do: Fai can save the Hive account ID on a brand, and she asks 
 
 Prompt for Fai: "Connect Hive on <BRAND NAME> with the account ID <HIVE ACCOUNT ID>, and ask me before you save it"
 
+#### Then: Add one event's buyers to a Hive segment
+
+What an agent can do: Fai can open the event's Settings page, where you enter the segment.
+
+Prompt for Fai: "Open the settings page for <EVENT NAME>"
+
+#### Then: Turn Hive off
+
+What an agent can do: Fai can turn Hive off for a brand after you approve the change.
+
+Prompt for Fai: "Turn off Hive on <BRAND NAME>, and ask me before you save it"
+
 ### Send your ticket buyers to Laylo
 
 Slug `send-your-ticket-buyers-to-laylo`. Guide: https://www.ticketfairy.com/guides/send-your-ticket-buyers-to-laylo
@@ -66,6 +78,12 @@ What an agent can do: Fai can save or remove the Laylo link on a brand, and she 
 
 Prompt for Fai: "Open Integrations for <BRAND NAME> so I can connect Laylo"
 
+#### Then: Turn Laylo off
+
+What an agent can do: Fai can turn Laylo off for a brand after you approve the change.
+
+Prompt for Fai: "Turn off Laylo on <BRAND NAME>, and ask me before you save it"
+
 ### Sync your ticket buyers to Mailchimp
 
 Slug `sync-buyers-to-mailchimp`. Guide: https://www.ticketfairy.com/guides/sync-buyers-to-mailchimp
@@ -77,6 +95,18 @@ For: Keeping a Mailchimp audience in step with ticket sales.
 What an agent can do: Fai, the assistant inside your dashboard, can list your connections and audiences, choose the audience, switch each sync on or off and disconnect, after showing you the change. The Mailchimp sign-in itself happens in your browser. Keep an API key in the dashboard form rather than in a message to Fai.
 
 Prompt for Fai: "Show me the Mailchimp connection on <BRAND NAME>, list its audiences, then set the audience to <AUDIENCE NAME> with buyers and newsletter sign-ups syncing and campaign sending left to Ticket Fairy"
+
+#### Then: Disconnect Mailchimp
+
+What an agent can do: Fai can disconnect the account after confirming with you. There is no CLI command for integrations.
+
+Prompt for Fai: "Disconnect Mailchimp from <BRAND NAME>, and confirm with me first"
+
+#### Then: Send one event's buyers to a different list
+
+What an agent can do: The per-event list is chosen in the dashboard. Fai can tell you which audience the brand connection uses.
+
+Prompt for Fai: "Which Mailchimp audience does <BRAND NAME> sync buyers into?"
 
 ## More
 

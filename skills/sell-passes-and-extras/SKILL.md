@@ -58,6 +58,30 @@ CLI MCP tools that read: `select_brand`.
 
 Prompt for Fai: "Create a season pass for <BRAND NAME> covering four events, priced at 96, usable until the end of March, and show me the events it would cover before saving"
 
+#### Then: See how many passes you have sold and how many events holders have booked
+
+What an agent can do: Fai can read the roll-up for a pass: how many sold, how many events were booked and how much revenue is still waiting.
+
+Command line:
+
+- Show the brands you can act for: `ticketfairy brand list`
+
+CLI MCP tools that read: `select_brand`.
+
+Prompt for Fai: "For <BRAND NAME>, how many season passes have sold and how many events have been booked with them"
+
+#### Then: Stop selling a pass while the ones already bought still work
+
+What an agent can do: Fai can archive a pass once you confirm it. She asks first, because it takes a product off sale.
+
+Command line:
+
+- Show the brands you can act for: `ticketfairy brand list`
+
+CLI MCP tools that read: `select_brand`.
+
+Prompt for Fai: "Take the last season pass for <BRAND NAME> off sale"
+
 ## More
 
 - All guides: https://www.ticketfairy.com/guides

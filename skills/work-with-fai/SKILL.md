@@ -55,6 +55,12 @@ What an agent can do: Fai can open your concierge widgets so you can copy the sn
 
 Prompt for Fai: "Open the concierge widgets for <BRAND NAME> so I can copy the snippet for our website"
 
+#### Then: Change the snippet after a key leak
+
+What an agent can do: Fai can open your concierge widgets for you. Rotating the key and replacing the snippet are done in the dashboard and on your own site.
+
+Prompt for Fai: "Open the concierge widgets for <BRAND NAME>"
+
 ### Ask Fai about your event
 
 Slug `ask-fai-about-your-event`. Guide: https://www.ticketfairy.com/guides/ask-fai-about-your-event
@@ -72,6 +78,34 @@ Command line:
 CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "How many tickets has <EVENT NAME> sold so far, and how does that compare with the same point before my last event"
+
+#### Then: Ask her to do the work, not only describe it
+
+What an agent can do: Fai proposes the changes and waits for your approval on each one.
+
+Command line:
+
+- Create a ticket release: `ticketfairy ticket create <EVENT_ID> --name "Early Bird" --price 18`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Set up an early bird tier for <EVENT NAME> at twenty per cent below the standard price, ask me for the allocation and the dates, and show me the change before you save it"
+
+#### Then: Things worth asking her for
+
+What an agent can do: Reading, drawing and drafting are hers to do freely. Anything that issues a ticket or changes your event is put to you first, and a guest ticket sent to the wrong person is taken back by cancelling its order.
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Issue two guest tickets on the comp tier for <EVENT NAME> to ada@example.com and noor@example.com, then show me the list before you send"
+
+#### Then: Talk to her instead of typing
+
+What an agent can do: Talking reaches the same Fai, with the same permissions, the same tools and the same approvals as typing. Only the exact words Fai reads out approve a change by voice.
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "How did <EVENT NAME> sell last weekend, and how does that compare with the weekend before"
 
 ### Give ticket buyers an AI concierge
 
@@ -91,6 +125,18 @@ CLI MCP tools that read: `select_brand`.
 
 Prompt for Fai: "Open the concierge widgets for <BRAND NAME>"
 
+#### Then: Keep it current as the event changes
+
+What an agent can do: Fai can open the widget so you can update what it knows.
+
+Command line:
+
+- Show the brands you can act for: `ticketfairy brand list`
+
+CLI MCP tools that read: `select_brand`.
+
+Prompt for Fai: "Open the concierge widget for <BRAND NAME> so I can update its answers"
+
 ### Teach your concierge from your event FAQ pages and Google Docs
 
 Slug `teach-your-concierge-from-your-event-faq-pages`. Guide: https://www.ticketfairy.com/guides/teach-your-concierge-from-your-event-faq-pages
@@ -102,6 +148,24 @@ For: Giving your concierge the answers you already keep on your website and in d
 What an agent can do: Fai can open your concierge's reference pages for you. Add a page, a Google Doc or a website, and choose which widgets answer from it, in the dashboard.
 
 Prompt for Fai: "Open the concierge reference pages for <BRAND NAME>"
+
+#### Then: Read a whole website instead of one page
+
+What an agent can do: Fai can open the reference pages for you. Adding the website and reviewing the pages she kept are done in the dashboard.
+
+Prompt for Fai: "Open the concierge reference pages for <BRAND NAME> so I can add our website"
+
+#### Then: Give one widget a page of its own
+
+What an agent can do: Fai can open your concierge widgets for you. A widget's own reference pages are added in the dashboard.
+
+Prompt for Fai: "Open the concierge widgets for <BRAND NAME>"
+
+#### Then: Let the concierge mention events you sell elsewhere
+
+What an agent can do: Fai can open the concierge's events on other platforms for you. Adding a page to watch is done in the dashboard.
+
+Prompt for Fai: "Open the concierge external event sources for <BRAND NAME>"
 
 ## More
 

@@ -61,6 +61,30 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, tell me what its tickets have sold and whether its funds have been paid out yet. Say what your figure leaves out"
 
+#### Then: Let buyers refund themselves instead
+
+What an agent can do: Fai can open the event so you can switch self-service refunds on. How many buyers used them is read on the Orders page today.
+
+Command line:
+
+- Show the event and its settings: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open <EVENT NAME> so I can let buyers refund themselves"
+
+#### Then: Offer the ticket to another buyer
+
+What an agent can do: Fai can open the event so you can turn resale on. The resale figures are read in the dashboard today.
+
+Command line:
+
+- Show the event and its settings: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open <EVENT NAME> so I can let buyers pass their tickets on"
+
 ### Open your ticket on-sale
 
 Slug `open-your-ticket-on-sale`. Guide: https://www.ticketfairy.com/guides/open-your-ticket-on-sale
@@ -80,6 +104,30 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Before I open <EVENT NAME> for sale, list its ticket types with prices, allocations and sale windows, and tell me anything that looks wrong"
 
+#### Then: Release more tickets when a tier sells out
+
+What an agent can do: Fai can open the next release once you approve the price and the number.
+
+Command line:
+
+- Show the ticket types so you can pick the one to open: `ticketfairy ticket list <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "For <EVENT NAME>, open the next ticket release now and tell me the price and allocation before you change anything"
+
+#### Then: Collect the people who missed out
+
+What an agent can do: Fai can open the event so you can turn the waiting list on. Switching it on and reading its members are dashboard jobs today.
+
+Command line:
+
+- Show the event and its current settings: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open <EVENT NAME> so I can turn on its waiting list"
+
 ### Prepare your door team for event day
 
 Slug `prepare-your-door-team`. Guide: https://www.ticketfairy.com/guides/prepare-your-door-team
@@ -96,6 +144,22 @@ Command line:
 - Read arrivals for each ticket type, such as the guest list against general admission: `ticketfairy checkin status <EVENT_ID> --breakdown ticket-types --output json`
 
 Prompt for Fai: "Get the door ready for <EVENT NAME>: invite <EMAIL ADDRESSES> to the event as Door Staff, send guest list tickets to the names I paste below, and let <TICKET TYPE NAME> holders back in once a day, showing me each change before you make it"
+
+#### Then: Add a name to the guest list on the night
+
+What an agent can do: Fai can send one more guest ticket while you stand at the door. She shows you the name, the ticket type and the count and asks you to approve before she sends it, because a sent ticket cannot be unsent.
+
+Prompt for Fai: "Send a Guest list ticket for <EVENT NAME> to <NAME> at <EMAIL ADDRESS>, show me the ticket type and the count before you send it"
+
+#### Then: Check whether one guest has arrived
+
+What an agent can do: Fai reads the check-in totals and one guest's ticket. Undoing a scan is done in the dashboard.
+
+Command line:
+
+- Read how many have checked in against the tickets sold: `ticketfairy checkin status <EVENT_ID>`
+
+Prompt for Fai: "For <EVENT NAME>, how many have checked in so far, and has <GUEST NAME> arrived"
 
 ### Run last year's event again
 
@@ -114,6 +178,30 @@ Command line:
 CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Copy <EVENT NAME> for next year, keep the ticket types and add-ons, and show me the new event in draft with the dates I give you before anything is published"
+
+#### Then: Repeat an event every week or month
+
+What an agent can do: Fai can open the recurring-event setup for you. Building the series is a dashboard job; she creates one event at a time.
+
+Command line:
+
+- Copy the event as a draft for one new date, with its ticket types, team, emails, contacts and FAQs. Enter the start and end as local date and time, such as 2026-10-10T22:00:00; sale windows and door times move by the same number of whole days: `ticketfairy event clone <EVENT_ID> --body '{"data": {"displayName": "<NEW EVENT NAME>", "slug": "", "shortName": "", "startDate": "<NEW START>", "endDate": "<NEW END>", "ticketTypes": true, "team": true, "credentials": false, "preRegistration": false, "promotions": false, "delegations": false, "emailTemplates": true, "contacts": true, "faqs": true}}'`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open the recurring-event setup for <EVENT NAME> so I can make it a weekly series"
+
+#### Then: Save the setup as a template for another promoter
+
+What an agent can do: Fai can open the sharing page for the event.
+
+Command line:
+
+- Show the event you are about to share: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open the template sharing page for <EVENT NAME>"
 
 ## More
 

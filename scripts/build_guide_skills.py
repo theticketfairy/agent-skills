@@ -228,8 +228,21 @@ def guide_section(guide, write_tools):
     else:
         lines += ['', 'What an agent can do: no agent route is recorded for this guide. Send the organiser '
                   'the guide link and walk them through the steps in the dashboard.']
-    cli = paths.get('cli') or {}
-    commands = cli.get('commands') or []
+    lines += route_lines(paths, write_tools)
+    # A follow-up is a task after the main steps, such as switching a promotion off.
+    for follow_up in guide.get('follow_ups') or []:
+        follow_up_paths = follow_up.get('agent_paths') or {}
+        if not follow_up.get('heading') or not follow_up_paths.get('summary'):
+            continue
+        lines += ['', f"#### Then: {follow_up['heading']}", '', f"What an agent can do: {follow_up_paths['summary']}"]
+        lines += route_lines(follow_up_paths, write_tools)
+    return '\n'.join(lines)
+
+
+def route_lines(paths, write_tools):
+    """The command-line commands, CLI MCP tools and Fai prompt an agent path records."""
+    lines = []
+    commands = (paths.get('cli') or {}).get('commands') or []
     if commands:
         lines += ['', 'Command line:', '']
         lines += [f"- {command['does'].rstrip('.')}: `{command['run']}`" for command in commands]
@@ -243,7 +256,7 @@ def guide_section(guide, write_tools):
                   + ', '.join(f'`{tool}`' for tool in writes) + '.']
     if paths.get('fai_prompt'):
         lines += ['', f"Prompt for Fai: \"{paths['fai_prompt']}\""]
-    return '\n'.join(lines)
+    return lines
 
 
 def build_skill(family, guides, write_tools):

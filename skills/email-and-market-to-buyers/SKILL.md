@@ -70,6 +70,30 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Draft the extra text for the confirmation email for <EVENT NAME>. Cover the door time, the age limit and how to get home, and show it to me before saving"
 
+#### Then: Change the message as the event nears
+
+What an agent can do: Fai can read the current text back and draft the replacement.
+
+Command line:
+
+- Show the event and its saved settings: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "What does the confirmation email for <EVENT NAME> currently say, and draft a version with the new door time in it"
+
+#### Then: Take the message off again
+
+What an agent can do: Fai can open the card so you can remove the text yourself.
+
+Command line:
+
+- Show the event and its saved settings: `ticketfairy event get <EVENT_ID>`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Open the confirmation email settings for <EVENT NAME>"
+
 ### Build a website for your events
 
 Slug `build-a-website-for-your-events`. Guide: https://www.ticketfairy.com/guides/build-a-website-for-your-events
@@ -81,6 +105,24 @@ For: Building a website for your events.
 What an agent can do: Fai, the assistant inside your dashboard, can start a website from your events, your current website or a description, add and change pages and sections, change the design, publish the website and put an earlier version back. She shows you each change and waits for your yes first. To start from a flyer or PDF, upload it in the dashboard.
 
 Prompt for Fai: "Build a website for <BRAND NAME> from our upcoming events, then show me what you made before you publish it"
+
+#### Then: Publish your later changes
+
+What an agent can do: Fai publishes your latest changes after you confirm.
+
+Prompt for Fai: "Publish the changes on my <WEBSITE NAME> website"
+
+#### Then: Go back to an earlier version
+
+What an agent can do: Fai lists your published versions and puts one back on your live website after you confirm.
+
+Prompt for Fai: "Put my <WEBSITE NAME> website back to the version published on <DATE>"
+
+#### Then: Take your website offline
+
+What an agent can do: Fai takes a website offline after you confirm.
+
+Prompt for Fai: "Take my <WEBSITE NAME> website offline"
 
 ### Connect your own web address to your event website
 
@@ -94,6 +136,30 @@ What an agent can do: Fai can connect your domain, tell you the records to add, 
 
 Prompt for Fai: "Connect www.<YOUR DOMAIN> to my <WEBSITE NAME> website and tell me the records to add at my domain provider"
 
+#### Then: When your address can be made secure
+
+What an agent can do: Fai checks your records again, tells you the step your address is at and the record to change, and makes it your main address after you confirm.
+
+Prompt for Fai: "Is www.<YOUR DOMAIN> secure yet? If it is, make it the main address of my <WEBSITE NAME> website"
+
+#### Then: Put your event site on your own address
+
+What an agent can do: Fai connects your own address to your event site, tells you the records to add, checks them and makes the address primary after you confirm.
+
+Prompt for Fai: "Connect www.<YOUR DOMAIN> to the event site of <EVENT NAME> and make it the main address when it is secure"
+
+#### Then: Add another free address
+
+What an agent can do: Fai adds a free web address after you confirm.
+
+Prompt for Fai: "Add the free web address <NAME>.sites.ticketfairy.com to my <WEBSITE NAME> website"
+
+#### Then: Disconnect your domain
+
+What an agent can do: Fai disconnects a domain after you confirm.
+
+Prompt for Fai: "Disconnect www.<YOUR DOMAIN> from my <WEBSITE NAME> website"
+
 ### Create extra landing pages for your event
 
 Slug `create-extra-landing-pages-for-your-event`. Guide: https://www.ticketfairy.com/guides/create-extra-landing-pages-for-your-event
@@ -105,6 +171,18 @@ For: Giving different audiences their own page for one event.
 What an agent can do: Fai, the assistant inside your dashboard, can list an event's extra pages and create one with its own address, name, dates, description and ticket types, including whether each ticket type stays on the main event page. She asks you to approve each page before she creates it. To upload a flyer or background image from your computer, use the dashboard.
 
 Prompt for Fai: "Create an extra landing page for <EVENT NAME> at the address <PAGE ADDRESS>, named <PAGE NAME>, for <AUDIENCE OR CAMPAIGN>. Offer only the <TICKET TYPE> ticket type on it and keep that ticket type on the main event page too. Show me the details before you create it"
+
+#### Then: Change an extra page
+
+What an agent can do: Fai can change an extra page after you approve the change. An update replaces the page's settings with the ones she sends, so the prompt asks her to keep everything else on the page as it is.
+
+Prompt for Fai: "On <EVENT NAME>, change the <PAGE NAME> extra page so that <CHANGE>. Keep everything else on the page as it is and show me the change before you save it"
+
+#### Then: Delete an extra page
+
+What an agent can do: Fai can delete an extra page once you approve it.
+
+Prompt for Fai: "Delete the <PAGE NAME> extra page from <EVENT NAME>. Show me which page it is before you delete it"
 
 ### Email the people who bought tickets to your event
 
@@ -123,6 +201,22 @@ Command line:
 
 Prompt for Fai: "Draft an email to <AUDIENCE, SUCH AS EVERYONE ATTENDING OR VIP TICKET HOLDERS> of <EVENT NAME> about <WHAT THEY NEED TO KNOW>, send a test to me first, then show me the final message and who will get it before sending"
 
+#### Then: Send it at a time you choose
+
+What an agent can do: Fai can schedule the message for the time you name, after showing you the message and the audience. The CLI sends from a file that names the schedule time.
+
+Prompt for Fai: "Schedule an email to <AUDIENCE> of <EVENT NAME> for <DATE AND TIME> about <WHAT THEY NEED TO KNOW>, and show me the message and who will get it before you schedule it"
+
+#### Then: Cancel a scheduled email
+
+What an agent can do: Cancelling a scheduled message is done in the dashboard. Fai, MCP and the CLI do not cancel one.
+
+#### Then: Save a message to send again
+
+What an agent can do: Templates are saved and chosen in the dashboard. Fai drafts each message fresh with you.
+
+Prompt for Fai: "Draft a doors-and-timings email for <EVENT NAME> in the same style as the one I sent for <PREVIOUS EVENT NAME>"
+
 ### Give your promoters artwork to post about your event
 
 Slug `give-your-promoters-artwork-to-post`. Guide: https://www.ticketfairy.com/guides/give-your-promoters-artwork-to-post
@@ -134,6 +228,12 @@ For: Getting your promoters posting the right artwork.
 What an agent can do: Fai, the assistant inside your dashboard, can add an asset from a link to a file that is already online, set its name, channel, caption, folder and tags, hide it or schedule when your promoters see it, email your promoters about it and tell you how often each asset has been downloaded. She asks you to approve every change before she makes it. To add a file from your computer, use **Add asset** in the dashboard.
 
 Prompt for Fai: "Add the line-up poster at <FILE LINK> to the marketing assets for <EVENT NAME>, sized for instagram stories, with a caption our promoters can paste, and keep it hidden from promoters until <DATE AND TIME>"
+
+#### Then: Share one set across every event
+
+What an agent can do: Fai adds and changes brand assets the same way when you name the brand instead of an event, and asks you to approve each change. She needs a link to a file that is already online.
+
+Prompt for Fai: "Add our logo pack at <FILE LINK> to the brand marketing assets so every event gets it"
 
 ### Let Fai improve your event website
 
@@ -147,6 +247,12 @@ What an agent can do: Fai can list her ideas for a website, apply, dismiss, undo
 
 Prompt for Fai: "What are your ideas for my <WEBSITE NAME> website? apply the ones about events and show me the text ones first"
 
+#### Then: Undo an idea you applied
+
+What an agent can do: Fai undoes an applied idea, or brings back a dismissed one, after you confirm.
+
+Prompt for Fai: "Undo the last idea applied on my <WEBSITE NAME> website"
+
 ### List your events on your website
 
 Slug `list-your-events-on-your-website`. Guide: https://www.ticketfairy.com/guides/list-your-events-on-your-website
@@ -159,6 +265,18 @@ What an agent can do: Fai can switch your website between automatic and chosen e
 
 Prompt for Fai: "Show only our summer festival events on my <WEBSITE NAME> website, with the opening night first"
 
+#### Then: List events from another brand
+
+What an agent can do: Fai asks a brand for you from a link to one of its events, and lists its events once the brand approves. She asks before each change.
+
+Prompt for Fai: "Ask the brand behind <EVENT LINK> if we can list their events on my <WEBSITE NAME> website"
+
+#### Then: Answer a request to list your events
+
+What an agent can do: Fai lists the requests to list your events and approves, declines or stops one after you confirm.
+
+Prompt for Fai: "Which websites asked to list our events? approve the one from <BRAND NAME>"
+
 ### Protect, hide and redirect pages on your event website
 
 Slug `protect-hide-and-redirect-pages-on-your-event-website`. Guide: https://www.ticketfairy.com/guides/protect-hide-and-redirect-pages-on-your-event-website
@@ -170,6 +288,12 @@ For: Controlling who finds each page of your website.
 What an agent can do: Fai can hide a page from search engines, set, change or remove its password, choose the page visitors see at an unknown address and add or remove redirects. She asks before each change.
 
 Prompt for Fai: "Password-protect the Crew briefing page on my <WEBSITE NAME> website and hide it from search engines"
+
+#### Then: Change or remove a page password
+
+What an agent can do: Fai changes or removes a page password after you confirm.
+
+Prompt for Fai: "Remove the password from the <PAGE NAME> page on my <WEBSITE NAME> website"
 
 ### Save the emails you send buyers, guests and applicants
 
@@ -185,6 +309,14 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Draft the email we send acts we have accepted for <EVENT NAME>, with the load-in time and the parking left as blanks for me to fill"
 
+#### Then: Work from one you already have
+
+What an agent can do: Copying and previewing are dashboard work. Fai can rewrite the wording of a message you paste to her, in your brand's voice.
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "Rewrite this email so it is shorter and sounds like our other messages to buyers"
+
 ### Take enquiries and RSVPs on your event website
 
 Slug `take-enquiries-and-rsvps-on-your-event-website`. Guide: https://www.ticketfairy.com/guides/take-enquiries-and-rsvps-on-your-event-website
@@ -196,6 +328,16 @@ For: Collecting enquiries and RSVPs from your website.
 What an agent can do: Fai can add a contact or RSVP form with your own questions or the private hire questions, read the replies for the days you name and mark them read, archived or spam. She asks before each change. To download the replies as a file, use Download replies in the dashboard.
 
 Prompt for Fai: "Add a private hire enquiry form to the Private hire page of my <WEBSITE NAME> website"
+
+#### Then: Download the replies
+
+What an agent can do: Fai can read the replies for the days you name, but she cannot give you the file. Use Download in the dashboard for the spreadsheet.
+
+#### Then: Mark a reply as spam
+
+What an agent can do: Fai marks a reply as spam after you confirm.
+
+Prompt for Fai: "Mark the reply from <NAME> on my <WEBSITE NAME> website as spam"
 
 ### Tell ticket holders where your event is
 
@@ -220,6 +362,12 @@ For: Offering your website in more languages.
 What an agent can do: Fai can translate your website into the languages you name, show how far she has got, accept, edit or translate a text again, and publish or take off a language. She asks before each change.
 
 Prompt for Fai: "Translate my <WEBSITE NAME> website into French and German and tell me when the texts are ready to check"
+
+#### Then: Take a language off your website
+
+What an agent can do: Fai takes a language off your website after you confirm.
+
+Prompt for Fai: "Take German off my <WEBSITE NAME> website"
 
 ## More
 

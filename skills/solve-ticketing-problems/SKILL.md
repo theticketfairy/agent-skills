@@ -110,6 +110,12 @@ What an agent can do: Fai, the assistant inside your dashboard, can create, view
 
 Prompt for Fai: "Create an Event Embed for my Main website, bind it to this event, allow my own website to run it, asking me for the address first, and give me the inline checkout snippet before you make any later changes."
 
+#### Then: Test the checkout after changing your website
+
+What an agent can do: Fai can review the saved embed setup and its allowed-site settings. You still complete the buyer test on your own website. MCP and the CLI do not test a browser checkout.
+
+Prompt for Fai: "Review the checkout embed for <EVENT NAME>, including its allowed websites and current setup, so I can test the checkout on phone and desktop"
+
 ### How can fan club members get presale access?
 
 Slug `give-fan-club-members-presale-access`. Guide: https://www.ticketfairy.com/guides/give-fan-club-members-presale-access

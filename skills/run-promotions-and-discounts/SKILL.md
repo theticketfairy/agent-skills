@@ -58,6 +58,34 @@ Command line:
 
 Prompt for Fai: "Find my event by name and create a promotion called <NAME> with code <CODE>: <PERCENTAGE OR AMOUNT> off <TICKET TYPES>, <LIMIT PER CODE OR NO LIMIT>, valid <DATES OR ALWAYS>. Show me the tickets, the discounted prices, the limit and the dates, then ask me to approve it before you create it"
 
+#### Then: Share a link that enters the code for the buyer
+
+What an agent can do: Fai can give you the link for a code. MCP and the CLI do not build promotion links.
+
+Prompt for Fai: "Give me the promotion link for code <CODE> on <EVENT NAME>"
+
+#### Then: Give a partner a live view of what their code sold
+
+What an agent can do: Fai can generate the tracking link for a code. MCP and the CLI do not.
+
+Prompt for Fai: "Generate a sales tracking link for code <CODE> on <EVENT NAME> and give me the link"
+
+#### Then: Change a promotion that is already in use
+
+What an agent can do: Fai can add a code to a promotion or change its name, tickets, limits and dates, after showing you the change. MCP does not manage promotions; the CLI updates a promotion from a JSON body.
+
+Prompt for Fai: "On <EVENT NAME>, open the promotion <NAME>, show me its codes, tickets, limits and dates, then <THE CHANGE> and ask me to approve it before saving"
+
+#### Then: Switch a promotion off
+
+What an agent can do: Fai can switch a promotion off, or back on, after showing you what it covers. MCP does not manage promotions; the CLI disables one by id.
+
+Command line:
+
+- Switch a promotion off: `ticketfairy promotion delete <EVENT_ID> <PROMOTION_ID> --force`
+
+Prompt for Fai: "Show me the promotion <NAME> on <EVENT NAME> with its codes and tickets, then ask before switching it off"
+
 ### Offer group discounts on your event tickets
 
 Slug `offer-group-discounts-on-event-tickets`. Guide: https://www.ticketfairy.com/guides/offer-group-discounts-on-event-tickets
@@ -74,6 +102,22 @@ Command line:
 
 Prompt for Fai: "Find my event by name and create a group discount called <NAME> with the code <CODE>: <PERCENTAGE OR AMOUNT> off <TICKET TYPES> once a basket holds <NUMBER> tickets. Show me the tickets, the discounted prices and the group size, then ask me to approve it before you create it"
 
+#### Then: Change the group size or the discount
+
+What an agent can do: Fai can change the group size, the discount or the ticket types on a group discount, after showing you the change. Make the change in the dashboard or through Fai.
+
+Prompt for Fai: "On <EVENT NAME>, open the group discount <NAME>, show me its group size, tickets and discount, then change <THE CHANGE> and ask me to approve it before saving"
+
+#### Then: Stop offering a group discount
+
+What an agent can do: Fai can switch a group discount off, or back on, after showing you what it covers. The CLI switches a promotion off by its id; switch it back on in the dashboard or through Fai.
+
+Command line:
+
+- Switch a group discount off: `ticketfairy promotion delete <EVENT_ID> <PROMOTION_ID> --force`
+
+Prompt for Fai: "Show me the group discount <NAME> on <EVENT NAME> with its group size and tickets, then ask before switching it off"
+
 ### Sell a gift certificate for your event
 
 Slug `sell-gift-certificates`. Guide: https://www.ticketfairy.com/guides/sell-gift-certificates
@@ -87,6 +131,14 @@ What an agent can do: Fai can list the certificates on an event, create one, cha
 CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Set up a gift certificate on <EVENT NAME> worth one Weekend Ticket, valid for 12 months; show me the settings before you save"
+
+#### Then: Change or withdraw a certificate later
+
+What an agent can do: Fai can change a certificate, take one off sale or remove one, and shows you what she is about to do first. She reaches the amount certificates the dashboard has no Edit for.
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "On <EVENT NAME>, take the Weekend Ticket gift certificate off sale but keep the ones people have already bought working"
 
 ## More
 
