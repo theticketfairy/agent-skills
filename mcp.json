@@ -4,6 +4,10 @@
     "ticketfairy-events": {
       "type": "streamable-http",
       "url": "https://www.ticketfairy.com/agentic/mcp"
+    },
+    "ticketfairy-guides": {
+      "type": "streamable-http",
+      "url": "https://www.ticketfairy.com/docs/mcp"
     }
   }
 }

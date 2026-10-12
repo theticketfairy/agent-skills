@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ticketfairy",
-  "version": "1.0.0",
-  "description": "Find Ticket Fairy events and help a buyer continue to checkout, or help an organiser start a Ticket Fairy account and prepare their first event.",
+  "version": "1.1.0",
+  "description": "Find Ticket Fairy events for buyers, answer organisers' how-to questions from the official guides, and help organisers set up events, sell tickets, run promotions, manage orders and refunds, check in guests, get paid and run production.",
   "author": {
     "name": "Ticket Fairy",
     "email": "support@ticketfairy.com",
@@ -11,5 +11,14 @@
   "homepage": "https://www.ticketfairy.com/developers",
   "repository": "https://github.com/theticketfairy/agent-skills",
   "license": "MIT",
-  "keywords": ["ticketing", "events", "tickets", "festivals", "concerts"]
+  "keywords": [
+    "ticketing",
+    "events",
+    "tickets",
+    "festivals",
+    "concerts",
+    "event-management",
+    "organisers",
+    "guides"
+  ]
 }

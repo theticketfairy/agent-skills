@@ -10,6 +10,7 @@ ticketing platform at https://www.ticketfairy.com. Follow them from the first pr
 | Read live public events (no account, no key) | `GET https://www.ticketfairy.com/api/v1/events/listing` |
 | Read the full API description | https://www.ticketfairy.com/api/v1/openapi.json |
 | Public event search from an MCP client | `https://www.ticketfairy.com/agentic/mcp` (Streamable HTTP, tool `search_events`) |
+| How to do something on Ticket Fairy, from the official guides | `https://www.ticketfairy.com/docs/mcp` (Streamable HTTP, tools `search_guides` and `get_guide`) |
 | Public event search over A2A 1.0 | Agent Card at https://www.ticketfairy.com/.well-known/agent-card.json |
 | Manage an organiser's own events, tickets and orders | The official CLI: `npm install -g ticketfairy`, then `ticketfairy --help`. `ticketfairy mcp` starts its local MCP server. |
 | Step-by-step agent workflows | The skills in [`skills/`](skills/) |
