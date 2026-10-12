@@ -39,8 +39,9 @@ you, use the claim ceremony instead.
    {"type": "service_auth", "login_hint": "person@example.com", "agent_name": "Acme Assistant"}
    ```
 
-   `agent_name` is what the person sees on the approval page. Keep `claim_token` and `client_id`
-   from the response in memory. Never put `claim_token` in a URL.
+   `agent_name` is what the person sees on the approval page. Keep `claim_token` from the response
+   in memory only, and never put it in a URL. Keep `client_id` too: store it with the refresh token,
+   because refreshing the access token needs it.
 
 2. Send the person `claim.verification_uri` and `claim.user_code` in one message:
 
