@@ -34,7 +34,7 @@ Accept: application/json
 
 ## Connect through MCP
 
-If your assistant supports Model Context Protocol (MCP) over Streamable HTTP, connect to `https://www.ticketfairy.com/agentic/mcp` and use `search_events` for the same public event search. You do not need an account or an API key. Do not send browser cookies, bearer tokens or payment details. For organiser account actions, use the separate Ticket Fairy command-line tool described at https://www.ticketfairy.com/mcp.
+If your assistant supports Model Context Protocol (MCP) over Streamable HTTP, connect to `https://www.ticketfairy.com/agentic/mcp` and use `search_events` for the same public event search. The server also offers `ask_events`, which finds upcoming events from a plain-language question such as "jazz in Melbourne this weekend", and `get_event`, which returns the current details of one event from its event link. You do not need an account or an API key. Do not send browser cookies, bearer tokens or payment details. For organiser account actions, use the separate Ticket Fairy command-line tool described at https://www.ticketfairy.com/mcp.
 
 An MCP client handles initialization and tool discovery for you. For a direct HTTP integration, send the following JSON messages in order as separate POST requests to `https://www.ticketfairy.com/agentic/mcp`. Every request needs `Content-Type: application/json` and `Accept: application/json, text/event-stream`. This server returns JSON rather than an event stream; opening the endpoint with GET returns 405.
 
@@ -50,7 +50,7 @@ An MCP client handles initialization and tool discovery for you. For a direct HT
 {"jsonrpc":"2.0","method":"notifications/initialized"}
 ```
 
-3. List tools and read the `search_events` input schema before calling it.
+3. List tools and read each tool's input schema before calling it.
 
 ```json
 {"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}
