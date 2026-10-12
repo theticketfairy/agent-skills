@@ -1,5 +1,7 @@
 # Ticket Fairy agent skills
 
+[![skills.sh](https://skills.sh/b/theticketfairy/agent-skills)](https://skills.sh/theticketfairy/agent-skills)
+
 Official [Agent Skills](https://agentskills.io) and AI coding agent rules from
 [Ticket Fairy](https://www.ticketfairy.com), the ticketing platform for festivals, club
 nights, concerts, conferences and tours.
@@ -53,6 +55,12 @@ Install them with the [skills CLI](https://skills.sh):
 
 ```sh
 npx skills add theticketfairy/agent-skills
+```
+
+To install every skill without the prompts:
+
+```sh
+npx skills add theticketfairy/agent-skills --all -y
 ```
 
 In Claude Code, you can also add them as a plugin:
