@@ -23,15 +23,31 @@ It has two read-only tools.
 | `search_guides` | `query`: what the person wants to do, in plain words (2 to 500 characters) | At most 5 guides, best match first, each with `guide_slug`, `title`, `summary`, `screen`, `url` and `agent_tools` |
 | `get_guide` | `guide`: a `guide_slug` from a search, or a guide link such as `https://www.ticketfairy.com/guides/create-an-event` | One guide as plain text: `audience`, `intro`, `before_you_start`, `steps`, `questions`, `agent_summary` and `related_guides` |
 
-Without an MCP client, POST JSON-RPC to the endpoint with `Content-Type: application/json` and
-`Accept: application/json, text/event-stream`:
+An MCP client handles the connection for you. For a direct HTTP integration, send these JSON
+messages in order as separate POST requests to `https://www.ticketfairy.com/docs/mcp`. Every request
+needs `Content-Type: application/json` and `Accept: application/json, text/event-stream`. The
+server answers with JSON, not an event stream.
 
-```sh
-curl -sS https://www.ticketfairy.com/docs/mcp \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json, text/event-stream' \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_guides","arguments":{"query":"add a promo code"}}}'
-```
+1. Initialize. Continue only if the returned `result.protocolVersion` is one your client supports.
+   The server supports `2025-11-25` and `2025-06-18`.
+
+   ```json
+   {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"guides-client","version":"1.0.0"}}}
+   ```
+
+2. Send `MCP-Protocol-Version` with the returned version on every later request. Send the
+   initialized notification, which has no ID. Expect HTTP 202 with no body.
+
+   ```json
+   {"jsonrpc":"2.0","method":"notifications/initialized"}
+   ```
+
+3. Call a tool. Read the result from `result.structuredContent`; the text content holds the same
+   JSON. If `result.isError` is true, read the message and correct the input.
+
+   ```json
+   {"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"search_guides","arguments":{"query":"add a promo code"}}}
+   ```
 
 ## Answer a question
 
