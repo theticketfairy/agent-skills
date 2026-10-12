@@ -58,12 +58,13 @@ ticketfairy brand use <BRAND_ID>
 | List events on the active brand | `ticketfairy event list` |
 | Open one event | `ticketfairy event get <EVENT_ID>` |
 | Sales and performance | `ticketfairy event stats <EVENT_ID> --metric sales` |
-| Create or change an event from a file | `ticketfairy event create --from-file event.json` |
+| Create an event from a file | `ticketfairy event create --from-file event.json` |
+| Change an event from a file | `ticketfairy event update <EVENT_ID> --from-file event.json` |
 | Copy an event | `ticketfairy event clone <EVENT_ID>` |
 | Publish or unpublish | `ticketfairy event publish <EVENT_ID>`, `ticketfairy event unpublish <EVENT_ID>` |
 | Ticket types | `ticketfairy ticket list <EVENT_ID>` |
 | Orders, filtered by status | `ticketfairy order list <EVENT_ID> --status paid` |
-| Export orders to CSV | `ticketfairy order export <EVENT_ID> --format csv --file orders.csv` |
+| Export orders to CSV | `ticketfairy order export <EVENT_ID> --output csv --file orders.csv` |
 | Customers | `ticketfairy customer search <TERM>` |
 | Promotions | `ticketfairy promotion list <EVENT_ID>` |
 | Send invitations from a CSV | `ticketfairy invitation send <EVENT_ID> --from-csv guests.csv --ticket-type <TICKET_TYPE_ID>` |
