@@ -49,8 +49,8 @@ reads live from the guides MCP server at `https://www.ticketfairy.com/docs/mcp`.
 | [`run-event-social-media`](skills/run-event-social-media/SKILL.md) | Connect Instagram and TikTok to Ticket Fairy, draft and schedule posts, answer comments and messages, and run follower presales. Use when an organiser promotes events on social media. |
 | [`run-event-workflows`](skills/run-event-workflows/SKILL.md) | Follow Ticket Fairy start-to-finish workflows: on-sale day, repeating last year's event, and changing plans. |
 | [`run-promotions-and-discounts`](skills/run-promotions-and-discounts/SKILL.md) | Create Ticket Fairy promo codes, group discounts and promoter links. |
-| [`sell-passes-and-extras`](skills/sell-passes-and-extras/SKILL.md) | Sell Ticket Fairy extras beyond a single event ticket, such as one pass that covers several of your events. |
-| [`set-up-event-tickets`](skills/set-up-event-tickets/SKILL.md) | Set up a Ticket Fairy event: ticket types, release tiers, sessions, seating, add-ons, resale and transfer rules. |
+| [`sell-passes-and-extras`](skills/sell-passes-and-extras/SKILL.md) | Sell add-ons, VIP tables, hotel rooms and travel for ticket buyers, and passes covering several events. |
+| [`set-up-event-tickets`](skills/set-up-event-tickets/SKILL.md) | Set up event tickets: ticket types, release tiers, sessions, seating, resale and transfer rules. |
 | [`solve-ticketing-problems`](skills/solve-ticketing-problems/SKILL.md) | Solve common event ticketing problems with Ticket Fairy: queues, no-shows, reports, marketing and access. |
 | [`track-advertising-campaigns`](skills/track-advertising-campaigns/SKILL.md) | Connect advertising pixels and conversion tracking to Ticket Fairy and see which campaigns sold tickets. |
 | [`use-vault-and-capital`](skills/use-vault-and-capital/SKILL.md) | Use the Ticket Fairy Vault account, cards, transfers and invoices, and Capital working capital. |
@@ -81,28 +81,22 @@ In Claude Code, you can also add them as a plugin:
 The repository is also an [Agent Plugin](https://agent-plugins.org/specification): `plugin.json` describes it,
 and `mcp.json` connects the public Ticket Fairy event search and guides MCP servers, which need no account.
 
-`find-event-tickets` and `start-organising-events` are also published at
-https://www.ticketfairy.com/.well-known/agent-skills/index.json.
+All 34 skill names are also advertised in the
+[public skill index](https://www.ticketfairy.com/.well-known/agent-skills/index.json).
 
 ## Focused collections
 
-The following focused repositories are prepared for publication. Their links and
-install commands become available after the repositories are published. They use
-the same canonical skill names; choose the collection for your task instead of
-installing duplicate copies from several sources.
+These five public repositories provide focused collections from the 34-skill hub.
+They use the same canonical skill names; choose the collection for your task
+instead of installing duplicate copies from several sources.
 
-| Collection | Capabilities | Install after publication |
-| --- | --- | --- |
-| [Buyer ticketing skills](https://github.com/theticketfairy/buyer-ticketing-skills) | Public event discovery, supported agent checkout and browser handoff | `npx skills add theticketfairy/buyer-ticketing-skills` |
-| [Event planning skills](https://github.com/theticketfairy/event-planning-skills) | Event setup, tickets, artists, team travel and show schedules | `npx skills add theticketfairy/event-planning-skills` |
-| [Event operations skills](https://github.com/theticketfairy/event-operations-skills) | Orders, refunds, doors, crew, accreditation, site and reports | `npx skills add theticketfairy/event-operations-skills` |
-| [Event marketing skills](https://github.com/theticketfairy/event-marketing-skills) | Buyer messaging, promotions, referrals, ads and social media | `npx skills add theticketfairy/event-marketing-skills` |
-| [Developer integration skills](https://github.com/theticketfairy/developer-integration-skills) | Account connection, CLI, MCP, API, webhooks and integrations | `npx skills add theticketfairy/developer-integration-skills` |
-
-Publication is not proof of skills.sh indexing. The [skills.sh FAQ](https://skills.sh/docs/faq)
-explains that skills are listed automatically through anonymous CLI installation
-telemetry. We do not claim an installation count or indexing result for these
-prepared repositories.
+| Collection | Capabilities | skills.sh | Install |
+| --- | --- | --- | --- |
+| [Buyer ticketing skills](https://github.com/theticketfairy/buyer-ticketing-skills) | Public event discovery, supported agent checkout and browser handoff | [Browse](https://skills.sh/theticketfairy/buyer-ticketing-skills) | `npx skills add theticketfairy/buyer-ticketing-skills` |
+| [Event planning skills](https://github.com/theticketfairy/event-planning-skills) | Event setup, tickets, artists, team travel and show schedules | [Browse](https://skills.sh/theticketfairy/event-planning-skills) | `npx skills add theticketfairy/event-planning-skills` |
+| [Event operations skills](https://github.com/theticketfairy/event-operations-skills) | Orders, refunds, doors, crew, accreditation, site and reports | [Browse](https://skills.sh/theticketfairy/event-operations-skills) | `npx skills add theticketfairy/event-operations-skills` |
+| [Event marketing skills](https://github.com/theticketfairy/event-marketing-skills) | Buyer messaging, promotions, referrals, ads and social media | [Browse](https://skills.sh/theticketfairy/event-marketing-skills) | `npx skills add theticketfairy/event-marketing-skills` |
+| [Developer integration skills](https://github.com/theticketfairy/developer-integration-skills) | Account connection, CLI, MCP, API, webhooks and integrations | [Browse](https://skills.sh/theticketfairy/developer-integration-skills) | `npx skills add theticketfairy/developer-integration-skills` |
 
 ### Maintain one source
 
