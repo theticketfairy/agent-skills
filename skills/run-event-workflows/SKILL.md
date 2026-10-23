@@ -31,10 +31,16 @@ This skill covers on-sale day, repeating last year's event, and changing plans o
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
@@ -51,19 +57,23 @@ Choose between postponing, cancelling and refunding, tell ticket holders before 
 
 For: Choosing between a new date, calling an event off and refunding buyers.
 
-What an agent can do: Fai can read the ticket sales back to you, open the page where you make the change, and draft the message to ticket holders. Take her figure as ticket sales rather than the whole bill: add-ons and instalment plans sit outside it.
+What an agent can do: Fai can tell you the ticket sales, open the page where you make the change, and draft the message to ticket holders. Her figure covers ticket sales only, not add-ons or instalment plans.
 
 Command line:
 
 - Show the event, its dates and its status: `ticketfairy event get <EVENT_ID>`
+- Postpone the event with the new dates and refund choice in a file you have reviewed (changes the live event): `ticketfairy event postpone <EVENT_ID> --from-file postponement.yaml`
+- Cancel the event and confirm at the prompt (changes the live event): `ticketfairy event cancel <EVENT_ID>`
 
 CLI MCP tools that read: `select_event`, `get_event`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `postpone_event`, `cancel_event`.
 
 Prompt for Fai: "For <EVENT NAME>, tell me what its tickets have sold and whether its funds have been paid out yet. Say what your figure leaves out"
 
 #### Then: Let buyers refund themselves instead
 
-What an agent can do: Fai can open the event so you can switch self-service refunds on. How many buyers used them is read on the Orders page today.
+What an agent can do: Fai can open the event so you can switch self-service refunds on, and the Orders page shows how many buyers used them.
 
 Command line:
 
@@ -75,7 +85,7 @@ Prompt for Fai: "Open <EVENT NAME> so I can let buyers refund themselves"
 
 #### Then: Offer the ticket to another buyer
 
-What an agent can do: Fai can open the event so you can turn resale on. The resale figures are read in the dashboard today.
+What an agent can do: Fai can open the event so you can turn resale on, and the dashboard shows the resale figures.
 
 Command line:
 
@@ -106,19 +116,22 @@ Prompt for Fai: "Before I open <EVENT NAME> for sale, list its ticket types with
 
 #### Then: Release more tickets when a tier sells out
 
-What an agent can do: Fai can open the next release once you approve the price and the number.
+What an agent can do: Fai can open the next release once you approve the price and the number, and so can your own AI assistant over the MCP server, after your approval in your MCP client.
 
 Command line:
 
 - Show the ticket types so you can pick the one to open: `ticketfairy ticket list <EVENT_ID>`
+- Open the held ticket type now. The ticket id comes from the list above: `ticketfairy ticket update <EVENT_ID> <TICKET_ID> --sales-start <NOW_ISO_8601>`
 
-CLI MCP tools that read: `select_event`, `get_event`.
+CLI MCP tools that read: `select_event`, `list_tickets`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `update_ticket`.
 
 Prompt for Fai: "For <EVENT NAME>, open the next ticket release now and tell me the price and allocation before you change anything"
 
 #### Then: Collect the people who missed out
 
-What an agent can do: Fai can open the event so you can turn the waiting list on. Switching it on and reading its members are dashboard jobs today.
+What an agent can do: Fai can open the event so you can turn the waiting list on. Today, you switch it on and see who's on it in the dashboard.
 
 Command line:
 
@@ -136,24 +149,24 @@ Give everyone on your event door their own scanning login, send the guest list i
 
 For: Getting a door team ready for the day of an event.
 
-What an agent can do: Fai can invite your door team as Door Staff, send the guest list their tickets, set a ticket's repeat-scan rules, report arrivals and find one guest's ticket. She shows you each invitation, ticket and change and asks you to approve it before anything is sent or saved. Wristbands, door times and undoing a test scan are set up in the dashboard.
+What an agent can do: Fai can invite your door team as Door Staff, send the guest list their tickets, set a ticket's repeat-scan rules, report arrivals and find one guest's ticket. She shows you each invitation, ticket and change and asks you to approve it before anything is sent or saved. You set up wristbands and door times, and undo a test scan, in the dashboard.
 
 Command line:
 
 - Read how many have checked in against the tickets sold: `ticketfairy checkin status <EVENT_ID>`
 - Read arrivals for each ticket type, such as the guest list against general admission: `ticketfairy checkin status <EVENT_ID> --breakdown ticket-types --output json`
 
-Prompt for Fai: "Get the door ready for <EVENT NAME>: invite <EMAIL ADDRESSES> to the event as Door Staff, send guest list tickets to the names I paste below, and let <TICKET TYPE NAME> holders back in once a day, showing me each change before you make it"
+Prompt for Fai: "Get the door ready for <EVENT NAME>: invite <EMAIL ADDRESSES> to the event as Door Staff, send guest list tickets to the names I paste below, and let <TICKET TYPE NAME> holders leave and come back in, showing me each change before you make it"
 
 #### Then: Add a name to the guest list on the night
 
-What an agent can do: Fai can send one more guest ticket while you stand at the door. She shows you the name, the ticket type and the count and asks you to approve before she sends it, because a sent ticket cannot be unsent.
+What an agent can do: Fai can send one more guest ticket while you stand at the door. She shows you the name, the ticket type and the count and asks you to approve before she sends it, because you can't unsend a ticket.
 
 Prompt for Fai: "Send a Guest list ticket for <EVENT NAME> to <NAME> at <EMAIL ADDRESS>, show me the ticket type and the count before you send it"
 
 #### Then: Check whether one guest has arrived
 
-What an agent can do: Fai reads the check-in totals and one guest's ticket. Undoing a scan is done in the dashboard.
+What an agent can do: Fai can tell you the check-in totals and look up one guest's ticket. You undo a scan in the dashboard.
 
 Command line:
 
@@ -169,7 +182,7 @@ Copy last year's event, change the dates and prices, and open the on-sale to las
 
 For: Running an event you have run before.
 
-What an agent can do: Fai can read what last year's event sold back to you, tier by tier, and copy it once you approve. The CLI copies the event in one command.
+What an agent can do: Fai can tell you what last year's event sold, tier by tier, and copy it once you approve. The CLI copies the event in one command.
 
 Command line:
 
@@ -181,7 +194,7 @@ Prompt for Fai: "Copy <EVENT NAME> for next year, keep the ticket types and add-
 
 #### Then: Repeat an event every week or month
 
-What an agent can do: Fai can open the recurring-event setup for you. Building the series is a dashboard job; she creates one event at a time.
+What an agent can do: Fai can open the recurring-event setup for you. You build the series in the dashboard; she creates one event at a time.
 
 Command line:
 

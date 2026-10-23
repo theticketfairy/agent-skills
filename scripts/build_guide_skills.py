@@ -6,7 +6,7 @@ resources/guides/entries. Export the published ones to JSON from that
 repository's root with the script beside this one. It removes the dashboard
 label keys, as the published guides do:
 
-    php ../agent-skills/scripts/export_guides.php > guides.json
+    php ../agent-skills/scripts/export_guides.php --with-skill-families > guides.json
 
 Then run, from this repository's root, with a checkout of the ticketfairy CLI
 (https://github.com/theticketfairy/ticketfairy-cli) to read which MCP tools make changes:
@@ -201,10 +201,16 @@ HOW_TO_WORK = """## How to work
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 """
 
 
@@ -309,7 +315,19 @@ def cli_write_tools(cli_root):
 def main():
     if len(sys.argv) != 3:
         sys.exit('Usage: build_guide_skills.py <guides.json> <ticketfairy-cli checkout>')
-    guides = json.loads(Path(sys.argv[1]).read_text())
+    exported = json.loads(Path(sys.argv[1]).read_text())
+    guides = exported['guides'] if isinstance(exported, dict) else exported
+    if isinstance(exported, dict):
+        # The platform owns guide-family names and capability descriptions.
+        families = exported['skill_families']
+        for family in families.values():
+            if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', family['name']) or len(family['name']) > 64:
+                sys.exit('A skill family has an invalid name.')
+            if not all(isinstance(family.get(key), str) and family[key] for key in ['title', 'description', 'covers']):
+                sys.exit('A skill family is incomplete.')
+        FAMILIES.clear()
+        FAMILIES.update({key: tuple(value[field] for field in ['name', 'title', 'description', 'covers'])
+                         for key, value in families.items()})
     if not guides:
         sys.exit('The guide catalogue is empty; check the export before building skills.')
     write_tools = cli_write_tools(sys.argv[2])

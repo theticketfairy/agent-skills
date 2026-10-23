@@ -14,4 +14,8 @@ foreach (glob('resources/guides/entries/*.php') as $f) {
         'family' => $g['family'] ?? '', 'audience' => $g['audience'] ?? '', 'agent_paths' => $g['agent_paths'] ?? null,
         'follow_ups' => array_map(static fn (array $f): array => ['heading' => $f['heading'] ?? '', 'agent_paths' => $f['agent_paths'] ?? null], $g['follow_ups'] ?? [])]);
 }
+if (in_array('--with-skill-families', $argv ?? [], true)) {
+    require 'components/Services/AgentDiscovery/GuideAreaSkills.php';
+    $o = ['guides' => $o, 'skill_families' => Components\Services\AgentDiscovery\GuideAreaSkills::FAMILIES];
+}
 echo json_encode($o, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);

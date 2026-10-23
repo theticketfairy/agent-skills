@@ -5,7 +5,7 @@ description: "Solve common event ticketing problems with Ticket Fairy: queues, n
 
 # Solve ticketing problems
 
-This skill covers queues, no-shows, reports, marketing and access on Ticket Fairy. It lists the 19 published guides for this area and what an agent can do for each one.
+This skill covers queues, no-shows, reports, marketing and access on Ticket Fairy. It lists the 16 published guides for this area and what an agent can do for each one.
 
 ## How to work
 
@@ -31,17 +31,22 @@ This skill covers queues, no-shows, reports, marketing and access on Ticket Fair
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
 - [Can ticket buyers join your email list automatically?](#can-ticket-buyers-join-your-email-list-automatically)
 - [Can you hold and spend your ticket money without a separate bank?](#can-you-hold-and-spend-your-ticket-money-without-a-separate-bank)
 - [Can you run a festival's marketing and production from one dashboard?](#can-you-run-a-festivals-marketing-and-production-from-one-dashboard)
-- [Can you sell tickets directly from your own website?](#can-you-sell-tickets-directly-from-your-own-website)
 - [How can fan club members get presale access?](#how-can-fan-club-members-get-presale-access)
 - [How do you answer a ticket sales question no report covers?](#how-do-you-answer-a-ticket-sales-question-no-report-covers)
 - [How do you keep a high-demand on-sale running smoothly?](#how-do-you-keep-a-high-demand-on-sale-running-smoothly)
@@ -51,8 +56,6 @@ This skill covers queues, no-shows, reports, marketing and access on Ticket Fair
 - [How do you manage tickets for a multi-day event?](#how-do-you-manage-tickets-for-a-multi-day-event)
 - [How do you run a guest list for your event without a spreadsheet?](#how-do-you-run-a-guest-list-for-your-event-without-a-spreadsheet)
 - [How do you sell more tickets without spending more on ads?](#how-do-you-sell-more-tickets-without-spending-more-on-ads)
-- [How do you set up a payment plan so buyers pay for tickets in instalments?](#how-do-you-set-up-a-payment-plan-so-buyers-pay-for-tickets-in-instalments)
-- [Invite promoters to your collective so they can sell tickets for your events](#invite-promoters-to-your-collective-so-they-can-sell-tickets-for-your-events)
 - [What can you find out about the people who buy your tickets?](#what-can-you-find-out-about-the-people-who-buy-your-tickets)
 - [What is social ticketing, and how do referral rewards work?](#what-is-social-ticketing-and-how-do-referral-rewards-work)
 - [What marketing tools should a ticketing platform give you?](#what-marketing-tools-should-a-ticketing-platform-give-you)
@@ -66,7 +69,7 @@ Yes. Connect your email platform once, and every buyer who opts in joins the aud
 
 For: Sending campaigns to the people who buy your tickets.
 
-What an agent can do: Fai, the assistant inside your dashboard, can show which email platforms your brand can connect, choose the audience once a connection exists, change the sync settings and disconnect it later. Connect the platform in the dashboard under brand settings, using its sign-in button or API key form. Keep an API key in that form rather than in a message to Fai. She asks before she changes a sync because buyer details can start going to the platform.
+What an agent can do: Fai can show which email platforms your brand can connect, choose the audience once a connection exists, change the sync settings and disconnect it later. Connect the platform in the dashboard under brand settings, using its sign-in button or API key form. Keep an API key in that form rather than in a message to Fai. She asks before she changes a sync, because the change can start sending buyer details to the platform.
 
 Prompt for Fai: "Show me which email platforms this brand can connect and which are connected already. For the connected one, show me the audiences I can pick and what the sync settings are now."
 
@@ -74,11 +77,11 @@ Prompt for Fai: "Show me which email platforms this brand can connect and which 
 
 Slug `hold-and-spend-your-ticket-money-in-one-place`. Guide: https://www.ticketfairy.com/guides/hold-and-spend-your-ticket-money-in-one-place
 
-Where your events take payment through Vault, your ticket money stays in Vault. Hold it in several currencies, see what each event earned, spend it on a card, pay artists and suppliers one at a time or in a batch, collect deposits and raise invoices without moving it to a bank account first.
+Yes. When your events take payment through TF Pay, the money stays in your Vault balance, in each currency you sell in, ready to spend on a card, pay suppliers or invoice a client.
 
 For: Paying for an event out of the ticket money you have already taken.
 
-What an agent can do: Fai, the assistant inside your dashboard, opens Vault and reads a balance back to you. Moving money is yours to do, on the page, so nothing leaves an account on a sentence alone.
+What an agent can do: Fai opens Vault and tells you a balance. You move money yourself on the page, so a chat message alone never moves money out of an account.
 
 CLI MCP tools that read: `select_brand`.
 
@@ -88,33 +91,15 @@ Prompt for Fai: "What is in our Vault balance right now, and how much of it is s
 
 Slug `run-a-festival-from-one-dashboard`. Guide: https://www.ticketfairy.com/guides/run-a-festival-from-one-dashboard
 
-Tickets, the schedule, the artists, their travel, the crew, the budget and every message to buyers all sit on the same event, so you do not keep any of it in a second tool.
+Tickets, the schedule, the artists, their travel, the crew, the budget and every message to buyers all sit on the same event, so you don't need a second tool for any of it.
 
 For: Running a festival's tickets and production on the same event.
 
-What an agent can do: Fai, the assistant inside your dashboard, reads across all of it in one question: what is unsold, what is unbooked, what is late. She drafts the messages and puts anything that changes your event to you first.
+What an agent can do: Fai can check all of it in one question: what is unsold, what is unbooked, what is late. She drafts the messages and asks you before anything changes your event.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, tell me what is behind: unsold ticket types, artists with no travel booked and tasks past their date"
-
-### Can you sell tickets directly from your own website?
-
-Slug `sell-tickets-on-your-own-website`. Guide: https://www.ticketfairy.com/guides/sell-tickets-on-your-own-website
-
-Yes. Add checkout to your event page so buyers can choose tickets, pay by card and receive confirmation without leaving your website.
-
-For: Selling tickets from your own website.
-
-What an agent can do: Fai, the assistant inside your dashboard, can create, view, edit and turn off Event Embeds for a brand, then give you the ready-to-copy snippet. She asks before she creates or changes an embed.
-
-Prompt for Fai: "Create an Event Embed for my Main website, bind it to this event, allow my own website to run it, asking me for the address first, and give me the inline checkout snippet before you make any later changes."
-
-#### Then: Test the checkout after changing your website
-
-What an agent can do: Fai can review the saved embed setup and its allowed-site settings. You still complete the buyer test on your own website. MCP and the CLI do not test a browser checkout.
-
-Prompt for Fai: "Review the checkout embed for <EVENT NAME>, including its allowed websites and current setup, so I can test the checkout on phone and desktop"
 
 ### How can fan club members get presale access?
 
@@ -124,7 +109,7 @@ Take registrations before the on-sale, then give registered fans a presale windo
 
 For: Rewarding a fan club, members list or mailing list.
 
-What an agent can do: Fai, the assistant inside your dashboard, can check and set the pre-registration and presale date windows for the event, including the switches and both ends of each window. She asks before saving. She does not change ticket releases: keep the public release hidden yourself and test the presale yourself as a registered buyer.
+What an agent can do: Fai can check and set the pre-registration and presale date windows for the event, including the switches and both ends of each window. She asks before saving. She doesn't change ticket releases, so hide the public release and test the presale as a registered buyer yourself.
 
 Prompt for Fai: "Set pre-registration to open at 9am on 1 September and close at 5pm on 7 September, then set presales to open at 10am on 8 September and close at 10pm on 9 September. Show me the dates before you save."
 
@@ -165,7 +150,7 @@ Cap how many tickets one buyer can take, ask buyers to prove who they are before
 
 For: Keeping your tickets with the fans who wanted them.
 
-What an agent can do: Fai, the assistant inside your dashboard, reads how the controls are set, and can change the per-order and per-account limits, the anti-scalping settings and the waiting list for you. Anything that changes what buyers can do is put to you before it is saved.
+What an agent can do: Fai reads how the controls are set, and can change the per-order and per-account limits, the anti-scalping settings, the buyer ID check and the waiting list for you. She asks you before she saves anything that changes what buyers can do.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
@@ -209,7 +194,7 @@ Issue each name on the guest list a ticket with a barcode, give each promoter th
 
 For: Running the door and the guest list for a club night.
 
-What an agent can do: Fai, the assistant inside your dashboard, issues the guest tickets when you name the people and the ticket type. She reads the list back to you before anything is sent.
+What an agent can do: Fai issues the guest tickets when you name the people and the ticket type. She shows you the list before she sends anything.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
@@ -223,35 +208,11 @@ Reward the buyers who bring friends, give each promoter their own link so you ca
 
 For: Bringing your cost per ticket down.
 
-What an agent can do: Fai, the assistant inside your dashboard, reads which promotion sold what and drafts the message you send to bring people back. Setting the rewards up is yours to do on the page.
+What an agent can do: Fai can tell you which promotion sold what and draft the message you send to bring people back. You set up the rewards yourself on the page.
 
 CLI MCP tools that read: `select_event`, `get_event_performance`.
 
-Prompt for Fai: "For <EVENT NAME>, which promoters and referral links sold the most, and what did each one cost us per ticket?"
-
-### How do you set up a payment plan so buyers pay for tickets in instalments?
-
-Slug `let-buyers-pay-for-tickets-in-instalments`. Guide: https://www.ticketfairy.com/guides/let-buyers-pay-for-tickets-in-instalments
-
-Turn on a payment plan so buyers pay a deposit at checkout and the rest in weekly or monthly instalments that finish before the event.
-
-For: Selling higher-priced festival or multi-day tickets.
-
-What an agent can do: Fai can set up or turn off an event payment plan and asks you to approve the settings before saving because they change how buyers pay. If the tool is unavailable, ask Ticket Fairy to enable payment-plan setup for your brand.
-
-Prompt for Fai: "Set up a payment plan on this event with 4 monthly instalments, the final payment 2 weeks before the event, unfinished orders cancelled 1 week before the event, and a fixed £50 deposit per order; show me the settings before you save"
-
-### Invite promoters to your collective so they can sell tickets for your events
-
-Slug `invite-people-to-your-collective`. Guide: https://www.ticketfairy.com/guides/invite-people-to-your-collective
-
-Send invitations to your promoters, see who has not joined yet, and sort out a wrong email address or an invitation that never arrived, so every promoter can sell tickets for your events.
-
-For: Running a street team, promoter group or production crew you deploy into other people's events.
-
-What an agent can do: Fai can invite a promoter, list everyone who has not joined yet with the date each invitation last went out, send one again, or cancel it. She can also accept an invitation for you when you have the link but cannot get it to work.
-
-Prompt for Fai: "Show me who I invited to my collective who has not joined yet, and send the invitation again to anyone still waiting"
+Prompt for Fai: "For <EVENT NAME>, which promoters and referral links sold the most, and how much in rewards did each referral earn?"
 
 ### What can you find out about the people who buy your tickets?
 
@@ -261,7 +222,7 @@ See who bought, where they live, the device they checked out on, the promoter or
 
 For: Deciding your next event from who bought tickets to the last one.
 
-What an agent can do: Ask Fai, the assistant inside your dashboard, for any of these figures in plain language. She reads the same reports and can draw the answer as a chart or turn it into a document you can send on.
+What an agent can do: Ask Fai for any of these figures in plain language. She reads the same reports and can draw the answer as a chart or turn it into a document you can send on.
 
 CLI MCP tools that read: `select_event`, `get_event_performance`.
 
@@ -275,7 +236,9 @@ Give eligible buyers a personal referral link, reward them when friends buy tick
 
 For: Comparing ticketing platforms for word-of-mouth sales.
 
-What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
+What an agent can do: Fai can turn referral rewards on and set the targets for an event before its first sale, after showing you the change and asking you to approve it. Once the event has sales, turn rewards on in the dashboard instead. She also reads back each buyer's referral sales.
+
+Prompt for Fai: "Turn on referral rewards for <EVENT NAME> with buyers earning back 25% at 3 sales, 50% at 6 and the full price at 10, and show me the change before you save it"
 
 ### What marketing tools should a ticketing platform give you?
 
@@ -291,7 +254,7 @@ What an agent can do: no agent route is recorded for this guide. Send the organi
 
 Slug `compare-ticketing-platforms`. Guide: https://www.ticketfairy.com/guides/compare-ticketing-platforms
 
-Compare what buyers pay, when you receive ticket revenue and whether you can see and export buyer details throughout the on-sale.
+Compare what buyers pay, when you receive your ticket money and whether you can see and export your buyers while tickets are on sale.
 
 For: Choosing where to sell tickets for your next event.
 

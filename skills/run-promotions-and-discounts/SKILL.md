@@ -31,10 +31,16 @@ This skill covers promo codes, group discounts and promoter links on Ticket Fair
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
@@ -46,11 +52,11 @@ This skill covers promo codes, group discounts and promoter links on Ticket Fair
 
 Slug `create-promo-codes`. Guide: https://www.ticketfairy.com/guides/create-promo-codes
 
-Give a partner, a mailing list or an early crowd a better price with a promotion that carries the discount, the ticket types it applies to, the codes people enter and the limits you set.
+Give a partner, a mailing list or an early crowd a better price with a promotion: you choose the discount, the ticket types it applies to, the codes people enter and the limits.
 
 For: Offering a discount to a particular group of buyers.
 
-What an agent can do: Fai, the assistant inside your dashboard, can create a promotion with its codes, discount, ticket types, limits and dates, add a code to one later, switch a promotion off and read how each code is doing. She shows you the promotion before she creates it and asks you to approve it. The whole workflow is also in the dashboard.
+What an agent can do: Fai can create a promotion with its codes, discount, ticket types, limits and dates, add a code to one later, switch a promotion off and tell you how each code is doing. She shows you the promotion before she creates it and asks you to approve it. The whole workflow is also in the dashboard.
 
 Command line:
 
@@ -72,17 +78,25 @@ Prompt for Fai: "Generate a sales tracking link for code <CODE> on <EVENT NAME> 
 
 #### Then: Change a promotion that is already in use
 
-What an agent can do: Fai can add a code to a promotion or change its name, tickets, limits and dates, after showing you the change. MCP does not manage promotions; the CLI updates a promotion from a JSON body.
+What an agent can do: Fai can add a code to a promotion or change its name, tickets, limits and dates, after showing you the change. Your own AI assistant can make the same change over the MCP server, after your approval in your MCP client, and the CLI updates a promotion from a JSON body.
+
+CLI MCP tools that read: `select_event`, `list_promotions`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `update_promotion`.
 
 Prompt for Fai: "On <EVENT NAME>, open the promotion <NAME>, show me its codes, tickets, limits and dates, then <THE CHANGE> and ask me to approve it before saving"
 
-#### Then: Switch a promotion off
+#### Then: Delete a promotion
 
-What an agent can do: Fai can switch a promotion off, or back on, after showing you what it covers. MCP does not manage promotions; the CLI disables one by id.
+What an agent can do: Fai can switch a promotion off, or back on, after showing you what it covers. Your own AI assistant can do the same over the MCP server, after your approval in your MCP client, and the CLI deletes one by id.
 
 Command line:
 
-- Switch a promotion off: `ticketfairy promotion delete <EVENT_ID> <PROMOTION_ID> --force`
+- Delete a promotion: `ticketfairy promotion delete <EVENT_ID> <PROMOTION_ID> --force`
+
+CLI MCP tools that read: `select_event`, `list_promotions`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `delete_promotion`.
 
 Prompt for Fai: "Show me the promotion <NAME> on <EVENT NAME> with its codes and tickets, then ask before switching it off"
 
@@ -94,7 +108,7 @@ Give buyers a lower ticket price automatically once their basket reaches a group
 
 For: Rewarding buyers who book tickets as a group.
 
-What an agent can do: Fai, the assistant inside your dashboard, can create a group discount with its code, discount, ticket types and group size, and a second one for bigger groups. She shows you the promotion before she creates it and asks you to approve it. Use the CLI to list the promotions on an event; create and change group discounts in the dashboard or through Fai.
+What an agent can do: Fai can create a group discount with its code, discount, ticket types and group size, and a second one for bigger groups. She shows you the promotion before she creates it and asks you to approve it. Use the CLI to list the promotions on an event; create and change group discounts in the dashboard or through Fai.
 
 Command line:
 
@@ -134,7 +148,7 @@ Prompt for Fai: "Set up a gift certificate on <EVENT NAME> worth one Weekend Tic
 
 #### Then: Change or withdraw a certificate later
 
-What an agent can do: Fai can change a certificate, take one off sale or remove one, and shows you what she is about to do first. She reaches the amount certificates the dashboard has no Edit for.
+What an agent can do: Fai can change a certificate, take one off sale or remove one, and shows you what she is about to do first. She can also change the amount certificates that have no Edit in the dashboard.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 

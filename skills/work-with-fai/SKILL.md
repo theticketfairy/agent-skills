@@ -1,6 +1,6 @@
 ---
 name: work-with-fai
-description: "Use Fai, the assistant inside the Ticket Fairy dashboard, for questions, the inbox and the buyer concierge. Use when an organiser wants Fai to do work for them."
+description: "Use Fai, Ticket Fairy's AI teammate in the dashboard, for questions, the inbox and the buyer concierge. Use when an organiser wants Fai to do work for them."
 ---
 
 # Work with Fai
@@ -31,10 +31,16 @@ This skill covers Fai in the dashboard, inbox handling and the buyer concierge o
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
@@ -51,13 +57,13 @@ Add your concierge to the website where buyers find your event, so it answers ti
 
 For: Getting your concierge onto the website your ticket buyers use.
 
-What an agent can do: Fai can open your concierge widgets so you can copy the snippet. Choose the sites the chat loads on and where hand-offs go in the dashboard, then add the snippet to your own site.
+What an agent can do: Fai can open your concierge widgets so you can copy the snippet. On the Install tab in the dashboard, choose the sites the chat loads on and who gets the questions it passes on, then add the snippet to your own site.
 
 Prompt for Fai: "Open the concierge widgets for <BRAND NAME> so I can copy the snippet for our website"
 
 #### Then: Change the snippet after a key leak
 
-What an agent can do: Fai can open your concierge widgets for you. Rotating the key and replacing the snippet are done in the dashboard and on your own site.
+What an agent can do: Fai can open your concierge widgets for you. You rotate the key in the dashboard and replace the snippet on your own site.
 
 Prompt for Fai: "Open the concierge widgets for <BRAND NAME>"
 
@@ -65,11 +71,11 @@ Prompt for Fai: "Open the concierge widgets for <BRAND NAME>"
 
 Slug `ask-fai-about-your-event`. Guide: https://www.ticketfairy.com/guides/ask-fai-about-your-event
 
-Ask Fai, the assistant in your dashboard, about your event by typing or out loud, have her chart the answer or make the change for you, and check her work before you rely on it.
+Ask Fai about your event by typing or out loud, have her chart the answer or make the change for you, and check her work before you rely on it.
 
 For: Getting answers about your own events, orders and buyers.
 
-What an agent can do: Fai is the agent path. She works on the brand and event you have open, reads what your role reaches, and asks before she changes anything.
+What an agent can do: Fai is the agent path. She works on the brand and event you have open, sees what your role can see, and asks before she changes anything.
 
 Command line:
 
@@ -93,7 +99,7 @@ Prompt for Fai: "Set up an early bird tier for <EVENT NAME> at twenty per cent b
 
 #### Then: Things worth asking her for
 
-What an agent can do: Reading, drawing and drafting are hers to do freely. Anything that issues a ticket or changes your event is put to you first, and a guest ticket sent to the wrong person is taken back by cancelling its order.
+What an agent can do: Fai reads, draws charts and drafts freely. She asks you before she issues a ticket or changes your event, and you take back a guest ticket sent to the wrong person by cancelling its order.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
@@ -101,7 +107,7 @@ Prompt for Fai: "Issue two guest tickets on the comp tier for <EVENT NAME> to ad
 
 #### Then: Talk to her instead of typing
 
-What an agent can do: Talking reaches the same Fai, with the same permissions, the same tools and the same approvals as typing. Only the exact words Fai reads out approve a change by voice.
+What an agent can do: When you talk, you reach the same Fai, with the same permissions, the same tools and the same approvals as typing. Only the exact words Fai reads out approve a change by voice.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
@@ -111,11 +117,11 @@ Prompt for Fai: "How did <EVENT NAME> sell last weekend, and how does that compa
 
 Slug `give-buyers-an-ai-concierge`. Guide: https://www.ticketfairy.com/guides/give-buyers-an-ai-concierge
 
-Put an assistant on your own site that answers what buyers ask before they buy, from the answers you gave it.
+Put a concierge on your own website that answers buyers' questions before they buy, using the answers you give it.
 
 For: Answering buyer questions on your own website.
 
-What an agent can do: Fai can open the concierge builder for you. What the concierge knows is yours to enter and yours to keep current.
+What an agent can do: Fai can open the concierge builder for you. You enter what the concierge knows, and you keep it up to date.
 
 Command line:
 
@@ -151,21 +157,21 @@ Prompt for Fai: "Open the concierge reference pages for <BRAND NAME>"
 
 #### Then: Read a whole website instead of one page
 
-What an agent can do: Fai can open the reference pages for you. Adding the website and reviewing the pages she kept are done in the dashboard.
+What an agent can do: Fai can open the reference pages for you. You add the website and review the pages she kept in the dashboard.
 
 Prompt for Fai: "Open the concierge reference pages for <BRAND NAME> so I can add our website"
 
 #### Then: Give one widget a page of its own
 
-What an agent can do: Fai can open your concierge widgets for you. A widget's own reference pages are added in the dashboard.
+What an agent can do: Fai can open your concierge widgets for you. You add a widget's own reference pages in the dashboard.
 
 Prompt for Fai: "Open the concierge widgets for <BRAND NAME>"
 
 #### Then: Let the concierge mention events you sell elsewhere
 
-What an agent can do: Fai can open the concierge's events on other platforms for you. Adding a page to watch is done in the dashboard.
+What an agent can do: Fai can suggest listing pages near your venues and open the concierge's events on other platforms for you. You add a page to watch in the dashboard.
 
-Prompt for Fai: "Open the concierge external event sources for <BRAND NAME>"
+Prompt for Fai: "Suggest listing pages my concierge could watch for <BRAND NAME>"
 
 ## More
 

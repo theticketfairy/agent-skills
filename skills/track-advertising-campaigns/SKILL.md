@@ -31,16 +31,22 @@ This skill covers advertising pixels, conversion tracking and which campaigns so
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
 - [Connect advertising pixels to your ticket sales](#connect-advertising-pixels-to-your-ticket-sales)
 - [Measure ticket sales with Google Analytics](#measure-ticket-sales-with-google-analytics)
-- [See which ads sold tickets](#see-which-ads-sold-tickets)
+- [See which ad networks sell your tickets](#see-which-ad-networks-sell-your-tickets)
 - [Set up a Meta pixel to track your ticket sales](#set-up-a-meta-pixel-to-track-your-ticket-sales)
 - [Track ticket sales with your Amazon DSP pixel](#track-ticket-sales-with-your-amazon-dsp-pixel)
 - [Track ticket sales with your ChatGPT pixel](#track-ticket-sales-with-your-chatgpt-pixel)
@@ -62,13 +68,13 @@ Connect Meta and your other advertising networks at brand level so you can see w
 
 For: Buying ads for an event.
 
-What an agent can do: Complete the Meta sign-in in your browser, then ask Fai, the assistant inside your dashboard, to turn on Meta tracking and add your other advertising pixels. She asks you to approve each change before she makes it. You can also add them in the dashboard.
+What an agent can do: Complete the Meta sign-in in your browser, then ask Fai to turn on Meta tracking and add your other advertising pixels. She asks you to approve each change before she makes it. You can also add them in the dashboard.
 
 Prompt for Fai: "Show me which tracking pixels this brand has, then turn Meta conversion tracking on for the pixel we advertise with and add our TikTok pixel <your TikTok pixel ID>"
 
 #### Then: Add a pixel to one event only
 
-What an agent can do: Fai, the assistant inside your dashboard, can list, add, change and remove the pixels for one event, and asks you to approve each change. Picking a pixel from your Meta ad accounts needs your Facebook sign-in, so give Fai the Meta pixel ID or use the dashboard for that part.
+What an agent can do: Fai can list, add, change and remove the pixels for one event, and asks you to approve each change. Picking a pixel from your Meta ad accounts needs your Facebook sign-in, so give Fai the Meta pixel ID or use the dashboard for that part.
 
 Prompt for Fai: "Show me the tracking pixels on <EVENT NAME>, including the brand pixels that already track it, then add our TikTok pixel <TIKTOK PIXEL ID> to this event only"
 
@@ -84,15 +90,15 @@ What an agent can do: You can import the complete measurement ID in the dashboar
 
 Prompt for Fai: "Add Google Analytics to this brand with measurement ID <your Google Analytics ID>"
 
-### See which ads sold tickets
+### See which ad networks sell your tickets
 
 Slug `see-which-ads-sold-tickets`. Guide: https://www.ticketfairy.com/guides/see-which-ads-sold-tickets
 
-Compare your advertising by the ticket orders each campaign brought in rather than by clicks, so you know where to spend next.
+Compare the networks your campaigns run on by the ticket sales they bring in, not by clicks, so you know where to spend next.
 
 For: Deciding where your advertising budget should go next.
 
-What an agent can do: Fai can read the campaign figures back to you and say which campaign brought in each sale. Changing a budget is yours to do.
+What an agent can do: Fai can tell you the advertising figures for one event or broken down by campaign, which the overview doesn't show.
 
 Command line:
 
@@ -100,11 +106,11 @@ Command line:
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
-Prompt for Fai: "For <EVENT NAME>, which advertising campaign brought in the most ticket sales, and what did each sale cost"
+Prompt for Fai: "Which of my advertising campaigns brought in the most ticket sales over the last 30 days, and what did each campaign spend"
 
 #### Then: Trace a sale back further than the campaign
 
-What an agent can do: Fai can open the tracking links for the event. What each one brought in is read in the dashboard today.
+What an agent can do: Fai can open the tracking links for the event, where each link shows what it brought in.
 
 Command line:
 
@@ -122,7 +128,7 @@ Connect Meta to your brand and choose which pixel records your ticket sales, so 
 
 For: Running Meta ads for an event.
 
-What an agent can do: Fai, the assistant inside your dashboard, can do this for you, and stops to ask you before she changes anything. Complete the Meta sign-in in your browser, then let Fai take it from there. You can also add the pixel in the dashboard.
+What an agent can do: Fai can do this for you, and stops to ask you before she changes anything. Complete the Meta sign-in in your browser, then let Fai take it from there. You can also add the pixel in the dashboard.
 
 Prompt for Fai: "I have connected Meta and want to see the pixels on our ad account, then turn conversion tracking on for the one we advertise with"
 

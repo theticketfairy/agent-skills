@@ -11,9 +11,10 @@ is in https://www.ticketfairy.com/auth.md; this skill is the short path.
 
 ## Before you start
 
-- The person needs a Ticket Fairy organiser account. If they have none, follow the
-  `start-organising-events` skill first. Signup, legal terms and email verification happen in
-  their browser.
+- The person needs a Ticket Fairy organiser account. If they have none, use
+  `start-organising-events` if installed, or read its [published instructions](https://www.ticketfairy.com/.well-known/agent-skills/start-organising-events/SKILL.md).
+  They can also start at https://manage.ticketfairy.com. Signup, legal terms and email
+  verification happen in their browser.
 - Tell the person what you will do with the access, and confirm that they want to continue.
 
 ## Pick a method

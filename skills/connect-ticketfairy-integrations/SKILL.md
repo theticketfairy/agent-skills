@@ -31,10 +31,16 @@ This skill covers Mailchimp, Zapier and the other tools an organiser already use
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
@@ -50,7 +56,7 @@ Connect Hive to a brand with your Hive account ID, and each ticket buyer on that
 
 For: Adding your ticket buyers and their orders to Hive.
 
-What an agent can do: Fai can save the Hive account ID on a brand, and she asks for your approval before she saves it. Asking Hive to whitelist Ticket Fairy is an email you send yourself.
+What an agent can do: Fai can save the Hive account ID on a brand, and she asks for your approval before she saves it. You email Hive yourself to ask them to whitelist Ticket Fairy.
 
 Prompt for Fai: "Connect Hive on <BRAND NAME> with the account ID <HIVE ACCOUNT ID>, and ask me before you save it"
 
@@ -70,11 +76,11 @@ Prompt for Fai: "Turn off Hive on <BRAND NAME>, and ask me before you save it"
 
 Slug `send-your-ticket-buyers-to-laylo`. Guide: https://www.ticketfairy.com/guides/send-your-ticket-buyers-to-laylo
 
-Connect Laylo to a brand with the webhook link from your Laylo account, and each paid ticket order on that brand's events sends the buyer, their order and their marketing choice to Laylo.
+Connect Laylo to a brand with the webhook link from your Laylo account, and Ticket Fairy sends the buyer, their order and their marketing choice to Laylo for each paid ticket order on that brand's events.
 
 For: Adding the fans who buy your tickets to your Laylo audience.
 
-What an agent can do: Fai can save or remove the Laylo link on a brand, and she asks for your approval before each change. The link carries your Laylo token, so paste it into the Laylo card yourself and ask Fai to open the page.
+What an agent can do: Fai can save or remove the Laylo link on a brand, and she asks for your approval before each change. The link contains your Laylo token, so paste it into the Laylo card yourself and ask Fai to open the page.
 
 Prompt for Fai: "Open Integrations for <BRAND NAME> so I can connect Laylo"
 
@@ -92,7 +98,7 @@ Connect Mailchimp to your brand, choose the audience buyers join, choose whether
 
 For: Keeping a Mailchimp audience in step with ticket sales.
 
-What an agent can do: Fai, the assistant inside your dashboard, can list your connections and audiences, choose the audience, switch each sync on or off and disconnect, after showing you the change. The Mailchimp sign-in itself happens in your browser. Keep an API key in the dashboard form rather than in a message to Fai.
+What an agent can do: Fai can list your connections and audiences, choose the audience, switch each sync on or off and disconnect, after showing you the change. The Mailchimp sign-in itself happens in your browser. Keep an API key in the dashboard form rather than in a message to Fai.
 
 Prompt for Fai: "Show me the Mailchimp connection on <BRAND NAME>, list its audiences, then set the audience to <AUDIENCE NAME> with buyers and newsletter sign-ups syncing and campaign sending left to Ticket Fairy"
 
@@ -104,7 +110,7 @@ Prompt for Fai: "Disconnect Mailchimp from <BRAND NAME>, and confirm with me fir
 
 #### Then: Send one event's buyers to a different list
 
-What an agent can do: The per-event list is chosen in the dashboard. Fai can tell you which audience the brand connection uses.
+What an agent can do: You choose the per-event list in the dashboard. Fai can tell you which audience the brand connection uses.
 
 Prompt for Fai: "Which Mailchimp audience does <BRAND NAME> sync buyers into?"
 

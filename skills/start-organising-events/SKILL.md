@@ -19,15 +19,25 @@ If the organiser is using a partner's branded platform, continue through that pa
 
 After sign-in, follow the dashboard's organisation setup. Ask before creating a brand or sending team invitations. Opening signup does not confirm that an account or brand was created. Report completion only after the dashboard confirms the result.
 
+## If the organiser already has a workspace setup link
+
+Use a setup link only when Ticket Fairy has returned it for this organiser. Give the link to the organiser to open in their own browser. They review the assistant name and their account, choose or create a brand, and decide whether to add the event draft and how to receive ticket money. Do not construct a setup link or call a Ticket Fairy API operation that is not available.
+
+Keep account confirmation, terms, passwords and verification in that browser. The organiser reviews any prepared event name, local date and time, and venue before choosing to add it. An added event remains unpublished. A recorded payout choice is not a connected bank or payment processing account; they finish that setup in their brand's payment settings.
+
+If a step is interrupted, use the page's Try again action for the same request. Continue in the browser where the link was opened. If it expires or was cancelled, obtain a fresh link from the original setup owner; do not repeat account or brand creation after an uncertain result. Report only the confirmed account, brand, event and coarse payout outcome. A setup result grants no ticket-payment or paid-plan authority.
+
 ## If your agent offers Stripe Projects
 
-Use the Ticket Fairy organiser workspace service only when it appears in your agent's Stripe Projects catalogue. If it is not listed, use the browser signup journey above. The catalogue offers one free organiser workspace service, not a paid feature plan or a ticket purchase.
+Use the Ticket Fairy event organiser workspace service only when it appears in your agent's Stripe Projects catalogue. If it is not listed, use the browser signup journey above. Ask which available plan the event organiser wants before creating the workspace, including Free. Read the service's required configuration and pass its exact displayed plan name as `plan`; the free service requires `Free`. There is no default plan choice.
+
+Paid plans are available only when the catalogue lists their configured paid services and prices. The chosen service remains authoritative: entering a paid plan name on the free service does not buy it. Keep the catalogue's payment confirmation and terms. Do not invent an unavailable plan or change an accepted request to a different service. A plan choice is not a ticket purchase or payment processing consent.
 
 Ask the organiser to approve connecting their account and creating their workspace. Follow the catalogue's configuration fields for their organisation and use the details they provide. If the service asks for missing information, collect it before continuing. A new verified email can create their account; an existing registered email requires the organiser to open the account link, sign in to their own Ticket Fairy account and approve the exact requested permissions. Do not create another account to avoid that step.
 
 Keep account credentials and verification codes out of chat. Let the organiser open the account link from their project in their own browser, review the terms and requested permissions, and complete sign-in and any two-factor checks. Do not bypass same-origin checks or confirmation. An account grant does not sign the organiser into the dashboard or give another person their dashboard permissions.
 
-Report the workspace as ready only after the project confirms the result. Use the returned dashboard link to continue with the organiser's own account and current permissions. Do not repeat a workspace creation after an uncertain result; check the same project's result first. This service does not publish an event, activate a paid plan or connect a payment processing account. Those remain separate choices through the first-party dashboard.
+If the provider asks for more information, supply the required fields, including the exact plan choice, through the same resource's information/resume flow. Report the workspace as ready only after the project confirms the result. Use the returned dashboard link to continue with the event organiser's own account and current permissions. Do not repeat a workspace creation after an uncertain result; check the same project's result first. Free setup does not activate a paid plan. A configured paid service still needs its verified native payment result. Neither service publishes an event or connects a payment processing account.
 
 ## Prepare their first event before they sign up
 

@@ -1,0 +1,66 @@
+{
+  "buyer-ticketing-skills": {
+    "title": "Ticket Fairy buyer ticketing skills",
+    "description": "Find public events, understand ticket offers and use supported buyer-approved agent checkout or the official browser checkout.",
+    "skills": [
+      "find-event-tickets"
+    ]
+  },
+  "event-planning-skills": {
+    "title": "Ticket Fairy event planning skills",
+    "description": "Plan an event, prepare its tickets and team, book artists and travel, and build the running order.",
+    "skills": [
+      "start-organising-events",
+      "set-up-event-tickets",
+      "follow-event-type-playbooks",
+      "run-event-workflows",
+      "sell-passes-and-extras",
+      "manage-venue-pages",
+      "manage-brand-and-team",
+      "book-and-advance-artists",
+      "book-hotels-and-travel-for-the-team",
+      "plan-the-running-order-and-show-day"
+    ]
+  },
+  "event-operations-skills": {
+    "title": "Ticket Fairy event operations skills",
+    "description": "Run an event's orders, entry, crew, accreditation, traders, site, reports and financial administration.",
+    "skills": [
+      "manage-orders-and-refunds",
+      "manage-invitations-and-guest-lists",
+      "read-event-reports",
+      "run-door-check-in",
+      "get-paid-for-ticket-sales",
+      "use-vault-and-capital",
+      "run-event-production",
+      "run-crew-and-volunteers",
+      "run-event-accreditation",
+      "manage-traders-and-exhibitors",
+      "run-the-site-and-safety",
+      "solve-ticketing-problems",
+      "work-with-fai"
+    ]
+  },
+  "event-marketing-skills": {
+    "title": "Ticket Fairy event marketing skills",
+    "description": "Promote events with buyer messaging, discounts, referrals, advertising measurement and social media.",
+    "skills": [
+      "email-and-market-to-buyers",
+      "run-promotions-and-discounts",
+      "grow-sales-with-referrals",
+      "track-advertising-campaigns",
+      "run-event-social-media"
+    ]
+  },
+  "developer-integration-skills": {
+    "title": "Ticket Fairy developer integration skills",
+    "description": "Connect an organiser account, use the official CLI and MCP tools, integrate the API and webhooks, and read the official guides.",
+    "skills": [
+      "connect-organiser-account",
+      "manage-events-with-the-cli",
+      "answer-ticketfairy-questions",
+      "build-with-the-ticketfairy-api",
+      "connect-ticketfairy-integrations"
+    ]
+  }
+}

@@ -12,7 +12,7 @@ nights, concerts, conferences and tours.
 
 | Skill | What it does |
 | --- | --- |
-| [`find-event-tickets`](skills/find-event-tickets/SKILL.md) | Find Ticket Fairy events, read ticket details, and help a buyer continue to browser checkout. |
+| [`find-event-tickets`](skills/find-event-tickets/SKILL.md) | Find Ticket Fairy events, choose tickets, and help a buyer pay through supported agent checkout or browser checkout. |
 | [`start-organising-events`](skills/start-organising-events/SKILL.md) | Help an organiser start a Ticket Fairy workspace for ticketing or standalone event management, prepare their first event and compare published feature plans. |
 | [`connect-organiser-account`](skills/connect-organiser-account/SKILL.md) | Get a Ticket Fairy organiser credential for an AI agent, with the person's approval, and use it on the organiser API. |
 | [`manage-events-with-the-cli`](skills/manage-events-with-the-cli/SKILL.md) | Manage Ticket Fairy events, tickets, orders, customers, invitations, promotions, check-in and webhooks with the official ticketfairy CLI or its MCP server. |
@@ -38,7 +38,15 @@ reads live from the guides MCP server at `https://www.ticketfairy.com/docs/mcp`.
 | [`manage-venue-pages`](skills/manage-venue-pages/SKILL.md) | Claim a Ticket Fairy venue page and keep its details current. |
 | [`read-event-reports`](skills/read-event-reports/SKILL.md) | Read Ticket Fairy event reports: sales, page views, buyers and what each figure counts. |
 | [`run-door-check-in`](skills/run-door-check-in/SKILL.md) | Run Ticket Fairy check-in at the door: scanning, entry rules, live check-in reports and wristbands. |
-| [`run-event-production`](skills/run-event-production/SKILL.md) | Run event production in Ticket Fairy Event Management: budgets, schedules, artists, crew, sponsors, traders, volunteers and compliance. |
+| [`run-event-production`](skills/run-event-production/SKILL.md) | Run daily event work: Today, tasks, the event inbox, call notes, team messages and feedback. |
+| [`book-and-advance-artists`](skills/book-and-advance-artists/SKILL.md) | Hold dates, make offers, send contracts, collect riders, advance performers and settle shows in Ticket Fairy. Use when an organiser books artists or speakers for an event. |
+| [`plan-the-running-order-and-show-day`](skills/plan-the-running-order-and-show-day/SKILL.md) | Build the running order and run of show, check clashes, share day sheets and call the show live in Ticket Fairy. Use when an organiser plans set times or runs show day. |
+| [`book-hotels-and-travel-for-the-team`](skills/book-hotels-and-travel-for-the-team/SKILL.md) | Hold hotel rooms, share rooming lists, plan pickups and book travel for artists and crew in Ticket Fairy. Use when an organiser looks after where the team stays and how it travels. |
+| [`run-crew-and-volunteers`](skills/run-crew-and-volunteers/SKILL.md) | Build rotas, recruit volunteers, collect certificates, run inductions, plan meals and approve hours in Ticket Fairy. Use when an organiser staffs an event. |
+| [`run-event-accreditation`](skills/run-event-accreditation/SKILL.md) | Issue accreditation passes with zones, approvals, a pass desk and staff gates in Ticket Fairy. Use when an organiser accredits crew, artists, press or guests. |
+| [`manage-traders-and-exhibitors`](skills/manage-traders-and-exhibitors/SKILL.md) | Take trader applications, place pitches, publish a directory, check takings and give exhibitors lead scanners in Ticket Fairy. Use when an organiser runs traders or an exhibition. |
+| [`run-the-site-and-safety`](skills/run-the-site-and-safety/SKILL.md) | Draw site maps, book deliveries, order hire, raise purchase orders, log incidents and keep a risk register in Ticket Fairy. Use when an organiser runs the event site, suppliers and safety. |
+| [`run-event-social-media`](skills/run-event-social-media/SKILL.md) | Connect Instagram and TikTok to Ticket Fairy, draft and schedule posts, answer comments and messages, and run follower presales. Use when an organiser promotes events on social media. |
 | [`run-event-workflows`](skills/run-event-workflows/SKILL.md) | Follow Ticket Fairy start-to-finish workflows: on-sale day, repeating last year's event, and changing plans. |
 | [`run-promotions-and-discounts`](skills/run-promotions-and-discounts/SKILL.md) | Create Ticket Fairy promo codes, group discounts and promoter links. |
 | [`sell-passes-and-extras`](skills/sell-passes-and-extras/SKILL.md) | Sell Ticket Fairy extras beyond a single event ticket, such as one pass that covers several of your events. |
@@ -51,7 +59,7 @@ reads live from the guides MCP server at `https://www.ticketfairy.com/docs/mcp`.
 `scripts/build_guide_skills.py` builds the area skills from the guide catalogue; the script
 explains how to export it and run it.
 
-Install them with the [skills CLI](https://skills.sh):
+Install them with the [skills CLI](https://skills.sh), using Node.js 22.20 or later:
 
 ```sh
 npx skills add theticketfairy/agent-skills
@@ -75,6 +83,55 @@ and `mcp.json` connects the public Ticket Fairy event search and guides MCP serv
 
 `find-event-tickets` and `start-organising-events` are also published at
 https://www.ticketfairy.com/.well-known/agent-skills/index.json.
+
+## Focused collections
+
+The following focused repositories are prepared for publication. Their links and
+install commands become available after the repositories are published. They use
+the same canonical skill names; choose the collection for your task instead of
+installing duplicate copies from several sources.
+
+| Collection | Capabilities | Install after publication |
+| --- | --- | --- |
+| [Buyer ticketing skills](https://github.com/theticketfairy/buyer-ticketing-skills) | Public event discovery, supported agent checkout and browser handoff | `npx skills add theticketfairy/buyer-ticketing-skills` |
+| [Event planning skills](https://github.com/theticketfairy/event-planning-skills) | Event setup, tickets, artists, team travel and show schedules | `npx skills add theticketfairy/event-planning-skills` |
+| [Event operations skills](https://github.com/theticketfairy/event-operations-skills) | Orders, refunds, doors, crew, accreditation, site and reports | `npx skills add theticketfairy/event-operations-skills` |
+| [Event marketing skills](https://github.com/theticketfairy/event-marketing-skills) | Buyer messaging, promotions, referrals, ads and social media | `npx skills add theticketfairy/event-marketing-skills` |
+| [Developer integration skills](https://github.com/theticketfairy/developer-integration-skills) | Account connection, CLI, MCP, API, webhooks and integrations | `npx skills add theticketfairy/developer-integration-skills` |
+
+Publication is not proof of skills.sh indexing. The [skills.sh FAQ](https://skills.sh/docs/faq)
+explains that skills are listed automatically through anonymous CLI installation
+telemetry. We do not claim an installation count or indexing result for these
+prepared repositories.
+
+### Maintain one source
+
+The five authored entry skills stay in `skills/`. Guide-area skills come from the
+platform's published guide catalogue and `GuideAreaSkills` family definitions.
+From a reviewed platform checkout, export them with:
+
+```sh
+php /path/to/agent-skills/scripts/export_guides.php --with-skill-families > /tmp/ticketfairy-guides.json
+```
+
+Then run in this repository with a reviewed CLI checkout:
+
+```sh
+python3 scripts/build_guide_skills.py /tmp/ticketfairy-guides.json /path/to/ticketfairy-cli
+python3 scripts/build_skill_repositories.py /path/to/release-packages
+```
+
+`skill-repositories.json` assigns every canonical skill to one focused collection.
+The copy step produces skill files, README inventories, agent rules, the MIT licence
+and `SOURCE.json`; it does not create, publish or install anything. Review the
+canonical change first, commit it, rebuild the packages from that exact commit,
+and publish the copied release files together. Update skills here rather than
+editing their generated copies. [skills-source.json](skills-source.json) records
+the platform, CLI and public-index evidence used for this refresh.
+
+Skill installation grants no authority to send messages or change an account.
+Use the person's explicit action and recipient scope; inspect the original result
+before retrying an uncertain refund, send, transfer or ticket grant.
 
 ## Rules for AI coding agents
 
