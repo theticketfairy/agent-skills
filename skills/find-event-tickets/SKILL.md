@@ -36,7 +36,17 @@ Accept: application/json
 
 If your assistant supports Model Context Protocol (MCP) over Streamable HTTP, connect to `https://www.ticketfairy.com/agentic/mcp` and use `search_events` for the same public event search. The server also offers `ask_events`, which finds upcoming events from a plain-language question such as "jazz in Melbourne this weekend", and `get_event`, which returns the current details of one event from its event link. You do not need an account or an API key. Do not send browser cookies, bearer tokens or payment details. For organiser account actions, use the separate Ticket Fairy command-line tool described at https://www.ticketfairy.com/mcp.
 
-An MCP client handles initialization and tool discovery for you. For a direct HTTP integration, send the following JSON messages in order as separate POST requests to `https://www.ticketfairy.com/agentic/mcp`. Every request needs `Content-Type: application/json` and `Accept: application/json, text/event-stream`. This server returns JSON rather than an event stream; opening the endpoint with GET returns 405.
+An MCP client handles discovery for you. For a direct HTTP integration, send separate POST requests to `https://www.ticketfairy.com/agentic/mcp`. Every request needs `Content-Type: application/json` and `Accept: application/json, text/event-stream`. Opening the endpoint with GET returns 405.
+
+For MCP `2026-07-28`, send `MCP-Protocol-Version: 2026-07-28` and `Mcp-Method` matching the message method. For `tools/call`, also send `Mcp-Name` matching the tool name. Every request includes its version and client capabilities in `params._meta`; no initialization is needed. To discover the server, send `Mcp-Method: server/discover` with:
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"server/discover","params":{"_meta":{"io.modelcontextprotocol/protocolVersion":"2026-07-28","io.modelcontextprotocol/clientCapabilities":{},"io.modelcontextprotocol/clientInfo":{"name":"event-search-client","version":"1.0.0"}}}}
+```
+
+Use the same `_meta` on `tools/list` and `tools/call`. Successful results carry `resultType: "complete"`. List and resource-read results include `ttlMs` and `cacheScope`; `ttlMs: 0` asks you to fetch current results. Unsupported versions return `-32022` with `error.data.supported`. Missing or conflicting routing headers return HTTP 400 with `-32020`.
+
+For the supported legacy versions, use this initialization sequence:
 
 1. Initialize the connection. Continue only if the returned `result.protocolVersion` is a version your client supports. This endpoint supports `2025-11-25` and `2025-06-18`, and returns the version you send when it is one of these.
 
@@ -72,7 +82,7 @@ Public search creates no reservation, order or payment. Continue with the buyer'
 
 If your assistant supports Agent2Agent (A2A) 1.0, read the public Agent Card at `https://www.ticketfairy.com/.well-known/agent-card.json`. Select its JSONRPC interface and use the advertised URL. If the card is unavailable, use the public listing API above. This is a public event search, not a payment or organiser signup endpoint. No account or API key is required. Do not send cookies, bearer tokens or payment details.
 
-Send this request to the advertised interface. Include `A2A-Version: 1.0` on every request; an absent version is treated as the older 0.3 protocol and is rejected. Unlike MCP, A2A does not require an initialization exchange.
+Send this request to the advertised interface. Include `A2A-Version: 1.0` on every request; an absent version is treated as the older 0.3 protocol and is rejected. A2A does not require an initialization exchange.
 
 ```http
 POST https://www.ticketfairy.com/agentic/a2a

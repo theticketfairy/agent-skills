@@ -15,5 +15,13 @@
     "find-event-tickets",
     "start-organising-events"
   ],
-  "entry_skill_source": "Published SKILL.md documents from the recorded public index; unchanged canonical names."
+  "entry_skill_source": "Published SKILL.md documents from the recorded public index; unchanged canonical names.",
+  "entry_skill_overrides": {
+    "find-event-tickets": {
+      "source_url": "https://www.ticketfairy.com/.well-known/agent-skills/find-event-tickets/SKILL.md",
+      "platform_commit": "b406b1485b9ce01115d02e47c383a0ce7a8c0950",
+      "retrieved_on": "2026-10-23",
+      "sha256": "251696faf6eaa8265d2d3a705800b52318eeaab5e0be356a23506b3d605ab44b"
+    }
+  }
 }
