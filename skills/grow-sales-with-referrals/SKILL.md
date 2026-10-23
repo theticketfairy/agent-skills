@@ -31,10 +31,16 @@ This skill covers referral rewards for buyers who bring friends, and who brought
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
@@ -47,19 +53,13 @@ This skill covers referral rewards for buyers who bring friends, and who brought
 
 Slug `choose-how-your-buyers-share-your-event`. Guide: https://www.ticketfairy.com/guides/choose-how-your-buyers-share-your-event
 
-Set the message your buyers start with, the apps they can share to, and the share card each of them gets, from the Rewards page.
+Set the message your buyers start with and the apps they can share their link to, for the Share your link row buyers see after paying through the checkout on your own website.
 
 For: Turning word of mouth into ticket sales.
 
-What an agent can do: Fai can read how your buyers share, change the message, the apps and the drawn cards on an event, and set the brand's budget and default look. You see every change, and what drawing costs, before it is saved.
+What an agent can do: Fai can read how your buyers share and change the message and the apps on an event. You see every change before it is saved.
 
-Prompt for Fai: "On this event, offer WhatsApp, Instagram Stories and Copy link only, and draw a Neon card for each buyer, up to 200 cards"
-
-#### Then: Set the brand's monthly budget and default look
-
-What an agent can do: Fai can read the brand's budget, spend and default look, and change the budget and the look after you confirm the amount.
-
-Prompt for Fai: "Set this brand's monthly budget for drawn share cards to 80 dollars and make Collage the default look"
+Prompt for Fai: "On this event, offer WhatsApp, Instagram Stories and Copy link only"
 
 ### Choose who wins a prize at your event
 
@@ -69,13 +69,13 @@ Give out a prize with no target on it: name the buyer you already know won, or d
 
 For: Giving out a prize you decide the winner of.
 
-What an agent can do: Fai can name the winner you tell her to, or draw winners for you. A draw gives nobody anything on its own: she reads out who came up and how many buyers were in the draw, then waits for you to say whether to give the prizes out.
+What an agent can do: Fai can name the winner you tell her to, or draw winners for you. A draw gives nobody anything on its own: she tells you who came up and how many buyers were in the draw, then waits for you to say whether to give the prizes out.
 
 Prompt for Fai: "For this event, draw 2 winners for the prize Best costume on the night, tell me who came up and how many buyers were in the draw, then ask me before you give the prizes out"
 
 #### Then: Give out a prize that runs across a brand's events
 
-What an agent can do: Fai can draw for a brand prize and give the prizes out, the same as on an event. She reads out who came up and asks you to approve the moment they win.
+What an agent can do: Fai can draw for a brand prize and give the prizes out, the same as on an event. She tells you who came up and asks for your approval before they win.
 
 Prompt for Fai: "For the brand <BRAND NAME>, draw 1 winner for the prize <PRIZE NAME>, tell me who came up, then ask me before you give the prize out"
 
@@ -99,13 +99,13 @@ Prompt for Fai: "For this event, add a prize called Front row upgrade for every 
 
 #### Then: Make referrals count for more for a while
 
-What an agent can do: Fai can read your boosts, add one and take one away. You see the dates and the multiplier before anything is saved.
+What an agent can do: Fai can show you your boosts, add one and take one away. You see the dates and the multiplier before anything is saved.
 
 Prompt for Fai: "For this event, make referrals count double towards prizes from Friday 6pm to Monday 9am and call it Launch weekend"
 
 #### Then: Let friends refer together as a pack
 
-What an agent can do: Fai can turn packs on for an event and read the packs your fans have started, with the people in each one.
+What an agent can do: Fai can turn packs on for an event and show you the packs your fans have started, with the people in each one.
 
 Prompt for Fai: "Turn packs on for this event so friends can pool the tickets they refer, then show me the packs so far"
 
@@ -117,7 +117,7 @@ Prompt for Fai: "Count friends of friends towards prizes on this event"
 
 #### Then: Read the wins across a whole brand
 
-What an agent can do: Fai can read a brand's winners and mark a prize delivered, undone or called off, the same as on an event. She shows you the winner and the prize and asks you to approve each change.
+What an agent can do: Fai can show you a brand's winners and mark a prize delivered, undone or called off, the same as on an event. She shows you the winner and the prize and asks you to approve each change.
 
 Prompt for Fai: "For the brand <BRAND NAME>, show me who has won its prizes and mark <PRIZE NAME> delivered to <WINNER>. Show me the winner and the prize, then ask me to approve it"
 

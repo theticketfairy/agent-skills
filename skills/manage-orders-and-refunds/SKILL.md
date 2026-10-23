@@ -5,7 +5,7 @@ description: "Find and manage Ticket Fairy orders: checkout questions, order app
 
 # Manage orders and refunds
 
-This skill covers checkout questions, order approval, refunds, transfers, waiting lists and buyer support on Ticket Fairy. It lists the 16 published guides for this area and what an agent can do for each one.
+This skill covers checkout questions, order approval, refunds, transfers, waiting lists and buyer support on Ticket Fairy. It lists the 20 published guides for this area and what an agent can do for each one.
 
 ## How to work
 
@@ -31,10 +31,16 @@ This skill covers checkout questions, order approval, refunds, transfers, waitin
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
@@ -43,16 +49,20 @@ This skill covers checkout questions, order approval, refunds, transfers, waitin
 - [Choose which AI assistants sell your tickets](#choose-which-ai-assistants-sell-your-tickets)
 - [Choose which details checkout asks your ticket buyers for](#choose-which-details-checkout-asks-your-ticket-buyers-for)
 - [Clear the ticket orders waiting on an ID check](#clear-the-ticket-orders-waiting-on-an-id-check)
+- [Design your own PDF tickets with your brand and sponsors](#design-your-own-pdf-tickets-with-your-brand-and-sponsors)
 - [Download your ticket buyers](#download-your-ticket-buyers)
 - [Find and manage the orders for your event](#find-and-manage-the-orders-for-your-event)
+- [Let buyers pay for tickets in instalments](#let-buyers-pay-for-tickets-in-instalments)
 - [Let buyers refund their own tickets](#let-buyers-refund-their-own-tickets)
 - [Let buyers resell their tickets at face value](#let-buyers-resell-their-tickets-at-face-value)
 - [Move a buyer to a different ticket type or seat](#move-a-buyer-to-a-different-ticket-type-or-seat)
 - [Print venue directions and entry details on your tickets](#print-venue-directions-and-entry-details-on-your-tickets)
 - [Refund an order on your event](#refund-an-order-on-your-event)
 - [Resend a buyer's tickets and fix their details](#resend-a-buyers-tickets-and-fix-their-details)
+- [Respond to a disputed ticket order](#respond-to-a-disputed-ticket-order)
 - [Run a waiting list for a sold-out event](#run-a-waiting-list-for-a-sold-out-event)
 - [Sell a block of tickets to a company and invoice them](#sell-a-block-of-tickets-to-a-company-and-invoice-them)
+- [Turn on the ID check for buyers](#turn-on-the-id-check-for-buyers)
 - [Win back buyers who left checkout](#win-back-buyers-who-left-checkout)
 
 ### Add custom questions to your event checkout
@@ -63,13 +73,13 @@ Collect extra information from buyers or ticket holders for your event checkout,
 
 For: Your event team collecting extra buyer, ticket-holder or add-on information at checkout.
 
-What an agent can do: Fai can list an event's checkout fields and create basic order, ticket or add-on fields after showing you the proposed type, label and where the answer belongs. She can remove all custom fields only after an explicit full-wipe confirmation. Editing one existing field and setting conditional rules remain dashboard work. MCP and the CLI do not manage these fields.
+What an agent can do: Fai can list an event's checkout fields and create basic order, ticket or add-on fields after showing you the proposed type, label and where the answer belongs. She can also remove every custom field at once, after you confirm you want them all deleted. Edit a single field and set conditional rules in the dashboard. You can't manage these fields with MCP or the CLI.
 
 Prompt for Fai: "Show me the custom checkout fields on <EVENT NAME>, then add a required ticket question called Meal preference with Vegetarian, Vegan and No preference as the choices. Show me the complete field and ask before saving it"
 
 #### Then: Review or remove existing questions
 
-What an agent can do: Fai can list the current fields or remove every custom field after you explicitly confirm the full wipe. Edit one field in the dashboard.
+What an agent can do: Fai can list the current fields, or remove every custom field once you confirm you want them all deleted. Edit a single field in the dashboard.
 
 Prompt for Fai: "List the custom checkout fields on <EVENT NAME>, then show me which one I should edit in the dashboard to make it optional"
 
@@ -79,9 +89,9 @@ Slug `add-custom-terms-to-your-checkout`. Guide: https://www.ticketfairy.com/gui
 
 Add labelled terms and conditions to your event checkout agreement, so buyers can open each section and accept the complete agreement before they pay.
 
-For: Ticket Fairy staff adding approved terms to an event checkout.
+For: Getting your own refund policy or code of conduct onto your event checkout.
 
-What an agent can do: Custom event terms are a Ticket Fairy staff-only dashboard action. Fai can take you to the event Settings page, but she cannot create or edit the agreement and no MCP or CLI tool changes it.
+What an agent can do: Only Ticket Fairy staff can add custom event terms in the dashboard. Fai can take you to the event Settings page, but she can't create or edit the agreement, and neither can MCP or the CLI.
 
 Prompt for Fai: "Open the Settings page for <EVENT NAME> so a Ticket Fairy staff member can add the approved custom checkout terms"
 
@@ -105,7 +115,7 @@ AI shopping assistants can start a ticket order for buyers who ask them about ev
 
 For: Brand owners and admins deciding which AI assistants sell their event tickets.
 
-What an agent can do: Fai, the assistant inside your dashboard, can tell you which AI assistants sell your brand's tickets and turn one on or off for the brand. She shows you the change and asks you to approve it before she makes it.
+What an agent can do: Fai can tell you which AI assistants sell your brand's tickets and turn one on or off for the brand. She shows you the change and asks you to approve it before she makes it.
 
 Prompt for Fai: "Which AI assistants can sell tickets for <BRAND NAME>? Turn off <ASSISTANT NAME> so it stops selling our tickets"
 
@@ -135,7 +145,7 @@ Make every ticket buyer at your event's checkout enter a phone number, nationali
 
 For: Collecting a phone number, nationality, Instagram handle or date of birth from every ticket buyer.
 
-What an agent can do: Fai, the assistant inside your dashboard, can turn each of these questions on or off for an event and set its minimum age, and she shows you the change and asks you to approve it first. These checkout settings are changed in the dashboard or through Fai.
+What an agent can do: Fai can turn each of these questions on or off for an event and set its minimum age, and she shows you the change and asks you to approve it first. You change these checkout settings in the dashboard or through Fai.
 
 Prompt for Fai: "On <EVENT NAME>, make checkout ask every buyer for their <PHONE NUMBER, NATIONALITY, INSTAGRAM HANDLE OR DATE OF BIRTH>, set the minimum age to <AGE>, and show me the change before you save it"
 
@@ -147,7 +157,7 @@ See which buyers have a card on hold in the Needs Verification tab, send the ID 
 
 For: Clearing the card holds waiting on an ID check so the tickets go back on sale.
 
-What an agent can do: Fai, the assistant inside your dashboard, opens the event and takes you to its orders. The decisions on a hold are made on the page, because taking the money and releasing it both change what the buyer has and cannot be undone.
+What an agent can do: Fai opens the event and takes you to its orders. You decide what happens to a hold on the page itself, because taking the money and releasing it both change what the buyer has and cannot be undone.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
@@ -155,11 +165,62 @@ Prompt for Fai: "Take me to the orders on <EVENT NAME>"
 
 #### Then: Clear old holds every day
 
-What an agent can do: Fai can take you to the tab. The decisions themselves stay on the page, because taking a buyer's money and releasing it both change what they have and cannot be undone.
+What an agent can do: Fai can take you to the tab. You make the decisions yourself on the page, because taking a buyer's money and releasing it both change what they have and cannot be undone.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Take me to the orders on <EVENT NAME> that are waiting on an ID check"
+
+#### Then: Turn on the buyer ID check
+
+What an agent can do: Fai can turn the buyer ID check on or off for your event. She asks you to approve the change. For your own assistant over MCP, allow it to make changes and keep human approval on.
+
+Command line:
+
+- Require buyers to complete an ID check: `ticketfairy event update <EVENT_ID> --body '{"idVerificationRequired":true}'`
+- Turn off the event-wide requirement: `ticketfairy event update <EVENT_ID> --body '{"idVerificationRequired":false}'`
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `update_event`.
+
+Prompt for Fai: "Turn on the buyer ID check for <EVENT NAME>. Show me the current setting and ask me to approve the change"
+
+### Design your own PDF tickets with your brand and sponsors
+
+Slug `design-your-own-pdf-tickets`. Guide: https://www.ticketfairy.com/guides/design-your-own-pdf-tickets
+
+Design the PDF tickets your buyers get in your logo, colours and fonts, add your own information, artwork and sponsor logos, and choose which events and ticket types use each design.
+
+For: Promoters, festivals and venues who want tickets in their own brand, with their sponsors on them.
+
+What an agent can do: Fai can start a design from one of the starting designs, change its blocks, artwork, colours, fonts, text and sponsor logos, copy or delete a design, choose the design for all your events, and choose the design for an event or one of its ticket types. She tells you which brand kit fonts your tickets can use and why the others cannot be used. She shows you each change and asks you to approve it before saving. Upload logo, artwork and font files in the dashboard, or give Fai their web addresses, because Fai cannot upload files.
+
+Prompt for Fai: "Create a ticket design called <DESIGN NAME> from the Partner showcase starting design, with these sponsor logos and websites: <SPONSOR NAMES, LOGO ADDRESSES AND WEBSITES>. Show me the design before you save it"
+
+#### Then: Use your brand's own font on your tickets
+
+What an agent can do: Fai can tell you which brand kit fonts your tickets can use and why the others cannot. Once you have uploaded the font file in the dashboard and told her that your brand has the right to use the font, she can add it to your brand kit and choose it in a design, after you approve each change.
+
+Prompt for Fai: "Which of my brand kit fonts can I use on my tickets? Use <FONT NAME> as the heading font in the <DESIGN NAME> ticket design and show me the design before you save it"
+
+#### Then: Give one ticket type its own design
+
+What an agent can do: Fai can choose the design for an event and for each of its ticket types once you approve the change.
+
+Prompt for Fai: "On <EVENT NAME>, use the <DESIGN NAME> ticket design for the <TICKET TYPE NAME> tickets"
+
+#### Then: Use one design for all your events
+
+What an agent can do: Fai can choose the design every event uses, or go back to the standard ticket, once you approve it.
+
+Prompt for Fai: "Use the <DESIGN NAME> ticket design for all my events"
+
+#### Then: Copy or delete a design
+
+What an agent can do: Fai can copy or delete a design once you approve it.
+
+Prompt for Fai: "Copy the <DESIGN NAME> ticket design and call the copy <NEW NAME>"
 
 ### Download your ticket buyers
 
@@ -169,7 +230,7 @@ Get a CSV of every ticket for your event, with buyer details and optional add-on
 
 For: Getting your event's ticket buyers into a spreadsheet.
 
-What an agent can do: Ask Fai to prepare tickets only or tickets and add-ons for your event, with add-ons as rows or columns. If you do not choose, she prepares rows without add-ons. She shows you the request and waits for your approval, then gives you a dashboard link to your file. Owners and admins resume the file in Orders; marketing readers resume it in Marketing Assets. Open the link with the account that requested the file and select Download when it is ready. Fai checks progress without reading the buyers' details into the conversation.
+What an agent can do: Ask Fai to prepare tickets only or tickets and add-ons for your event, with add-ons as rows or columns. If you do not choose, she prepares rows without add-ons. She shows you the request and waits for your approval, then gives you a dashboard link to your file. With an owner or admin login, you come back to the file in Orders; with a marketing login, you come back to it in Marketing Assets. Open the link with the account that requested the file and select Download when it is ready. Fai checks progress without reading the buyers' details into the conversation.
 
 Prompt for Fai: "Prepare a file of tickets and add-ons for <EVENT NAME>, then give me the page where I can download it"
 
@@ -181,7 +242,7 @@ Find any ticket order on your event by buyer, email address or order number, see
 
 For: Looking after the orders on your event.
 
-What an agent can do: Fai, the assistant inside your dashboard, finds an order by the buyer's email address or the order number, reads it back to you with its notes, and adds a note once you approve the wording. Over MCP your own assistant can list an event's orders by status and open one, and the command line does the same. Neither MCP nor the command line reads or changes order notes.
+What an agent can do: Fai finds an order by the buyer's email address or the order number, reads it back to you with its notes, and adds a note once you approve the wording. She also finds disputed orders and explains their status, reason, amount and response deadline when recorded. Over MCP your own assistant can list an event's orders by status and open one, and the command line does the same. Neither MCP nor the command line reads or changes order notes.
 
 Command line:
 
@@ -192,17 +253,39 @@ CLI MCP tools that read: `select_brand`, `select_event`, `list_orders`, `get_ord
 
 Prompt for Fai: "Find the order for <BUYER EMAIL ADDRESS> on <EVENT NAME>, tell me its status, tickets and any notes on it, then add this note once I approve it: <NOTE>"
 
+#### Then: Find and read a disputed order
+
+What an agent can do: Fai can find and count orders matching Disputed or Not disputed on your event, and read a dispute's recorded details. She does not submit evidence or accept the dispute.
+
+Prompt for Fai: "Find the disputed orders for <EVENT NAME>, tell me how many there are, and show me the status, reason, amount and response deadline for order <ORDER NUMBER>"
+
 #### Then: Save a filtered view
 
-What an agent can do: Saved views are kept in the dashboard for your login, and Fai cannot save one. She can count an event's orders, or one buyer's by email address, but not by the filters a view saves.
+What an agent can do: Saved views are kept in the dashboard for your login, and Fai cannot save one. She can count an event's orders, one buyer's by email address, or the orders matching Disputed or Not disputed, but she cannot save a dashboard view.
 
 Prompt for Fai: "How many orders does <EVENT NAME> have, and which of them are from <BUYER EMAIL ADDRESS>"
 
 #### Then: Edit or delete a note
 
-What an agent can do: Fai reads an order's notes, then edits or deletes one after you approve the change. She asks before either, and a deleted note cannot be brought back.
+What an agent can do: Fai reads an order's notes, then edits or deletes one after you approve the change. She asks before either, and you can't get a deleted note back.
 
 Prompt for Fai: "Show me the notes on order <ORDER NUMBER> on <EVENT NAME>, then change the one about <SUBJECT> to say: <NEW WORDING>"
+
+### Let buyers pay for tickets in instalments
+
+Slug `let-buyers-pay-for-tickets-in-instalments`. Guide: https://www.ticketfairy.com/guides/let-buyers-pay-for-tickets-in-instalments
+
+Turn on a payment plan for your event so buyers pay a first instalment at checkout and the rest in weekly or monthly instalments that finish before the event.
+
+For: Selling higher-priced festival or multi-day tickets.
+
+What an agent can do: Fai can set up or turn off an event's payment plan. She shows you the settings and asks you to approve them before she saves, because they change how buyers pay. The command line and MCP have no payment plan commands.
+
+Prompt for Fai: "Set up a payment plan on <EVENT NAME> with 4 monthly instalments, the last one 2 weeks before the event, unpaid orders cancelled 1 week before the event, and a fixed £50 first instalment per order; show me the settings before you save"
+
+#### Then: Follow the instalments as they come in
+
+What an agent can do: Follow instalments on the Payment Plan tab of the Orders page.
 
 ### Let buyers refund their own tickets
 
@@ -212,7 +295,7 @@ Turn on self-refunds, see what a buyer is offered on their order page, and know 
 
 For: Letting buyers refund their own tickets from their order page.
 
-What an agent can do: Fai, the assistant inside your dashboard, can turn self-refunds on or off for an event and asks you to approve the change first. She refuses to turn them on once the event's money has been released, and says why. The terms a buyer is offered are not on anything she reads, so ask us for those.
+What an agent can do: Fai can turn self-refunds on or off for an event and asks you to approve the change first. She refuses to turn them on once the event's money has been released, and says why. She can't see the terms a buyer is offered, so ask Ticket Fairy support for those.
 
 Command line:
 
@@ -222,13 +305,13 @@ Prompt for Fai: "Turn on self-refunds for <EVENT NAME> and confirm the setting i
 
 #### Then: Where the ticket goes
 
-What an agent can do: Fai can tell you the state each ticket on an order is in. Where a refunded place went afterwards is not recorded against the ticket, so that one is ours to check.
+What an agent can do: Fai can tell you the state each ticket on an order is in. Where a refunded place went afterwards is not recorded against the ticket, so ask Ticket Fairy support to check that one.
 
 Prompt for Fai: "What state is each ticket on <ORDER NUMBER> for <EVENT NAME> in"
 
 #### Then: When a buyer cannot refund
 
-What an agent can do: Fai reads the ticket's own state, so she can tell you it is refunded, transferred, checked in or on resale. The rules that come from the event rather than the ticket are not on anything she reads, so ask us where none of those fits.
+What an agent can do: Fai can see the ticket's own state, so she can tell you it is refunded, transferred, checked in or on resale. She can't see the rules that come from the event rather than the ticket, so ask Ticket Fairy support where none of those fits.
 
 Prompt for Fai: "What state is the ticket on order <ORDER NUMBER> in"
 
@@ -246,7 +329,7 @@ Turn on ticket resale so a buyer who can't come to your event passes their ticke
 
 For: Letting ticket buyers pass their tickets to fans who want them.
 
-What an agent can do: Fai, the assistant inside your dashboard, can turn ticket resale, add-on resale and the waiting list on for you, tell you the resale fee on your event and list the tickets buyers have put up for resale. She shows you each change and asks you to approve it before she saves. Over MCP your own assistant can switch resale on and read the setting back.
+What an agent can do: Fai can turn ticket resale, add-on resale and the waiting list on for you, tell you the resale fee on your event and list the tickets buyers have put up for resale. She shows you each change and asks you to approve it before she saves. Over MCP your own assistant can switch resale on and read the setting back.
 
 Command line:
 
@@ -303,13 +386,13 @@ Change every ticket on a buyer's order to another ticket type in one go, move on
 
 For: Moving a buyer to the right ticket or seat after they have bought.
 
-What an agent can do: Fai, the assistant inside your dashboard, finds the order and reads out each ticket's type, holder and state, before and after you move it. Changing the ticket type and changing a seat are yours to do on the page, because she cannot do either. MCP and the command line have no command for either change.
+What an agent can do: Fai finds the order and reads out each ticket's type, holder and state, before and after you move it. She can't change a ticket type or a seat, so make either change yourself on the page. Neither MCP nor the command line has a command for these changes.
 
 Prompt for Fai: "For order <ORDER NUMBER> on <EVENT NAME>, list each ticket with its ticket type, holder and state, and tell me which of them are checked in or up for resale"
 
 #### Then: Move one ticket rather than the whole order
 
-What an agent can do: Fai reads the ticket afterwards so you can confirm which one is now valid. Making the change is yours to do on the page.
+What an agent can do: Fai can read the ticket afterwards so you can check which one now works at the door. You make the change yourself on the page.
 
 Prompt for Fai: "For order <ORDER NUMBER> on <EVENT NAME>, list its tickets with the type, barcode and state of each"
 
@@ -321,11 +404,11 @@ Add your own words to every ticket PDF for your event, such as how to get to the
 
 For: Getting the door information onto every ticket your buyers carry.
 
-What an agent can do: Fai, the assistant inside your dashboard, can set the words printed on every ticket for your event, or on one ticket type's tickets, and hide the date on a ticket type. She shows you the change and asks you to approve it before saving. MCP has no tool for ticket text.
+What an agent can do: Fai can set the words printed on every ticket for your event, or on one ticket type's tickets, and hide the date on a ticket type. She shows you the change and asks you to approve it before saving. MCP has no tool for ticket text.
 
 Command line:
 
-- Sets the text printed on every ticket PDF for the event, replacing any text already there: `ticketfairy event update <EVENT_ID> --body '{"ticketText":"<TICKET_TEXT>"}'`
+- Sets the text printed on every ticket PDF for the event, replacing the event's current ticket text: `ticketfairy event update <EVENT_ID> --body '{"ticketText":"<TICKET_TEXT>"}'`
 
 Prompt for Fai: "On <EVENT NAME>, print this on every ticket PDF: <DIRECTIONS AND ENTRY DETAILS>. Show me the text before you save it"
 
@@ -349,12 +432,16 @@ Return the face value of a paid order to the buyer's card from the Orders page, 
 
 For: Returning a buyer's money for an order they no longer want.
 
-What an agent can do: Fai, the assistant inside your dashboard, can request the authorisation code for an order and, once you give her the code from your email, refund it. She shows you the order and the amount and asks you to approve before any money moves. The whole workflow is also in the dashboard.
+What an agent can do: Fai can request the authorisation code for an order and, once you give her the code from your email, refund it. She shows you the order and the amount and asks you to approve before any money moves, and she can turn on dashboard refunds for the event when they are off. Your own AI assistant can do the same over the MCP server, where each refund also waits for your approval in your MCP client.
 
 Command line:
 
 - Email yourself the authorisation code for an order without refunding it: `ticketfairy order refund <ORDER_HASH> --request-code-only`
 - Refund the order with the code from your email: `ticketfairy order refund <ORDER_HASH> --code <CODE>`
+
+CLI MCP tools that read: `select_event`, `get_order`.
+
+CLI MCP tools that make changes (not available with `--read-only`): `request_refund_code`, `refund_order`.
 
 Prompt for Fai: "Find order <ORDER NUMBER> on <EVENT NAME>, show me the buyer, the tickets and the amount that would be refunded, then request the refund authorisation code and wait for me to give you the code before refunding"
 
@@ -378,15 +465,25 @@ Send an order's tickets again to any email address the buyer gives you, and corr
 
 For: Answering a buyer whose tickets went missing.
 
-What an agent can do: Fai, the assistant inside your dashboard, finds the order and reads what was sent and to which address. Sending the tickets again and correcting a name are yours to do on the page, because neither is something she can carry out.
+What an agent can do: Fai finds the order and reads what was sent and to which address. She can't send the tickets again or correct a name, so make either change yourself on the Orders page.
 
 Prompt for Fai: "Find the order for <BUYER EMAIL ADDRESS> on <EVENT NAME> and tell me which tickets it holds and what state each one is in"
 
 #### Then: Resend from the order itself
 
-What an agent can do: Fai finds the order and reads it out to you. The resend is yours to do on the page.
+What an agent can do: Fai can find the order and read it out to you, and you resend the tickets yourself on the page.
 
 Prompt for Fai: "Show me order <ORDER NUMBER> on <EVENT NAME> with the address it was sent to"
+
+### Respond to a disputed ticket order
+
+Slug `respond-to-a-disputed-ticket-order`. Guide: https://www.ticketfairy.com/guides/respond-to-a-disputed-ticket-order
+
+When a buyer disputes their card payment with their bank, find the order, collect your evidence and send it in time, either by replying to our email or from the payments view of your own payment account.
+
+For: Answering a buyer's chargeback so you can win the money back.
+
+What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
 
 ### Run a waiting list for a sold-out event
 
@@ -396,7 +493,7 @@ Switch on the waiting list, decide how many tickets one person can ask for, see 
 
 For: Offering returned tickets to buyers who missed out.
 
-What an agent can do: Fai, the assistant inside your dashboard, can switch the waiting list on or off, set the most tickets one signup may ask for, read who is waiting and email the list. She shows you each change before she makes it. The whole workflow is also in the dashboard.
+What an agent can do: Fai can switch the waiting list on or off, set the most tickets one person can ask for when they sign up, tell you who is waiting and email the list. She shows you each change before she makes it. The whole workflow is also in the dashboard.
 
 Command line:
 
@@ -424,13 +521,7 @@ Record a company's block of tickets with its purchase order and payment terms, g
 
 For: Selling blocks of tickets to companies and teams.
 
-What an agent can do: Fai can draft the booking, send it for sign-off and raise the invoice. She asks before each of those, because each one commits money or reaches a company.
-
-Command line:
-
-- Show the event and its dates: `ticketfairy event get <EVENT_ID>`
-
-CLI MCP tools that read: `select_event`, `get_event`.
+What an agent can do: Fai can draft the booking, send it for sign-off and raise the invoice. She asks before each of those, because each one commits money or can go out to the company.
 
 Prompt for Fai: "Create a group booking for <EVENT NAME>: forty passes for <COMPANY NAME> against <PURCHASER NAME OR EMAIL>, on the general admission ticket at its current price, purchase order 8841, thirty day terms, and show it to me before saving"
 
@@ -438,13 +529,25 @@ Prompt for Fai: "Create a group booking for <EVENT NAME>: forty passes for <COMP
 
 What an agent can do: Fai can change a draft or cancel a booking once you approve it, and read back the ones waiting on sign-off or payment.
 
-Command line:
-
-- Show the event and its dates: `ticketfairy event get <EVENT_ID>`
-
-CLI MCP tools that read: `select_event`, `get_event`.
-
 Prompt for Fai: "For <EVENT NAME>, which group bookings are still waiting to be paid"
+
+### Turn on the ID check for buyers
+
+Slug `turn-on-the-id-check-for-buyers`. Guide: https://www.ticketfairy.com/guides/turn-on-the-id-check-for-buyers
+
+Ask Fai to turn on the ID check for an event, so each buyer proves who they are with a photo ID before we take their payment and issue their tickets.
+
+For: Making sure every buyer has proved who they are before their tickets are issued.
+
+What an agent can do: Fai turns the ID check on or off for one event. She shows you the change and asks you to approve it before she saves it. The command line and MCP have no setting for the ID check.
+
+Prompt for Fai: "Turn on the ID check for buyers on <EVENT NAME> and show me the change before you save it"
+
+#### Then: Turn off the ID check
+
+What an agent can do: Fai turns the ID check off for one event after you approve the change.
+
+Prompt for Fai: "Turn off the ID check for buyers on <EVENT NAME>"
 
 ### Win back buyers who left checkout
 
@@ -454,25 +557,25 @@ Find the buyers who entered their details at checkout and never paid for their t
 
 For: Turning lost checkouts into sales.
 
-What an agent can do: Fai, the assistant inside your dashboard, can read the list and tell you how big it is and how recent. Sending the email is done in the dashboard, so she hands you back to the composer, and MCP has no reader for this list.
+What an agent can do: Fai can check the list and tell you how big it is and how recent. You send the email in the dashboard, so she sends you to the composer, and MCP can't read this list.
 
 Prompt for Fai: "For <EVENT NAME>, how many people left checkout without paying in the last <NUMBER> days, and how many of them never got as far as an order"
 
-#### Then: The reminder we send for you
+#### Then: The reminder Ticket Fairy sends for you
 
-What an agent can do: Fai reads the abandoned-cart list and can say how big it is and how recent. Whether the automatic reminder runs for an event is not on anything she can read, so ask us that one.
+What an agent can do: Fai can check the abandoned-cart list and tell you how big it is and how recent. She can't see whether the automatic reminder runs for an event, so ask Ticket Fairy support about that one.
 
 Prompt for Fai: "How many people left checkout on <EVENT NAME> yesterday without paying"
 
 #### Then: What takes a row off the list
 
-What an agent can do: Fai reads the same list, so she sees what is on it now. A cart that has bought is already off it, and nothing records that it was ever on it.
+What an agent can do: Fai sees the same list, so she sees what's on it now. A buyer who has bought is already off it, and there's no record that they were ever on it.
 
 Prompt for Fai: "For <EVENT NAME>, show me who is on the abandoned cart list now and how many times each of them reached checkout"
 
 #### Then: When a buyer opts out
 
-What an agent can do: Fai reads the tab, which counts opt-outs in, so ask her for the total rather than for who will receive a send.
+What an agent can do: Fai sees the tab, which includes opt-outs, so ask her for the total rather than for who will receive a send.
 
 Prompt for Fai: "How many people are on the abandoned-cart list for <EVENT NAME>"
 

@@ -1,0 +1,19 @@
+{
+  "refreshed_on": "2026-10-23",
+  "platform_repository": "https://github.com/theticketfairy/legacy",
+  "platform_commit": "f99f6653b9b7542acc1f8972067e2d7aa8006290",
+  "guide_export_sha256": "cbd8f3412902a83a8f2ec6169fdffe6d8ac438fea028f99b67926721a09f726c",
+  "cli_repository": "https://github.com/theticketfairy/ticketfairy-cli",
+  "cli_commit": "4cd7a2cf3f0059196ae5314f8d3b1f19074b194b",
+  "cli_version": "0.1.4",
+  "public_index": "https://www.ticketfairy.com/.well-known/agent-skills/index.json",
+  "public_index_sha256": "ebd4297e61cde2e34158fd40d3f8ad50cba0091f45ee27e4f981cfbf0420736e",
+  "published_skill_count": 34,
+  "preserved_existing_skill_names": 26,
+  "added_names": "Eight specialist names already advertised in the published skill index; no aliases or new API capabilities.",
+  "refreshed_entry_skills": [
+    "find-event-tickets",
+    "start-organising-events"
+  ],
+  "entry_skill_source": "Published SKILL.md documents from the recorded public index; unchanged canonical names."
+}

@@ -5,7 +5,7 @@ description: "Read Ticket Fairy event reports: sales, page views, buyers and wha
 
 # Read event reports
 
-This skill covers the dashboard reports, what each one counts and how to use the figures on Ticket Fairy. It lists the 11 published guides for this area and what an agent can do for each one.
+This skill covers the dashboard reports, what each one counts and how to use the figures on Ticket Fairy. It lists the 19 published guides for this area and what an agent can do for each one.
 
 ## How to work
 
@@ -31,19 +31,33 @@ This skill covers the dashboard reports, what each one counts and how to use the
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
 - [Check the weather for your event](#check-the-weather-for-your-event)
+- [Compare ticket sales across all your events](#compare-ticket-sales-across-all-your-events)
+- [Create a recap of your event and share it](#create-a-recap-of-your-event-and-share-it)
+- [Email your ticket sales report to your team](#email-your-ticket-sales-report-to-your-team)
+- [Export every ticket sale across your brand](#export-every-ticket-sale-across-your-brand)
+- [See how many ticket buyers come back to your events](#see-how-many-ticket-buyers-come-back-to-your-events)
 - [See how visitors find your event page](#see-how-visitors-find-your-event-page)
 - [See how your ticket sales are going](#see-how-your-ticket-sales-are-going)
 - [See where your event audiences are strongest](#see-where-your-event-audiences-are-strongest)
+- [See which devices your ticket buyers order on](#see-which-devices-your-ticket-buyers-order-on)
+- [See which sources and campaigns sell your tickets](#see-which-sources-and-campaigns-sell-your-tickets)
 - [See which team members sell your tickets](#see-which-team-members-sell-your-tickets)
 - [See who visits your event website](#see-who-visits-your-event-website)
+- [See your ticket sales pace and sell-out forecast](#see-your-ticket-sales-pace-and-sell-out-forecast)
 - [Share a live ticket sales report with a partner](#share-a-live-ticket-sales-report-with-a-partner)
 - [Track which promotion sells your tickets](#track-which-promotion-sells-your-tickets)
 - [Understand who buys tickets across your events](#understand-who-buys-tickets-across-your-events)
@@ -58,9 +72,99 @@ See the weather forecast for your event's venue on the Performance page, with yo
 
 For: Planning an outdoor event around the weather at your venue.
 
-What an agent can do: Fai, the assistant inside your dashboard, reads the same forecast for your event's venue, including any severe-weather warning, and what the date is usually like when the event is further out. You read the weather on your event's Performance page or through Fai.
+What an agent can do: Fai reads the same forecast for your event's venue, including any severe-weather warning, and what the date is usually like when the event is further out. You read the weather on your event's Performance page or through Fai.
 
 Prompt for Fai: "What's the weather looking like for <EVENT NAME> on the day, is there any warning out for the venue, and what is that date usually like there"
+
+### Compare ticket sales across all your events
+
+Slug `compare-ticket-sales-across-your-events`. Guide: https://www.ticketfairy.com/guides/compare-ticket-sales-across-your-events
+
+Use the brand Performance report to check tickets sold, revenue and how full each event is across every event under your brand, then narrow it to a series, a venue or a place and compare how two to five events sold.
+
+For: Following sales across a season, a series or every event under your brand.
+
+What an agent can do: Fai reads the same report for the whole brand or for any series, venue, city, country or set of events, and lines up two to five events to compare how they sold. She only reads the figures and doesn't change anything.
+
+Prompt for Fai: "Look at the Performance report for my brand for the last 90 days. Tell me which upcoming events are selling slowest against their capacity, then compare this year's summer opening night with last year's by days before the event"
+
+### Create a recap of your event and share it
+
+Slug `create-a-recap-of-your-event-and-share-it`. Guide: https://www.ticketfairy.com/guides/create-a-recap-of-your-event-and-share-it
+
+See your event's ticket sales, check-ins, buyer cities and campaign sources on its Recap page, then send the recap to a venue, artist or sponsor in a link they open without signing in, with or without your revenue.
+
+For: Reporting how an event went to your venue, artists and sponsors.
+
+What an agent can do: Fai reads the same recap, and can make a recap link with the name and revenue choice you give her or stop one. She asks you to approve each link she makes or stops.
+
+Prompt for Fai: "Give me a recap of <EVENT NAME>, then make a recap link called <NAME> <WITH OR WITHOUT> revenue for me to send, and show it to me before you create it"
+
+#### Then: Send a link again
+
+What an agent can do: Fai lists your recap links with their names and dates but never shows a link itself. Copy it from the Recap page, or ask Fai to make a new one.
+
+Prompt for Fai: "List the recap links of <EVENT NAME> and the date each stops working"
+
+#### Then: Stop a link
+
+What an agent can do: Ask Fai to stop a recap link by its name. She finds it, shows you which link she will stop and asks you to approve it.
+
+Prompt for Fai: "Stop the recap link called <NAME> on <EVENT NAME>"
+
+### Email your ticket sales report to your team
+
+Slug `email-your-sales-report-to-your-team`. Guide: https://www.ticketfairy.com/guides/email-your-sales-report-to-your-team
+
+Send your event's ticket sales to the people who need them by email, every day or once a week, each in their own language and with or without revenue.
+
+For: Keeping your co-promoters, venue and team up to date on ticket sales.
+
+What an agent can do: Fai can show you who gets the sales report and change it: turn it on or off, set every day or once a week, and add or remove people with their language and revenue choice. She shows you the change and asks you to approve it before she saves.
+
+Prompt for Fai: "On <EVENT NAME>, email the sales report every Monday to <NAME> at <EMAIL> with revenue and to <NAME> at <EMAIL> in <LANGUAGE> without revenue, and show me the change before you save it"
+
+#### Then: Stop the emails for everyone
+
+What an agent can do: Ask Fai to turn the sales report email off for the event. She shows the change and asks you to approve it.
+
+Prompt for Fai: "Turn off the sales report email for <EVENT NAME> and keep the people on the list"
+
+#### Then: Take one person off the list
+
+What an agent can do: Ask Fai to remove a person from the sales report email. She shows the list without them and asks you to approve it.
+
+Prompt for Fai: "Take <EMAIL> off the sales report email for <EVENT NAME>"
+
+### Export every ticket sale across your brand
+
+Slug `export-every-ticket-sale-across-your-brand`. Guide: https://www.ticketfairy.com/guides/export-every-ticket-sale-across-your-brand
+
+Download one ZIP of spreadsheets with every ticket bought across your brand's events in up to 12 months: each transaction, each event's totals and each ticket tier's sales.
+
+For: Handing a season's ticket sales to an accountant, a partner or a client.
+
+What an agent can do: Fai can start the same export for the dates and events you name, after she shows you what it covers and you approve it, and she can tell you when it is ready and list your recent exports. You download the file from the brand's Performance page; Fai never sends it.
+
+Prompt for Fai: "Export every ticket sale of my brand from <FIRST DAY> to <LAST DAY> for <ALL EVENTS OR A SERIES, VENUE OR CITY>, email me a link when it is ready, and show me what it covers before you start it"
+
+#### Then: Download an earlier export again
+
+What an agent can do: Ask Fai for your recent exports of the brand. She lists them with their days and whether each is ready, and gives you the Performance page link to download a ready one.
+
+Prompt for Fai: "List my recent sales exports for <BRAND NAME> and tell me which ones I can still download"
+
+### See how many ticket buyers come back to your events
+
+Slug `see-how-many-ticket-buyers-come-back-to-your-events`. Guide: https://www.ticketfairy.com/guides/see-how-many-ticket-buyers-come-back-to-your-events
+
+Use Buyer loyalty on your brand's Performance page to see how many of your ticket buyers came back for two or more of your events, how many events each buyer has bought for, and which events bring buyers back, for every event or one series, venue, place or set of events.
+
+For: Growing the audience that comes back to every event you run.
+
+What an agent can do: Fai reads the same Buyer loyalty figures for any period and for the whole brand or one series, venue, city, country or set of events, and can suggest how to bring first-time buyers back. She only reads the figures and doesn't change anything.
+
+Prompt for Fai: "Look at the buyer loyalty of my brand <BRAND NAME> for the last 12 months. Tell me how many buyers came back for two or more events, which events bring buyers back, and what I could do to turn more first-time buyers into returning ones"
 
 ### See how visitors find your event page
 
@@ -89,12 +193,12 @@ See how many tickets you have sold and what your event has earned, from the figu
 
 For: Following an on-sale and reporting on it afterwards.
 
-What an agent can do: Fai, the assistant inside your dashboard, reads the same figures and can explain what each one counts. She reads them; the page is where you change anything.
+What an agent can do: Fai can use the same figures and explain what each one counts. She only reads them; you change anything on the page itself.
 
 Command line:
 
 - The figures across the top of the page: `ticketfairy event stats <EVENT_ID> --metric summary`
-- Sales over time, the same run the Ticket Sales chart plots: `ticketfairy event stats <EVENT_ID> --metric sales --output json`
+- Sales day by day, the same run the Ticket Sales chart plots: `ticketfairy api /api/events/<EVENT_ID>/relationships/performance --query section=sales --output json`
 - The same totals per ticket type: `ticketfairy event stats <EVENT_ID> --metric performance --output json`
 
 CLI MCP tools that read: `select_event`, `get_event_performance`.
@@ -103,9 +207,9 @@ Prompt for Fai: "For <EVENT NAME>, tell me how many tickets have sold and what t
 
 #### Then: Tell gross from net
 
-What an agent can do: Fai reads both figures and says which is which.
+What an agent can do: Fai can tell you both figures and which is which.
 
-Prompt for Fai: "For <EVENT NAME>, give me revenue with and without the booking fee and tell me whether refunds are already taken off"
+Prompt for Fai: "For <EVENT NAME>, give me revenue with and without the ticketing fee and tell me whether refunds are already taken off"
 
 #### Then: Find the report behind a figure
 
@@ -127,9 +231,40 @@ Compare where ticket buyers are based across all your events, or focus on a seri
 
 For: Planning where to advertise, tour or grow next.
 
-What an agent can do: Ask Fai to compare where buyers are based across the brand or for any group of events the Geographics page supports. She can find the matching series, venue, host city or host country before reading the report.
+What an agent can do: Ask Fai to compare where buyers are based across the brand or for any group of events you can choose on the Geographics page. She can find the matching series, venue, host city or host country before reading the report.
 
 Prompt for Fai: "Where are the buyers for our Manchester events based, compare orders and tickets in the leading cities, and tell me which places are strong enough for a local campaign"
+
+### See which devices your ticket buyers order on
+
+Slug `see-which-devices-your-ticket-buyers-order-on`. Guide: https://www.ticketfairy.com/guides/see-which-devices-your-ticket-buyers-order-on
+
+Use the Devices report for your event to see the browsers, device types, platforms, device brands and models your ticket buyers ordered on, with the number of orders and the share for each.
+
+For: Checking where your buyers finish checkout.
+
+What an agent can do: Fai and your own AI assistant through our MCP server can both read the Devices report and tell you what your buyers ordered on, with refunded and cancelled orders left in or taken out.
+
+Command line:
+
+- The browser, device type, platform, device brand and device name counts: `ticketfairy event stats <EVENT_ID> --metric devices`
+- The same counts, ready for a script: `ticketfairy event stats <EVENT_ID> --metric devices --output json`
+
+CLI MCP tools that read: `select_event`, `get_event_performance`.
+
+Prompt for Fai: "Look at the devices report for this event and tell me how many orders came from phones, which browser and app buyers used most, and whether that changes if you leave out refunded and cancelled orders"
+
+### See which sources and campaigns sell your tickets
+
+Slug `see-which-sources-and-campaigns-sell-your-tickets`. Guide: https://www.ticketfairy.com/guides/see-which-sources-and-campaigns-sell-your-tickets
+
+Use the Campaigns tab of your event's Traffic report to see the link clicks, visits, orders, tickets and revenue each tagged link brought in, by source, medium or campaign, then follow visitors from your event page to a purchase on the Funnel tab.
+
+For: Deciding which adverts, posts and partners to keep paying for.
+
+What an agent can do: Fai reads the same Campaigns and Funnel figures for any days you name, grouped by source, medium or campaign, and can say which tags sold the most and where visitors dropped off. She only reads the figures and doesn't change anything.
+
+Prompt for Fai: "For <EVENT NAME>, show me the sales by campaign for the last 30 days, tell me which campaign sold the most tickets for each visit, and then show me where visitors dropped off between the event page and a purchase"
 
 ### See which team members sell your tickets
 
@@ -155,6 +290,18 @@ What an agent can do: Ask Fai for the days you want. She reads the same page vie
 
 Prompt for Fai: "How many people visited my <WEBSITE NAME> website in the last 30 days, and which pages and events did they click on most"
 
+### See your ticket sales pace and sell-out forecast
+
+Slug `see-your-ticket-sales-pace-and-sell-out-forecast`. Guide: https://www.ticketfairy.com/guides/see-your-ticket-sales-pace-and-sell-out-forecast
+
+Use Sales pace and forecast on your event's Insights page to see whether you are selling faster or slower than a past event, how many tickets and how much revenue to expect, and the day you can expect to sell out, then see how many of your buyers are new and how many came back.
+
+For: Knowing early whether an event will sell out, and when.
+
+What an agent can do: Fai reads the same forecast against the event she picks, or against any past event of your brand you name, says how sure the estimate is and why, and reads the split of new and returning buyers. She only reads the figures and doesn't change anything.
+
+Prompt for Fai: "For <EVENT NAME>, compare my sales so far with <PAST EVENT NAME> at the same number of days before the event, tell me how many tickets I can expect to sell, whether and when it sells out and how sure that is, and how many of my buyers came back from my other events"
+
 ### Share a live ticket sales report with a partner
 
 Slug `share-a-live-sales-report`. Guide: https://www.ticketfairy.com/guides/share-a-live-sales-report
@@ -163,7 +310,7 @@ Give a venue, co-promoter or sponsor a sales report link that shows the live tic
 
 For: Showing a partner the live ticket sales of the part of your event they share in.
 
-What an agent can do: Fai, the assistant inside your dashboard, can make a sales report link for the ticket types and add-ons you name, and she shows it to you and asks you to approve it first. Copy the finished link from the External/3rd-Party Sales Reporting section on the event's Settings page. Sales report links are made in the dashboard or through Fai.
+What an agent can do: Fai can make a sales report link for the ticket types and add-ons you name, after she shows it to you and you approve it. Copy the finished link from the External/3rd-Party Sales Reporting section on the event's Settings page. You can make sales report links in the dashboard or through Fai.
 
 Prompt for Fai: "On <EVENT NAME>, make a sales report link called <NAME> for the <TICKET TYPES> ticket types and the <ADD-ONS> add-ons, <WITH OR WITHOUT> the day-by-day breakdown, and show it to me before you create it"
 
@@ -183,13 +330,13 @@ Give each advert, post, email or partner a separate tracking link so your event 
 
 For: Promoting an event in more than one place at once.
 
-What an agent can do: Fai, the assistant inside your dashboard, can read this table for you and say which link brought in the most: she reports the same clicks, orders and revenue, and the same caution that an order counts from the moment it is placed while a refund lowers the revenue. She cannot make a link or delete one, so those stay with you on this page.
+What an agent can do: Fai can go through this table and tell you which link brought in the most: she gives you the same clicks, orders and revenue, with the same caution that an order counts from the moment it is placed while a refund lowers the revenue. She can't create or delete a link, so you do that on this page.
 
 Prompt for Fai: "Show me the tracking links on this event and tell me which one brought in the most orders"
 
 #### Then: Delete a tracking link you no longer use
 
-What an agent can do: Delete a tracking link in the dashboard. Fai can read the links and their results, but she cannot create or delete one, and neither MCP nor the CLI manages them.
+What an agent can do: Delete a tracking link in the dashboard. Fai can show you the links and their results, but she cannot create or delete one, and neither MCP nor the CLI manages them.
 
 ### Understand who buys tickets across your events
 

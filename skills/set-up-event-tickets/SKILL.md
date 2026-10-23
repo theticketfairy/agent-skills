@@ -1,11 +1,11 @@
 ---
 name: set-up-event-tickets
-description: "Set up a Ticket Fairy event: ticket types, release tiers, sessions, seating, add-ons, resale and transfer rules. Use when an organiser wants to create or change what their event sells."
+description: "Set up a Ticket Fairy event: ticket types, release tiers, sessions, seating, resale and transfer rules. Use when an event organiser wants to create or change the tickets their event sells."
 ---
 
 # Set up event tickets
 
-This skill covers ticket types, release tiers, multi-day and timed entry, seating, resale and transfer rules on Ticket Fairy. It lists the 29 published guides for this area and what an agent can do for each one.
+This skill covers ticket types, release tiers, multi-day and timed entry, seating, resale and transfer rules on Ticket Fairy. It lists the 23 published guides for this area and what an agent can do for each one.
 
 ## How to work
 
@@ -31,10 +31,16 @@ This skill covers ticket types, release tiers, multi-day and timed entry, seatin
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
@@ -48,35 +54,29 @@ This skill covers ticket types, release tiers, multi-day and timed entry, seatin
 - [Duplicate an event](#duplicate-an-event)
 - [Group your tickets into categories](#group-your-tickets-into-categories)
 - [Hold back tickets for later](#hold-back-tickets-for-later)
-- [Issue reusable event passes to crew and artists](#issue-reusable-event-passes-to-crew-and-artists)
 - [Limit who can buy a ticket type](#limit-who-can-buy-a-ticket-type)
-- [Make your event invitation-only](#make-your-event-invitation-only)
-- [Password-protect your event](#password-protect-your-event)
 - [Postpone or reschedule an event](#postpone-or-reschedule-an-event)
 - [Run a recurring event series](#run-a-recurring-event-series)
 - [Run an A/B test for your event](#run-an-ab-test-for-your-event)
 - [Schedule ticket releases](#schedule-ticket-releases)
 - [Schedule when your event goes live](#schedule-when-your-event-goes-live)
-- [Sell parking, camping and merchandise with your tickets](#sell-parking-camping-and-merchandise-with-your-tickets)
-- [Sell tickets by personal invitation](#sell-tickets-by-personal-invitation)
-- [Sell tickets only to your NFT holders](#sell-tickets-only-to-your-nft-holders)
+- [Sell reserved seats for your event from a seat map](#sell-reserved-seats-for-your-event-from-a-seat-map)
+- [Sell tickets to every date of your tour from one page](#sell-tickets-to-every-date-of-your-tour-from-one-page)
 - [Sell timed-entry tickets for an attraction, exhibition or food event](#sell-timed-entry-tickets-for-an-attraction-exhibition-or-food-event)
-- [Sell VIP tables and bottle service through your promoters](#sell-vip-tables-and-bottle-service-through-your-promoters)
 - [Set up ticket types](#set-up-ticket-types)
 - [Set up ticketing for a multi-day festival](#set-up-ticketing-for-a-multi-day-festival)
 - [Take pre-registrations before your ticket on-sale](#take-pre-registrations-before-your-ticket-on-sale)
-- [Unlock hidden tickets with an access code](#unlock-hidden-tickets-with-an-access-code)
 - [Use Freefund to reduce no-shows at free and RSVP events](#use-freefund-to-reduce-no-shows-at-free-and-rsvp-events)
 
 ### Add your flyer and description to your event page
 
 Slug `design-your-event-page`. Guide: https://www.ticketfairy.com/guides/design-your-event-page
 
-Add the flyer, the background image and the description a buyer reads before they choose a ticket, keep the short description brief enough to read in a shared link, and give each language its own wording and artwork.
+Add the flyer, the background image and the description a buyer reads before they choose a ticket, with its own wording and artwork for each language.
 
 For: Turning visitors into ticket buyers on your event page.
 
-What an agent can do: Fai, the assistant inside your dashboard, drafts the wording for you and sets the one-line version herself, asking you to approve it first. The full description goes into the card on the page, and so does the artwork, because she can neither save the long text nor hold your flyer for you.
+What an agent can do: Fai drafts the wording for you and sets the one-line version herself after you approve it. You add the full description and the artwork on the page yourself, because she can't save the long text or upload your flyer for you.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
@@ -90,6 +90,14 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, draft the event description in <LANGUAGE> from the English one"
 
+#### Then: Give your buttons the colour of your flyer
+
+What an agent can do: Fai takes a colour from your flyer, shows it to you, and sets it once you agree.
+
+CLI MCP tools that read: `select_event`, `get_event`.
+
+Prompt for Fai: "For <EVENT NAME>, suggest a button colour from the flyer and set it once I agree"
+
 ### Answer your buyers' questions on the event page
 
 Slug `add-faqs-to-your-event-page`. Guide: https://www.ticketfairy.com/guides/add-faqs-to-your-event-page
@@ -98,7 +106,7 @@ Group the questions buyers keep asking into sections on your event page, keep a 
 
 For: Answering common buyer questions on your event page.
 
-What an agent can do: Fai, the assistant inside your dashboard, can read your FAQ sections, draft new ones, add and reword questions, reorder them and import a set from a document. She asks you to approve anything she drafts. The same workflow is on the FAQs page.
+What an agent can do: Fai can read your FAQ sections, draft new ones, add and reword questions, reorder them and import a set from a document. She asks you to approve anything she drafts. The same workflow is on the FAQs page.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
@@ -106,7 +114,7 @@ Prompt for Fai: "On <EVENT NAME>, add an FAQ section called Getting Here with qu
 
 #### Then: Import the questions from a document you already have
 
-What an agent can do: Fai can read a photo of your sheet, or text you paste to her, and draft the sections and questions from it for you to approve. A Word file or a PDF goes through Import from document on the page instead, which reads them for you.
+What an agent can do: Fai can read a photo of your sheet, or text you paste to her, and draft the sections and questions from it for you to approve. For a Word file or a PDF, use Import from document on the page instead, and it reads the file for you.
 
 CLI MCP tools that read: `select_event`, `get_event`.
 
@@ -128,7 +136,7 @@ Review every order, or only orders containing selected ticket types. Choose when
 
 For: Reviewing ticket requests before confirming admission.
 
-What an agent can do: Fai, the assistant inside your dashboard, can turn order approval on for the event or selected ticket types, show you a pending order, and approve or decline it. She asks you to approve settings changes and asks again before the order decision. You can also complete the whole workflow in the dashboard. Your own AI assistant over the MCP server can show you a specified pending order and approve it only after you confirm.
+What an agent can do: Fai can turn order approval on for the event or selected ticket types, show you a pending order, and approve or decline it. She asks you to approve settings changes and asks again before the order decision. You can also complete the whole workflow in the dashboard. Your own AI assistant over the MCP server can show you a specified pending order and approve it only after you confirm.
 
 CLI MCP tools that read: `select_event`, `get_order`.
 
@@ -148,11 +156,11 @@ Prompt for Fai: "Open pending order <ORDER NUMBER> for <EVENT NAME>. Show me the
 
 Slug `cancel-an-event`. Guide: https://www.ticketfairy.com/guides/cancel-an-event
 
-Mark the event cancelled, start refunds for every order and tell ticket holders yourself before the refund emails reach them.
+Mark the event cancelled so Ticket Fairy support refunds every order, and tell ticket holders yourself before the refund emails reach them.
 
 For: Ending an event after you have already sold tickets.
 
-What an agent can do: Fai can open Event Details for you, read the event back, and draft the announcement to ticket holders. Cancelling is yours to confirm in the dashboard or with the CLI, which asks you to confirm before it sends anything.
+What an agent can do: Fai can open Event Details for you, read the event back, and draft the announcement to ticket holders. You confirm the cancellation yourself in the dashboard or with the CLI, which asks you to confirm before it sends anything.
 
 Command line:
 
@@ -164,7 +172,7 @@ Prompt for Fai: "Open Event Details for <EVENT NAME>, tell me how many orders it
 
 #### Then: Check the refunds have gone out
 
-What an agent can do: Fai can open the event so you can check the orders. What each order has been refunded is read on the Orders page today.
+What an agent can do: Fai can open the event so you can check the orders. Today, you check what each order has been refunded on the Orders page.
 
 Command line:
 
@@ -206,7 +214,7 @@ Give Ticket Fairy support two email addresses for one event, the one buyer escal
 
 For: Pointing Ticket Fairy support at the team that runs one event.
 
-What an agent can do: Fai, the assistant inside your dashboard, can set both addresses on one event. She shows you the change and asks you to approve it before she saves it. The command line sets the same two addresses through an event update.
+What an agent can do: Fai can set both addresses on one event. She shows you the change and asks you to approve it before she saves it. The command line sets the same two addresses through an event update.
 
 Command line:
 
@@ -232,13 +240,13 @@ Share your ticket tiers and allocations as a template without publishing your pr
 
 For: Sharing an event setup as a reusable template.
 
-What an agent can do: Fai can copy the ticket tiers and allocations from your event, choose an anchor tier and draft the template details. She shows you the wording and asks before submitting it. You can also create the template from your event in the dashboard.
+What an agent can do: Fai can copy the ticket tiers and allocations from your event, choose the standard ticket and draft the template details. She shows you the wording and asks before submitting it. You can also create the template from your event in the dashboard.
 
-Prompt for Fai: "Share my Summer Weekender as a template called "Two stage weekender", use the weekend ticket as the anchor, draft a one-line summary for a two-day outdoor event with camping, and show me the draft before submitting"
+Prompt for Fai: "Share my Summer Weekender as a template called "Two stage weekender", price it around the weekend ticket, draft a one-line summary for a two-day outdoor event with camping, and show me the draft before submitting"
 
 #### Then: Withdraw a template
 
-What an agent can do: Fai can find the template and withdraw it after showing you its current status. MCP and the CLI do not manage organiser-shared event templates.
+What an agent can do: Fai can find the template and withdraw it after showing you its current status. MCP and the CLI do not manage the event templates you share.
 
 Prompt for Fai: "Find my event template called <TEMPLATE NAME>, show me its current status and public details, then ask before withdrawing it to draft"
 
@@ -250,7 +258,7 @@ Start from a template or a blank event, add the details buyers need, set up your
 
 For: Creating a new event and preparing it for ticket sales.
 
-What an agent can do: Fai can recommend built-in and organiser-shared templates, lead with the one suggested for your brand, ask for the details and prices that belong to your event, and prepare the event with its ticket types and add-ons. She shows you the complete setup and asks before creating it. MCP and the CLI can create an event directly from the details you provide.
+What an agent can do: Fai can recommend built-in templates and templates other brands share, lead with the one suggested for your brand, ask for the details and prices that belong to your event, and prepare the event with its ticket types and add-ons. She shows you the complete setup and asks before creating it. MCP and the CLI can create an event directly from the details you provide.
 
 Command line:
 
@@ -262,7 +270,7 @@ CLI MCP tools that read: `set_context`.
 
 CLI MCP tools that make changes (not available with `--read-only`): `create_event`.
 
-Prompt for Fai: "Create an event for <EVENT DESCRIPTION>. Compare the built-in and organiser-shared templates, recommend the closest setup, ask me for every missing detail and price, then show me the event, ticket types, add-ons and sales settings before creating it"
+Prompt for Fai: "Create an event for <EVENT DESCRIPTION>. Compare the built-in templates and the templates other brands share, recommend the closest setup, ask me for every missing detail and price, then show me the event, ticket types, add-ons and sales settings before creating it"
 
 #### Then: Return to a saved draft
 
@@ -279,7 +287,7 @@ Prompt for Fai: "Find my draft event called <EVENT NAME>, show me its event deta
 
 #### Then: Start an event before you sign up
 
-What an agent can do: Fai can list the events you started before signing in and, after you approve, attach one to a brand as a draft event. Starting or editing the draft happens only on the page itself, before you have an account.
+What an agent can do: Fai can list the events you started before signing in and, after you approve, attach one to a brand as a draft event. You can start or edit that draft only on the page itself, before you have an account.
 
 Prompt for Fai: "Show me the events I started before signing in, then attach <EVENT NAME> to my brand <BRAND> as a draft"
 
@@ -309,7 +317,7 @@ Prompt for Fai: "Review the copied draft <EVENT NAME> before it goes on sale. Sh
 
 #### Then: Publish the new event
 
-What an agent can do: Fai, MCP and the CLI can publish the copied draft after showing you the event you selected. Scheduling a future publish time is available in the dashboard and through Fai.
+What an agent can do: Fai, MCP and the CLI can publish the copied draft after showing you the event you selected. You can schedule a future publish time in the dashboard or through Fai.
 
 Command line:
 
@@ -323,7 +331,7 @@ Prompt for Fai: "Show me the copied draft <EVENT NAME>, its public event page an
 
 #### Then: Delete a duplicate you made by mistake
 
-What an agent can do: Fai, MCP and the CLI can delete the mistaken draft after confirming its identity. The action is refused when the event already has orders.
+What an agent can do: Fai, MCP and the CLI can delete the mistaken draft after confirming its identity. Ticket Fairy won't delete it if the event already has orders.
 
 Command line:
 
@@ -343,7 +351,7 @@ Group day passes, weekend passes and price releases into categories so buyers ca
 
 For: Making a long ticket list easier to browse.
 
-What an agent can do: Fai, the assistant inside your dashboard, can create the categories, put each ticket type into one, and tell you which ticket types are still uncategorised. She asks you to approve every change before she makes it. You can also create and organise the categories in the dashboard.
+What an agent can do: Fai can create the categories, put each ticket type into one, and tell you which ticket types are still uncategorised. She asks you to approve every change before she makes it. You can also create and organise the categories in the dashboard.
 
 Prompt for Fai: "Make ticket categories called Friday, Saturday, Sunday and Full Weekend on this event, then list my ticket types, put each one in the category that best matches its name, and tell me which are still uncategorised"
 
@@ -373,49 +381,25 @@ Set aside part of a ticket type for a guest list, a competition or a partner, so
 
 For: Keeping part of a release for guests, competitions and partners.
 
-What an agent can do: Fai, the assistant inside your dashboard, reads your ticket types and can tell you what each one has left. Setting a hold is yours to do on the page.
+What an agent can do: Fai reads your ticket types and can tell you what each one has left. You set a hold yourself on the page.
 
 Prompt for Fai: "For <EVENT NAME>, how many tickets are left on <TICKET TYPE NAME> and how many have sold"
 
 #### Then: Keep a second reserve on the same ticket
 
-What an agent can do: Fai reads what each ticket type has left, which is the number a second reserve has to fit inside. Adding it is yours to do on the page.
+What an agent can do: Fai can tell you what each ticket type has left, and a second reserve has to fit inside that number. You add it yourself on the page.
 
 Prompt for Fai: "For <EVENT NAME>, list my ticket types with how many of each are left"
 
 #### Then: Give the held tickets out
 
-What an agent can do: Choosing the reserve an invitation draws on is yours to do on the Invitations page. Fai cannot list the invitations sent from it.
+What an agent can do: On the Invitations page, you choose which reserve an invitation uses. Fai can't list the invitations sent from it.
 
 #### Then: Put a reserve back on sale
 
-What an agent can do: Fai reads the ticket type afterwards and can confirm what buyers can now reach. Removing the reserve is yours to do on the page.
+What an agent can do: Fai can check the ticket type afterwards and tell you how many tickets buyers can now buy. You remove the reserve yourself on the page.
 
 Prompt for Fai: "For <EVENT NAME>, how many of <TICKET TYPE NAME> are available to buyers now"
-
-### Issue reusable event passes to crew and artists
-
-Slug `issue-entry-passes-to-your-crew`. Guide: https://www.ticketfairy.com/guides/issue-entry-passes-to-your-crew
-
-Give crew and artists named multi-entry passes. Your door team can scan them in the same app they use for tickets.
-
-For: Letting your team in and out of an event all day.
-
-What an agent can do: Fai, the assistant inside your dashboard, can create the pass types, issue the passes and send them out. She asks you to approve each action first. You can also manage the passes in the dashboard. Review every recipient before sending, because an email that has gone cannot be recalled.
-
-Prompt for Fai: "Create a Crew Member pass type for this brand with twelve entries per event, issue one to every person in the list I paste next, and show me the names before sending anything"
-
-#### Then: Update a pass
-
-What an agent can do: Fai can find the pass and update its holder, type, uses or notes after showing you the current details. MCP and the CLI do not manage entry passes.
-
-Prompt for Fai: "Find the entry pass for <PERSON> on <EVENT OR BRAND>, show me its type, email address, uses and notes, then ask what I want to change"
-
-#### Then: Remove a pass
-
-What an agent can do: Fai can show the pass holder, type and remaining uses, then remove it after you approve the change. MCP and the CLI do not manage entry passes.
-
-Prompt for Fai: "Find the entry pass for <PERSON> on <EVENT OR BRAND>, show me its type and remaining uses, then ask before removing the pass"
 
 ### Limit who can buy a ticket type
 
@@ -437,48 +421,6 @@ CLI MCP tools that read: `set_context`, `list_tickets`.
 CLI MCP tools that make changes (not available with `--read-only`): `update_ticket`.
 
 Prompt for Fai: "On <EVENT NAME>, limit <TICKET TYPE> to <NUMBER> per order and <NUMBER> per customer account. Show me the ticket type and the change, and ask before saving it"
-
-### Make your event invitation-only
-
-Slug `make-an-event-invitation-only`. Guide: https://www.ticketfairy.com/guides/make-an-event-invitation-only
-
-Compare a shared password, personal invitations and a ticket access code, or approve each order after checkout before the buyer gets their tickets.
-
-For: Controlling who can buy tickets before or after checkout.
-
-What an agent can do: Fai, the assistant inside your dashboard, can compare the four approaches, check how your event is currently configured and set up the option you choose. She explains who gets access and when, then asks you to approve each change separately. You can also make every change in the dashboard.
-
-Prompt for Fai: "Find my event by name. Ask me whether access should use shared passwords, personal invitations, a shared access code, or a decision after checkout. Recommend the best fit from my answer, explain who can get through and when access is decided, then show me every setting, ticket, promotion or invitation message you would change and ask me to approve each change separately"
-
-### Password-protect your event
-
-Slug `password-protect-your-event`. Guide: https://www.ticketfairy.com/guides/password-protect-your-event
-
-Put your event page behind one or more shared passwords, test them and change a password without locking out the groups that still need access.
-
-For: Sharing a private event through one or more trusted groups.
-
-What an agent can do: Fai, the assistant inside your dashboard, can add or remove event passwords and turn password protection on or off. She shows you the event and asks you to approve each change before she makes it. You can also complete the whole workflow in the dashboard.
-
-Prompt for Fai: "Find my event by name, add these event passwords: <PASSWORDS>, and turn on Password required to view event only after at least one password is saved. Show me the event and every password that will remain, then ask me to approve each change"
-
-#### Then: Replace a shared password
-
-What an agent can do: Fai can create the replacement and remove the old password after you have tested the new one. MCP and the CLI do not manage event passwords.
-
-Prompt for Fai: "For <EVENT NAME>, create a replacement for the password <OLD PASSWORD>. Show me the new password before saving it, and do not remove the old one until I confirm that I have tested the replacement"
-
-#### Then: Review sales made with each password
-
-What an agent can do: Fai can show Sales by Password and explain the rows. MCP and the CLI do not provide this password report.
-
-Prompt for Fai: "Show me Sales by Password for <EVENT NAME>. Compare sales and revenue for each password and explain what the report can and cannot identify"
-
-#### Then: Turn password protection off
-
-What an agent can do: Fai can turn password protection off after showing you the event and the effect of the change. MCP and the CLI do not expose this setting.
-
-Prompt for Fai: "Turn password protection off for <EVENT NAME>. Show me the event and confirm that its page will open without a password before changing it"
 
 ### Postpone or reschedule an event
 
@@ -632,7 +574,7 @@ Choose a date and time in your event's timezone so Ticket Fairy makes the event 
 
 For: Running an on-sale at a set time.
 
-What an agent can do: Fai, the assistant inside your dashboard, can set the schedule for you, and asks you to approve the schedule before saving it. You can also set the date in the dashboard. Your own AI assistant over our MCP server can tell you whether the event is live.
+What an agent can do: Fai can set the schedule for you, and asks you to approve the schedule before saving it. You can also set the date in the dashboard. Your own AI assistant over the Ticket Fairy MCP server can tell you whether the event is live.
 
 Command line:
 
@@ -644,128 +586,58 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "Schedule my event to go live at 10am on 12 September, and tell me which timezone you are using for that"
 
-### Sell parking, camping and merchandise with your tickets
+### Sell reserved seats for your event from a seat map
 
-Slug `sell-add-ons-with-your-tickets`. Guide: https://www.ticketfairy.com/guides/sell-add-ons-with-your-tickets
+Slug `sell-reserved-seats-from-a-seat-map`. Guide: https://www.ticketfairy.com/guides/sell-reserved-seats-from-a-seat-map
 
-Add parking, camping, meals, merchandise and upgrades to the ticket checkout, with stock, options and limits for each.
+Attach your venue's seat map to the event, link each seat category to a ticket type, and hold back the seats you are keeping, so buyers choose their own seats when they buy.
 
-For: Selling extras with event admission.
+For: Selling numbered seats in a seated venue.
 
-What an agent can do: Fai and MCP can list or create add-ons. Fai asks before creating one. MCP creates it after you provide the event, price in that event's currency, stock and ticket limit. For a multi-currency event, provide a price in every currency. You can also use the command line.
+What an agent can do: no agent route is recorded for this guide. Send the organiser the guide link and walk them through the steps in the dashboard.
 
-Command line:
+### Sell tickets to every date of your tour from one page
 
-- Everything already on sale beside the tickets: `ticketfairy addon list <EVENT_ID>`
-- A new one, priced and limited: `ticketfairy addon create <EVENT_ID> --name "Return shuttle" --price 12.50 --quantity 250`
-- A whole add-on from a file you created, picture and all: `ticketfairy addon create <EVENT_ID> --from-file <ADDON_FILE> --upload imageUrl=<PICTURE_FILE>`
-- A change to one that already exists: `ticketfairy addon update <ADD_ON_ID> --body '{"price":1500}'`
-- The same change, on an event taking payments in more than one currency: `ticketfairy addon update <ADD_ON_ID> --body '{"price":1500,"currencies":[{"currency":"EUR","faceValue":1400}]}'`
+Slug `sell-tickets-to-every-date-of-your-tour-from-one-page`. Guide: https://www.ticketfairy.com/guides/sell-tickets-to-every-date-of-your-tour-from-one-page
 
-CLI MCP tools that read: `select_brand`, `select_event`, `list_addons`.
+Create a tour with its own name and web address, add each date you have already set up as an event, and share one tour page where buyers pick their city and date. The tour also gives you one sales view across every date.
 
-CLI MCP tools that make changes (not available with `--read-only`): `create_addon`.
+For: Selling several dates of a tour from one page.
 
-Prompt for Fai: "Add a return shuttle at 12.50 to this event, limited to 250, one per ticket"
-
-#### Then: Take an add-on off sale
-
-What an agent can do: Fai can turn the add-on off after showing you its current price, stock and restrictions. MCP creates add-ons but does not update them. Use the dashboard or Fai for the Enabled setting; the CLI update command accepts event data fields but has no dedicated on-sale flag.
-
-Prompt for Fai: "Find the add-on <ADD-ON NAME> on <EVENT NAME>. Show me its current price, stock and ticket restrictions, then ask before turning it off"
-
-#### Then: Change an add-on that is on sale
-
-What an agent can do: Fai can show the existing add-on and update the fields you choose. MCP creates add-ons but does not update them. The CLI can apply exact field changes by ID.
+What an agent can do: Fai and your own AI assistant through our MCP server can list your tours and create a new tour with its name and web address after you approve it. Add the dates on the tour's Details page, or create the tour with its dates in one command with the CLI. Whichever you use, your login needs permission to create tours, the same as in the dashboard.
 
 Command line:
 
-- Change an add-on price and stock: `ticketfairy addon update <ADDON_ID> --body '{"price": <PRICE>, "stock": <REMAINING_STOCK>}'`
+- Create the tour with two dates attached: `ticketfairy tour create --name "<TOUR NAME>" --slug <TOUR_URL> --event-id <EVENT_ID> --event-id <EVENT_ID>`
+- Check the tour and its dates: `ticketfairy tour get <TOUR_ID>`
 
-Prompt for Fai: "Find the add-on <ADD-ON NAME> on <EVENT NAME>, show me its price, remaining stock, description and ticket restrictions, then ask what I want to change"
+CLI MCP tools that read: `list_tours`.
 
-### Sell tickets by personal invitation
+CLI MCP tools that make changes (not available with `--read-only`): `create_tour`.
 
-Slug `sell-tickets-by-personal-invitation`. Guide: https://www.ticketfairy.com/guides/sell-tickets-by-personal-invitation
+Prompt for Fai: "Create a tour called <TOUR NAME> at the web address <TOUR_URL>. Show me the details and ask before you create it"
 
-Send each approved guest a personal ticket link, set how many tickets they can buy and how many orders they can place, and track or cancel an invitation after you send it.
+#### Then: Add or remove a date later
 
-For: Selling tickets through an approved invitation list.
-
-What an agent can do: Fai, the assistant inside your dashboard, can turn on the invitation requirement and prepare and send the approved list. She asks you to approve each change before she makes it. To check, resend or cancel an invitation you have sent, use the Invitations page, or your own AI assistant over the MCP server.
-
-CLI MCP tools that read: `select_event`, `list_invitations`.
-
-CLI MCP tools that make changes (not available with `--read-only`): `resend_invitation`, `cancel_invitation`.
-
-Prompt for Fai: "Find my event by name, turn on Invitation required to attend, and prepare an invitation email for these approved guests: <names, email addresses, maximum tickets and maximum orders>. Unlock these ticket types with the same invitation: <ticket type names>. Show me the event setting, subject, message, ticket access and each recipient limit, then ask me to approve the event change and the send"
-
-#### Then: Cancel a scheduled invitation
-
-What an agent can do: Cancel a scheduled invitation in the dashboard. Fai, MCP and the CLI cannot cancel it before it is sent.
-
-#### Then: Check what happened after you sent an invitation
-
-What an agent can do: Your own AI assistant over the MCP server can list the invitations and their current statuses. Fai cannot list them, and the CLI does not have an invitation status command.
-
-CLI MCP tools that read: `select_event`, `list_invitations`.
-
-#### Then: Resend one invitation
-
-What an agent can do: Your own AI assistant over the MCP server can resend one active invitation after you confirm the recipient. Fai cannot find the invitation, and the CLI does not expose invitation resends.
-
-CLI MCP tools that read: `select_event`, `list_invitations`.
-
-CLI MCP tools that make changes (not available with `--read-only`): `resend_invitation`.
-
-#### Then: Cancel one invitation
-
-What an agent can do: Your own AI assistant over the MCP server can cancel one active invitation after showing you the recipient and ticket choice. Fai cannot find the invitation, and the CLI does not expose invitation cancellation.
-
-CLI MCP tools that read: `select_event`, `list_invitations`.
-
-CLI MCP tools that make changes (not available with `--read-only`): `cancel_invitation`.
-
-#### Then: Send an invitation reminder
-
-What an agent can do: Send an invitation reminder in the dashboard. Fai, MCP and the CLI cannot send this reminder.
-
-### Sell tickets only to your NFT holders
-
-Slug `sell-tickets-only-to-your-nft-holders`. Guide: https://www.ticketfairy.com/guides/sell-tickets-only-to-your-nft-holders
-
-Require ticket buyers to connect a wallet that holds one of your NFTs before they can buy tickets to your event, for every ticket or for one ticket type, and have the door check the NFT again at entry.
-
-For: Selling event tickets to the holders of an NFT collection.
-
-What an agent can do: Fai, the assistant inside your dashboard, can take you to the event's Settings page, and you turn the NFT requirement on there. The command line can set the requirement for the whole event through an event update.
+What an agent can do: Add or remove a date on the tour's Details page. Fai, MCP and the CLI can show you the tour and its dates.
 
 Command line:
 
-- Requires buyers of any ticket to the event to hold an NFT from one Ethereum collection: `ticketfairy event update <EVENT_ID> --body '{"flagNftOwnershipRequired":true,"nftContracts":{"ethereum":["<CONTRACT_ADDRESS>"],"polygon":[]},"nftLists":{"solana-mainnet":[]}}'`
+- The tour's current dates: `ticketfairy tour get <TOUR_ID>`
 
-Prompt for Fai: "Open the settings page for <EVENT NAME> so I can require NFT ownership to buy tickets"
+CLI MCP tools that read: `list_tours`, `get_tour`.
 
-#### Then: Require an NFT for one ticket type only
+Prompt for Fai: "Show me the dates on my tour <TOUR NAME> and which of my events are not on it yet"
 
-What an agent can do: Fai can take you to the event's Tickets page, and you set the requirement on the ticket type there. The command line sets it through a ticket type update.
+#### Then: Invite promoters to sell every date
 
-Command line:
+What an agent can do: Copy, replace or turn off the promoter invitation link on the tour's Details page. Fai, MCP and the CLI cannot change this link.
 
-- Find every ticket type and its ID: `ticketfairy ticket list <EVENT_ID> --all`
-- Requires buyers of one ticket type to hold an NFT from one Polygon collection: `ticketfairy ticket update <EVENT_ID> <TICKET_ID> --body '{"flagNftOwnershipRequired":true,"nftContracts":{"ethereum":[],"polygon":["<CONTRACT_ADDRESS>"]},"nftLists":{"solana-mainnet":[]}}'`
+#### Then: See how the whole tour is selling
 
-Prompt for Fai: "Open the tickets page for <EVENT NAME> so I can make <TICKET TYPE> available to NFT holders only"
+What an agent can do: Fai can check the sales of each date on the tour for you, one event at a time.
 
-#### Then: Stop requiring an NFT
-
-What an agent can do: Fai can take you to the Settings page to turn the requirement off. The command line turns off the event's requirement through an event update.
-
-Command line:
-
-- Stops requiring an NFT for the whole event: `ticketfairy event update <EVENT_ID> --body '{"flagNftOwnershipRequired":false}'`
-
-Prompt for Fai: "Open the settings page for <EVENT NAME> so I can stop requiring NFT ownership"
+Prompt for Fai: "How are the dates on my tour <TOUR NAME> selling? Give me tickets sold and revenue for each date"
 
 ### Sell timed-entry tickets for an attraction, exhibition or food event
 
@@ -775,7 +647,7 @@ Give a ticket type its own entry times so buyers pick a date and a slot, cap eac
 
 For: Selling entry by date and time slot for a venue that runs all day.
 
-What an agent can do: Fai, the assistant inside your dashboard, can read arrivals by time slot for a date and report on the event. Creating and changing time slots is done in the dashboard for now, and Fai tells you so when you ask.
+What an agent can do: Fai can tell you arrivals by time slot for a date and report on the event. For now, you create and change time slots in the dashboard, and Fai tells you so when you ask.
 
 Command line:
 
@@ -791,43 +663,15 @@ Prompt for Fai: "Find the order for <BUYER EMAIL> on <EVENT NAME> and tell me ho
 
 #### Then: Add a new date after the slots exist
 
-What an agent can do: Generating slots is done in the dashboard. Fai reads the slots on a day you name, one day at a time.
+What an agent can do: You generate slots in the dashboard. Fai can show you the slots on a day you name, one day at a time.
 
 Prompt for Fai: "Tell me which time slots <EVENT NAME> already has on <DATE>"
 
 #### Then: Give staff and guests a slot
 
-What an agent can do: A guest ticket for a slot is issued on this page: the form takes the ticket type, the date and the time, and Fai addresses a ticket type by its own number, which no reading of the event gives her for one slot. She can create a pass type and issue passes after showing you the list. The CLI does neither.
+What an agent can do: You issue a guest ticket for a slot on this page, because the form takes the ticket type, the date and the time, and Fai can't find the ticket type number she needs for a single slot. She can create a pass type and issue passes after showing you the list. The CLI does neither.
 
 Prompt for Fai: "Create an all-day crew pass for <EVENT NAME> and issue it to <NAME> <EMAIL>, and show me the list before sending"
-
-### Sell VIP tables and bottle service through your promoters
-
-Slug `sell-vip-tables-and-bottle-service`. Guide: https://www.ticketfairy.com/guides/sell-vip-tables-and-bottle-service
-
-Create a table type for each booth or bottle-service package, give every promoter their own link to sell it, and see the table bookings each promoter brings to your event under Sales by Promoter.
-
-For: Venue teams and promoters selling VIP tables, booths and bottle service alongside entry tickets.
-
-What an agent can do: Fai can create or change your table types, invite promoters to the event, publish the event, resend promoter links once your promoters have accepted their invitations, and show you Sales by Promoter. She shows you each table type and each invitation before saving and asks you to approve the send. Set up tables and promoters in the dashboard or with Fai; your own assistant over the MCP server covers events, tickets and orders only.
-
-Command line:
-
-- Create a table type. Prices are in the smallest unit of your event currency, so 40000 is 400.00, and the deposit is a percentage: `ticketfairy table create <EVENT_ID> --body '{"displayName": "VIP booth", "price": 40000, "maxInventory": 6, "minGuests": 4, "maxGuests": 8, "guestPrice": 7500, "depositPercent": 25}'`
-- List the table types on the event with their ids: `ticketfairy table list <EVENT_ID>`
-- Publish the event and email every promoter their link: `ticketfairy event publish <EVENT_ID> --send-promoter-links`
-
-Prompt for Fai: "Find my event by name and create a table type called VIP booth, <NUMBER OF BOOTHS> available, for 4 to 8 guests at <TABLE PRICE> with <EXTRA GUEST PRICE> per extra guest and a <DEPOSIT PERCENT> deposit paid online; invite <PROMOTER EMAILS> as promoters; show me the table type and the invitations before saving. Once they have accepted, resend the promoter links when I ask and show me Sales by Promoter"
-
-#### Then: Take a table off sale
-
-What an agent can do: Fai can deactivate, reactivate or mark a table type sold out after you confirm. When she marks one sold out she asks whether buyers who already have it in their basket may finish paying or lose it. Delete a table type in the dashboard. The command line can deactivate a table type.
-
-Command line:
-
-- Hide a table type from buyers and keep its bookings: `ticketfairy table update <TABLE_ID> --body '{"active": false}'`
-
-Prompt for Fai: "Find my event by name, show me its table types, and mark the VIP booth sold out; let anyone who already has one in their basket finish paying, and ask me to confirm first"
 
 ### Set up ticket types
 
@@ -837,7 +681,7 @@ Create clear ticket choices with the right price, allocation, purchase limits, a
 
 For: Preparing the tickets buyers will choose for an event.
 
-What an agent can do: Fai can list your existing ticket types, ask for every setting that matters and show the proposed ticket before creating it. MCP and the CLI can also create a ticket type from the details you provide. Every surface asks for approval before making the change.
+What an agent can do: Fai can list your existing ticket types, ask for every setting that matters and show the proposed ticket before creating it. MCP and the CLI can also create a ticket type from the details you provide. Fai, MCP and the CLI each ask for your approval before making the change.
 
 Command line:
 
@@ -848,7 +692,7 @@ CLI MCP tools that read: `set_context`, `list_tickets`.
 
 CLI MCP tools that make changes (not available with `--read-only`): `create_ticket`.
 
-Prompt for Fai: "Set up a ticket type for <EVENT NAME>. Before creating it, ask whether booking fees should be added to the price, absorbed into it or, where available, added at checkout. Ask me what admission it includes, its name, price, allocation, purchase limits, sale window, visibility, entry rules and resale policy. Show me the booking-fee choice and every ticket setting before making either change"
+Prompt for Fai: "Set up a ticket type for <EVENT NAME>. Before creating it, ask whether ticketing fees should be added to the price, absorbed into it or, where available, added at checkout. Ask me what admission it includes, its name, price, allocation, purchase limits, sale window, visibility, entry rules and resale policy. Show me the ticketing-fee choice and every ticket setting before making either change"
 
 #### Then: Edit a ticket type
 
@@ -900,7 +744,7 @@ Prompt for Fai: "Mark <TICKET TYPE> on <EVENT NAME> as sold out. Show me the tic
 
 #### Then: Delete an unused ticket type
 
-What an agent can do: Fai, MCP and the CLI can delete an unused ticket type after showing its identity and asking for approval. Ticket Fairy refuses the deletion when it has orders or live basket reservations.
+What an agent can do: Fai, MCP and the CLI can delete an unused ticket type after showing its identity and asking for approval. Ticket Fairy won't delete it if it has orders or is in a buyer's basket.
 
 Command line:
 
@@ -967,15 +811,19 @@ Prompt for Fai: "Draft an email to everyone pre-registered for <EVENT NAME> tell
 
 #### Then: Close the pre-sale release
 
-What an agent can do: Close the release in the dashboard when the window ends. Fai, MCP and the command line cannot mark a release sold out.
+What an agent can do: Fai can mark the pre-sale release sold out after showing it to you and asking what happens to carts still in checkout.
+
+Prompt for Fai: "Mark the pre-sale release on <EVENT NAME> sold out, and tell me first what happens to carts still in checkout"
 
 #### Then: Message registered fans who did not buy
 
-What an agent can do: Build this audience and send the message in the dashboard. Fai, MCP and the CLI cannot create this follow-up audience.
+What an agent can do: Fai can draft the message to registered fans who did not buy and send it after you approve it.
+
+Prompt for Fai: "Draft an email to the people who pre-registered for <EVENT NAME> and did not buy, saying when the public on-sale opens, and show me before you send it"
 
 #### Then: Read how the registration went
 
-What an agent can do: Fai can read the pre-registration totals back to you.
+What an agent can do: Fai can tell you the pre-registration totals.
 
 Command line:
 
@@ -985,39 +833,15 @@ CLI MCP tools that read: `select_event`, `get_event`.
 
 Prompt for Fai: "For <EVENT NAME>, how many people pre-registered and how many tickets did they ask for"
 
-### Unlock hidden tickets with an access code
-
-Slug `unlock-hidden-tickets-with-an-access-code`. Guide: https://www.ticketfairy.com/guides/unlock-hidden-tickets-with-an-access-code
-
-Keep your event page public with the ticket types hidden, and let buyers see them by entering an access code that carries no discount.
-
-For: Sharing a private ticket sale through one reusable access code.
-
-What an agent can do: Fai, the assistant inside your dashboard, can hide the tickets, create a no-discount access code and close the promotion later. She shows you each change and asks you to approve it before she makes it. You can also complete the whole workflow in the dashboard.
-
-Prompt for Fai: "Find my event by name. Keep <TICKET NAMES> active, hide them from the public with Always hidden, then create a promotion called <NAME> with access code <CODE>, No Discount, no automatic application, and only those tickets attached. Use <START AND END TIMES OR NO SCHEDULE> and <SHARED LIMIT OR NO LIMIT>. Show me the exact tickets, normal prices, schedule and limit, then ask me to approve the ticket changes and promotion separately"
-
-#### Then: Replace an access code
-
-What an agent can do: Fai can add the replacement code and remove the old one after you confirm the new code works. MCP and the CLI do not manage the hidden-ticket access-code workflow.
-
-Prompt for Fai: "For the access-code promotion <PROMOTION NAME> on <EVENT NAME>, add <NEW CODE>. Keep <OLD CODE> active until I confirm the replacement works, then ask before removing the old code"
-
-#### Then: Close every access code on the promotion
-
-What an agent can do: Fai can delete the promotion after showing you its codes and hidden tickets. MCP and the CLI do not close this access-code workflow.
-
-Prompt for Fai: "Show me the access-code promotion <PROMOTION NAME> on <EVENT NAME>, including its codes and hidden tickets, then ask before deleting the promotion"
-
 ### Use Freefund to reduce no-shows at free and RSVP events
 
 Slug `reduce-no-shows-at-free-rsvp-events`. Guide: https://www.ticketfairy.com/guides/reduce-no-shows-at-free-rsvp-events
 
-Keep entry free for people who show up while refundable deposits give attendees a reason to attend.
+Keep entry free for people who show up, and ask for a refundable deposit so attendees have a reason to come.
 
 For: Planning attendance, staffing, stock and sponsor expectations for a free event.
 
-What an agent can do: Fai can turn Freefund on for all admission tickets or one admission ticket type, set a relative or specific cutoff and show exactly what is charged before asking you to approve it. The approval records your confirmation.
+What an agent can do: Fai can turn Freefund on for all admission tickets or one admission ticket type, set a relative or specific cutoff and show exactly what is charged before asking you to approve it. When you approve, Ticket Fairy records your confirmation.
 
 Prompt for Fai: "Set up Freefund for my event. Ask if it should cover all admission tickets or one admission ticket type, what deposit to use and when check-in stops earning it back"
 

@@ -29,8 +29,10 @@ Full developer documentation: https://www.ticketfairy.com/developers
    `Retry-After` and do not retry in parallel.
 5. **Dates need a timezone.** With `section_type=none`, send `from`, `to` and an explicit
    IANA `timezone`. Do not infer a buyer's timezone from your server's location.
-6. **Agents never take payment.** A buyer pays in the browser checkout at the event's `url`.
-   Public search creates no reservation, order or payment.
+6. **Public search creates no reservation, order or payment.** Buyer purchases use the
+   supported checkout described in `find-event-tickets`, with its published handler and the
+   buyer's explicit approval of the final tickets, total and currency. Otherwise continue in
+   the browser at the event's `url`. Organiser credentials do not grant purchase authority.
 7. **Use the consumer domain for links you give people.** Public event pages, embeds and
    checkout links use `www.ticketfairy.com`. The organiser dashboard is
    `manage.ticketfairy.com`, and the organiser API is `www.theticketfairy.com/api`.

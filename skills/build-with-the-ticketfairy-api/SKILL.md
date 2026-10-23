@@ -31,10 +31,16 @@ This skill covers access tokens, API keys, webhooks and selling from your own ap
 4. **Keep secrets out of the chat.** Codes, passwords and tokens that the organiser receives go
    into the Ticket Fairy dashboard: the page that asks for them, or Fai there when the guide says
    so. They never go into your conversation with the organiser.
-5. **Confirm before you change anything.** Show the organiser what you will create, change, send,
-   refund or cancel, and wait for their yes. You can do only what their team role allows.
-6. **Never take payment.** Buyers pay in the browser checkout. Bank, tax and payout details stay
-   in the organiser's own browser.
+5. **Keep actions within the organiser's approval.** Use their explicit approval for this exact
+   action, or show what you will create, change, send, refund or cancel and wait for their yes.
+   Installing a skill or asking for a draft does not authorise sending messages. Use only the
+   approved brand, event and recipients, and only what the person's team role allows.
+6. **Organiser access does not authorise ticket payments.** A buyer uses a separate supported
+   checkout with their explicit approval, or pays in the browser. Bank, tax and payout details
+   stay in the organiser's own browser.
+7. **Recover the original result after an uncertain change.** Read the original order or operation
+   before retrying. Reuse its idempotency key when the documented operation supports one. Never
+   repeat an uncertain refund, transfer, message send or ticket grant as a fresh operation.
 
 ## Guides
 
@@ -49,38 +55,33 @@ Give the command line, a script or an agent its own key to your ticket sales, ch
 
 For: Connecting your own tools, scripts or agents to your ticket sales.
 
-What an agent can do: Fai can open the page where the tokens live. Minting one is yours to do, because the token is shown once and only to you.
+What an agent can do: Fai can open the page where you manage tokens. You create one yourself, because only you see the token, and only once.
 
 Command line:
 
-- Sign in with a token you have created: `ticketfairy auth login`
+- Create a token; the CLI prints it once: `ticketfairy auth tokens create "<TOKEN NAME>"`
 - Show the brands the token can act for: `ticketfairy brand list`
-
-CLI MCP tools that read: `select_brand`.
 
 Prompt for Fai: "Open my account settings so I can create an access token"
 
 #### Then: Swap a token without any downtime
 
-What an agent can do: Fai can open the page. Rotating and copying the new token stay with you, because the value is shown once and only to you.
+What an agent can do: Fai can open the page. You rotate the token and copy the new one yourself, because only you see the new value, and only once.
 
 Command line:
 
-- Sign in with the token you copied: `ticketfairy auth login`
-
-CLI MCP tools that read: `select_brand`.
+- Rotate a token; the CLI prints the new value once: `ticketfairy auth tokens rotate <TOKEN_ID>`
 
 Prompt for Fai: "Open my account settings so I can rotate an access token"
 
 #### Then: Take access back
 
-What an agent can do: Fai can open the page. Revoking is yours to confirm, because it stops a live integration the moment it happens.
+What an agent can do: Fai can open the page. Revoking a token is something you do yourself, because it stops a live integration the moment it happens.
 
 Command line:
 
-- Show the brands the current token can act for: `ticketfairy brand list`
-
-CLI MCP tools that read: `select_brand`.
+- List your tokens and their ids: `ticketfairy auth tokens list`
+- Revoke a token: `ticketfairy auth tokens revoke <TOKEN_ID>`
 
 Prompt for Fai: "Open my account settings so I can revoke an access token"
 
@@ -108,13 +109,13 @@ What an agent can do: Fai can turn a webhook off or on, or change its address or
 Command line:
 
 - Show the webhooks on the active brand: `ticketfairy webhook list`
-- Stop a webhook receiving without deleting it: `ticketfairy webhook update <WEBHOOK_ID> --disable`
+- Turn a webhook off without deleting it: `ticketfairy webhook update <WEBHOOK_ID> --disable`
 
 Prompt for Fai: "Turn off the webhook that sends <BRAND NAME> orders to <YOUR ADDRESS>, and ask me before you save it"
 
 #### Then: Delete a webhook
 
-What an agent can do: Fai can delete a webhook after you approve it. She names the address that stops receiving before you do.
+What an agent can do: Fai can delete a webhook after you approve it. Before you approve, she tells you which address the webhook will stop sending to.
 
 Command line:
 
