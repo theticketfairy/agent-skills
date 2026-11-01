@@ -58,15 +58,8 @@ def main():
             inventory.append(f'| [`{name}`](skills/{name}/SKILL.md) | {summary} |')
             provenance['skills'].append({'name': name, 'source_path': f'skills/{name}/SKILL.md',
                                          'sha256': hashlib.sha256(skill.read_bytes()).hexdigest()})
-        for filename in ['AGENTS.md', 'LICENSE', '.cursor/rules/ticketfairy.mdc',
-                         '.github/copilot-instructions.md']:
-            (target / filename).parent.mkdir(parents=True, exist_ok=True)
+        for filename in ['AGENTS.md', 'LICENSE']:
             shutil.copyfile(source / filename, target / filename)
-        shutil.copytree(source / 'docs' / 'rules', target / 'docs' / 'rules', dirs_exist_ok=True)
-        # Every agent tool reads the same rules: these names are symlinks to AGENTS.md.
-        for link in ['CLAUDE.md', '.cursorrules']:
-            (target / link).unlink(missing_ok=True)
-            (target / link).symlink_to('AGENTS.md')
         (target / 'SOURCE.json').write_text(json.dumps(provenance, indent=2) + '\n')
         first = package['skills'][0]
         readme = f'''# {package['title']}
